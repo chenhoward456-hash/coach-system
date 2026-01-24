@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool Day Fitness 教練養成系統</title>
+    <title>Cool Day Fitness 北屯館 - 教練培訓系統</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -32,8 +32,21 @@
         body {
             font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.7;
-            color: var(--gray-800);
+            color: #1E293B;
             background: var(--gray-50);
+        }
+
+        h3, h4 {
+            color: #0F172A;
+            font-weight: 800;
+        }
+
+        p, li {
+            color: #334155;
+        }
+
+        strong {
+            color: #0F172A;
         }
 
         /* Header */
@@ -93,8 +106,9 @@
 
         .header p {
             font-size: clamp(1.1rem, 2vw, 1.3rem);
-            opacity: 0.95;
-            font-weight: 500;
+            opacity: 1;
+            font-weight: 600;
+            color: white;
         }
 
         /* Navigation */
@@ -208,11 +222,38 @@
             box-shadow: 0 4px 16px rgba(0, 200, 81, 0.1);
         }
 
+        .info-box[style*="background: linear-gradient(135deg, #1e293b"] p,
+        .info-box[style*="background: linear-gradient(135deg, #1e293b"] li {
+            color: white !important;
+            opacity: 1 !important;
+        }
+
+        .info-box[style*="background: linear-gradient(135deg, #1e293b"] strong {
+            color: white !important;
+            font-weight: 700 !important;
+        }
+
+        .info-box[style*="background: linear-gradient(135deg, #1e293b"] strong[style*="color: var(--warning)"],
+        .info-box[style*="background: linear-gradient(135deg, #1e293b"] strong[style*="color: #FFB800"] {
+            color: var(--warning) !important;
+            font-weight: 800 !important;
+        }
+
+        /* 深色背景的其他元素 */
+        div[style*="background: linear-gradient(135deg, #1e293b"] p,
+        div[style*="background: linear-gradient(135deg, #1e293b"] h2,
+        div[style*="background: linear-gradient(135deg, #1e293b"] h3,
+        div[style*="background: linear-gradient(135deg, #1e293b"] h4 {
+            color: white !important;
+            opacity: 1 !important;
+        }
+
         .info-box-title {
             font-family: 'Outfit', sans-serif;
-            font-weight: 700;
+            font-weight: 900;
             margin-bottom: 1rem;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
+            color: #0F172A;
         }
 
         /* Module Card */
@@ -895,7 +936,7 @@
     <div class="header">
         <div class="header-content">
             <div class="header-icon">💪</div>
-            <h1>Cool Day Fitness<br>教練養成系統</h1>
+            <h1>Cool Day Fitness 北屯館<br>教練培訓系統</h1>
             <p>用領先指標預測結果，建立專業教練團隊</p>
         </div>
     </div>
@@ -925,8 +966,189 @@
     <div class="container">
         <!-- Overview Section -->
         <div id="overview" class="section active">
-            <h2 class="section-title">系統概述</h2>
-            <p class="section-subtitle">用過程指標預測結果，提前介入調整</p>
+            <!-- 致教練團隊專區 -->
+            <div class="module-card" style="background: white; margin-bottom: 3rem; border: 3px solid var(--primary); box-shadow: 0 10px 30px rgba(0,102,255,0.15);">
+                <h2 style="color: var(--primary); font-size: 1.75rem; margin-bottom: 1.5rem; font-weight: 800;">
+                    📊 致 Cool Day 北屯館教練團隊
+                </h2>
+            
+            <p style="line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem; color: var(--gray-800);">
+                這個系統不是強迫性的要求，但我希望找到真的願意一起成長的夥伴。
+            </p>
+            
+            <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid var(--primary);">
+                <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem; color: var(--primary);">💡 為什麼要做這個系統？</strong>
+                <div style="line-height: 1.8; font-size: 1rem; color: var(--gray-800);">
+                    Cool Day 北屯館正在成長階段，我們還沒有大型連鎖品牌的招募能力。<br><br>
+                    
+                    所以我們需要：<br>
+                    ✓ 每個教練都願意投入一點心力<br>
+                    ✓ 透過各自的強項來建立口碑<br>
+                    ✓ 一起把北屯館的品牌做起來<br><br>
+                    
+                    <strong style="color: var(--gray-900);">這不是要求所有人都一樣</strong><br>
+                    而是讓每個人找到自己的成長方式<br>
+                    有人擅長內容創作、有人擅長服務深耕、有人擅長專業技術<br>
+                    <strong style="color: var(--primary);">找到你的強項，做出你的價值</strong>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px solid var(--warning);">
+                <strong style="font-size: 1.2rem; display: block; margin-bottom: 1.5rem; color: var(--warning);">5個成長面向，選擇你的強項：</strong>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                    <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">♻️</div>
+                        <strong style="color: var(--gray-900);">學生續約率</strong>
+                        <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">留得住學生</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.25rem; color: var(--warning); font-weight: 600;">權重 25%</div>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">👥</div>
+                        <strong style="color: var(--gray-900);">轉介紹數量</strong>
+                        <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">學生推薦你</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.25rem; color: var(--warning); font-weight: 600;">權重 20%</div>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎬</div>
+                        <strong style="color: var(--gray-900);">內容產出</strong>
+                        <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">影片、貼文、曝光</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.25rem; color: var(--warning); font-weight: 600;">權重 15%</div>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid rgba(139,92,246,0.5); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💎</div>
+                        <strong style="color: var(--gray-900);">軟實力</strong>
+                        <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">溝通、服務、關心</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.25rem; color: var(--warning); font-weight: 600;">權重 20%</div>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid rgba(239,68,68,0.5); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎓</div>
+                        <strong style="color: var(--gray-900);">硬實力</strong>
+                        <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;">進修、認證、技術</div>
+                        <div style="font-size: 0.9rem; margin-top: 0.25rem; color: var(--warning); font-weight: 600;">權重 20%</div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255,184,0,0.2); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,184,0,0.4); margin-bottom: 1rem;">
+                    <strong style="color: var(--warning);">💡 為什麼沒有「學生數成長」？</strong>
+                    <div style="margin-top: 0.5rem; line-height: 1.8;">
+                        因為學生數是<strong>結果</strong>，不是過程。<br>
+                        這5個面向做好了，學生數自然會成長。<br>
+                        我們追蹤的是<strong>「你做了什麼」</strong>，不是「你有幾個學生」。
+                    </div>
+                </div>
+                
+                <div style="background: rgba(59,130,246,0.2); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(59,130,246,0.4); margin-bottom: 1rem;">
+                    <strong style="color: #3b82f6; font-size: 1.1rem;">📌 如果你是新手（學生<5位），先專注這3件事：</strong>
+                    <div style="margin-top: 1rem; line-height: 1.8; font-size: 0.95rem;">
+                        <strong>每週只做這3件：</strong><br>
+                        □ 拍1支影片（<button class="cta-button" style="display: inline; padding: 0.25rem 0.75rem; font-size: 0.85rem; background: var(--primary);" onclick="showSection('quick-start'); setTimeout(() => { document.querySelector('#toolkits').scrollIntoView({behavior: 'smooth'}); }, 200)">點這裡看30個影片主題</button>）<br>
+                        □ 隔天關心你的學生（用範本，<button class="cta-button" style="display: inline; padding: 0.25rem 0.75rem; font-size: 0.85rem; background: var(--success);" onclick="showSection('quick-start'); setTimeout(() => { document.querySelector('#toolkits').scrollIntoView({behavior: 'smooth'}); }, 200)">點這裡看訊息範本</button>）<br>
+                        □ 問現有學生能不能介紹朋友（<button class="cta-button" style="display: inline; padding: 0.25rem 0.75rem; font-size: 0.85rem; background: var(--warning); color: var(--gray-900);" onclick="showSection('quick-start'); setTimeout(() => { document.querySelector('#toolkits').scrollIntoView({behavior: 'smooth'}); }, 200)">點這裡看轉介紹話術</button>）<br><br>
+                        <strong style="color: #3b82f6;">就這3件事！持續做3個月！</strong><br><br>
+                        3個月後你會發現：<br>
+                        ✓ 你已經累積了12支影片<br>
+                        ✓ 你的課後關心變成習慣<br>
+                        ✓ 你拿到了2-3個轉介紹<br><br>
+                        這就是成長！💪
+                    </div>
+                </div>
+                
+                <div style="background: rgba(34,197,94,0.2); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(34,197,94,0.4);">
+                    <strong style="color: #22c55e; font-size: 1.1rem;">📊 具體評分標準（不用算百分比！）</strong>
+                    <div style="margin-top: 1rem; line-height: 1.8; font-size: 0.95rem;">
+                        <strong style="color: #22c55e;">✅ 合格教練（70分以上）：</strong><br>
+                        → 續約率：70%以上<br>
+                        → 轉介紹：3個月至少2位<br>
+                        → 內容產出：每月至少2支（影片/貼文都算，自由心證）<br>
+                        → 軟實力：持續關心學生<br>
+                        → 硬實力：每季至少進修1次（月底跟我分享）<br><br>
+                        <strong style="color: #f59e0b;">🏆 標竿教練（90分以上）：</strong><br>
+                        → 續約率：90%以上<br>
+                        → 轉介紹：3個月至少5位<br>
+                        → 內容產出：每月至少4支<br>
+                        → 軟實力：學生都很滿意<br>
+                        → 硬實力：每月至少進修1次<br><br>
+                        <strong>看！很簡單！做到就對了！</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px solid rgba(139,92,246,1);">
+                <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem; color: rgba(139,92,246,1);">🎓 硬實力進修說明：</strong>
+                <div style="line-height: 1.8; font-size: 0.95rem; color: var(--gray-800);">
+                    <strong style="color: var(--gray-900);">什麼算進修？（不一定要花大錢！）</strong><br>
+                    ✓ 線上課程（免費的也算）<br>
+                    ✓ YouTube學習（做筆記）<br>
+                    ✓ 讀專業書籍<br>
+                    ✓ 證照考試（公司半年補助3000）<br>
+                    ✓ 工作坊/研討會<br><br>
+                    <strong style="color: var(--gray-900);">月底跟我分享你學了什麼就好</strong><br>
+                    不用每次都報告，我也很忙
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px solid var(--success);">
+                <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem; color: var(--success);">4種成功模式，你可以選擇：</strong>
+                <div style="display: grid; gap: 0.75rem; font-size: 0.95rem; line-height: 1.8; color: var(--gray-800);">
+                    <div>🎬 <strong style="color: var(--gray-900);">內容創作型：</strong>狂拍影片、經營社群、吸引新客</div>
+                    <div>💎 <strong style="color: var(--gray-900);">服務深耕型：</strong>續約率高、課後關心、高端客戶</div>
+                    <div>🎓 <strong style="color: var(--gray-900);">專業技術型：</strong>持續進修、專業認證、轉介紹多</div>
+                    <div>⭐ <strong style="color: var(--gray-900);">全能發展型：</strong>各面向均衡、團隊標竿、未來主管</div>
+                </div>
+            </div>
+            
+            <p style="line-height: 1.8; margin-bottom: 1rem; font-size: 1.05rem; color: var(--gray-800);">
+                每月我會評估5個面向的<strong style="color: var(--gray-900);">綜合表現</strong>，重新調整資源分配。<br>
+                追蹤的是<strong style="color: var(--gray-900);">「你做了什麼」</strong>，不是「你有幾個學生」。
+            </p>
+            
+            <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
+                <strong style="font-size: 1.15rem; display: block; margin-bottom: 1rem; color: var(--primary);">做得好的教練，會得到更多成長機會：</strong>
+                <ul style="margin: 0; padding-left: 1.5rem; line-height: 2; font-size: 1.05rem; color: var(--gray-800);">
+                    <li>✓ KPI 評估加分</li>
+                    <li>✓ 未來升遷機會</li>
+                    <li>✓ 爭取自由班</li>
+                    <li>✓ 優先接新會員</li>
+                    <li>✓ 更多資源支援</li>
+                </ul>
+                <div style="margin-top: 1rem; font-size: 0.95rem; color: var(--gray-800);">
+                    這不是懲罰誰，而是<strong style="color: var(--gray-900);">獎勵願意成長的人</strong>。
+                </div>
+            </div>
+            
+            <p style="line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem; color: var(--gray-800);">
+                <strong style="color: var(--gray-900);">這不是要求，是機會。</strong><br>
+                找到你的風格，做出你的成績。<br>
+                3個月後，我們用數據說話。
+            </p>
+            
+            <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                <button class="cta-button" style="background: var(--warning); color: var(--gray-900);" onclick="showSection('quick-start'); setTimeout(() => { document.querySelector('#toolkits').scrollIntoView({behavior: 'smooth'}); }, 200)">
+                    🛠️ 查看30天計畫
+                </button>
+                <button class="cta-button" style="background: var(--primary);" onclick="showSection('growth-path')">
+                    🎯 專業發展指南
+                </button>
+                <button class="cta-button" style="background: var(--success);" onclick="showSection('checklist')">
+                    📋 每週任務清單
+                </button>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.95rem; color: var(--gray-600); text-align: right; font-style: italic;">
+                — Howard
+            </p>
+        </div>
+        
+        <!-- 分隔線 -->
+        <div style="margin: 4rem 0; text-align: center;">
+            <div style="display: inline-block; padding: 0.75rem 2.5rem; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 50px; box-shadow: 0 4px 12px rgba(59,130,246,0.3);">
+                <span style="color: white; font-size: 1rem; font-weight: 700;">📚 系統完整說明</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">系統概述</h2>
+        <p class="section-subtitle">用過程指標預測結果，提前介入調整</p>
 
             <div class="info-box success" style="margin-bottom: 3rem;">
                 <div class="info-box-title">📖 如何使用這個系統？（先看這裡！）</div>
@@ -1210,7 +1432,7 @@
                 <p style="margin-top: 1rem;">領先指標做好了 → 續約率自然會高 → 而且我們可以提前知道並介入</p>
             </div>
 
-            <h3 style="margin: 3rem 0 2rem; font-size: 1.75rem; font-weight: 700; font-family: 'Outfit', sans-serif;">為什麼需要領先指標？</h3>
+            <h3 style="margin: 3rem 0 2rem; font-size: 1.75rem; font-weight: 800; font-family: 'Outfit', sans-serif; color: #0F172A;">為什麼需要領先指標？</h3>
 
             <div class="stats-grid">
                 <div class="stat-card">
@@ -1409,7 +1631,7 @@
             </div>
 
             <!-- 實用工具包入口 -->
-            <div style="margin: 4rem 0;">
+            <div style="margin: 4rem 0;" id="toolkits">
                 <h3 style="font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 1rem; font-family: 'Outfit', sans-serif;">
                     🛠️ 實用工具包
                 </h3>
@@ -2925,9 +3147,6 @@
                     每一支影片，都在累積你的品牌。<br>
                     每一次關心，都在建立你的信任。<br>
                     每一次學習，都在提升你的價值。<br><br>
-                    
-                    26歲的我也很迷惘。<br>
-                    但我持續做對的事，現在我有HTR系統、有穩定客戶、有自己的事業。<br><br>
                     
                     <strong style="font-size: 1.2rem; color: var(--success);">你也可以。</strong><br><br>
                     
