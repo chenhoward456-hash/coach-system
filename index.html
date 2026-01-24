@@ -905,6 +905,7 @@
         <div class="nav-container">
             <button class="nav-btn active" onclick="showSection('overview')">系統概述</button>
             <button class="nav-btn" onclick="showSection('quick-start')">30天計畫</button>
+            <button class="nav-btn" onclick="showSection('growth-path')">專業發展</button>
             <button class="nav-btn" onclick="showSection('checklist')">每週任務</button>
             <button class="nav-btn" onclick="showSection('diagnosis')">問題診斷</button>
             <button class="nav-btn" onclick="showSection('mindset')">成長心法</button>
@@ -1227,6 +1228,232 @@
                     <strong style="font-size: 1.2rem; color: var(--warning);">記住：不是做到完美才開始，而是開始了才能變完美。</strong><br><br>
                     
                     加油！
+                </p>
+            </div>
+        </div>
+
+        <!-- 專業發展指南 Section -->
+        <div id="growth-path" class="section">
+            <h2 class="section-title">中階教練專業發展指南</h2>
+            <p class="section-subtitle">找到你的發展方向，建立明確的進步路徑</p>
+
+            <div class="info-box" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; border: none;">
+                <div class="info-box-title" style="color: white; border-bottom-color: rgba(255,255,255,0.3);">💡 這個指南是給誰的？</div>
+                <p style="line-height: 1.8;">
+                    如果你已經：<br>
+                    ✓ 有固定的學生量<br>
+                    ✓ 基本教學能力OK<br>
+                    ✓ 完成每週任務沒問題<br><br>
+                    
+                    但你不確定：<br>
+                    ❓ 下一步該往哪走？<br>
+                    ❓ 如何變得更專業？<br>
+                    ❓ 怎麼突破現在的狀態？<br><br>
+                    
+                    <strong style="font-size: 1.15rem; color: var(--warning);">這個指南就是為你設計的。</strong>
+                </p>
+            </div>
+
+            <!-- 自我診斷測驗 -->
+            <div style="margin: 3rem 0;">
+                <h3 style="font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 1rem; font-family: 'Outfit', sans-serif;">
+                    🎯 第一步：診斷你的現況
+                </h3>
+                <p style="text-align: center; color: var(--gray-600); margin-bottom: 2rem;">
+                    4個問題，找出你的強項和發展方向（2分鐘）
+                </p>
+
+                <div class="module-card" style="max-width: 800px; margin: 0 auto;">
+                    <div class="info-box warning">
+                        <div class="info-box-title">📋 快速診斷測驗</div>
+                        <p>誠實回答以下問題，系統會告訴你最適合的發展路徑。</p>
+                    </div>
+
+                    <!-- 問題1 -->
+                    <div style="margin: 2rem 0;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">Q1: 你的學生來源主要是？</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q1" value="dependent" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>A.</strong> 80%以上是公司給的（等公司派學生）</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q1" value="mixed" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>B.</strong> 50/50，有些是自己開發的</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q1" value="active" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>C.</strong> 80%以上是自己開發的（不靠公司資源）</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 問題2 -->
+                    <div style="margin: 2rem 0;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">Q2: 你的課後關心做得如何？</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q2" value="basic" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>A.</strong> 偶爾想到才做，沒有系統</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q2" value="regular" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>B.</strong> 大部分學生都會關心，但沒記錄</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q2" value="systematic" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>C.</strong> 有系統、有記錄、知道每位學生狀態</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 問題3 -->
+                    <div style="margin: 2rem 0;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">Q3: 你的內容產出頻率？</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q3" value="rare" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>A.</strong> 很少拍影片，或拍了也不穩定</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q3" value="inconsistent" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>B.</strong> 有在做，但品質和頻率不穩定</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q3" value="consistent" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>C.</strong> 穩定產出，週3支以上，有策略</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 問題4 -->
+                    <div style="margin: 2rem 0;">
+                        <h4 style="font-weight: 700; margin-bottom: 1rem;">Q4: 你有明確的專業專項嗎？</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q4" value="generalist" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>A.</strong> 沒有，什麼都教但都不算專精</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q4" value="developing" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>B.</strong> 有1-2個比較擅長的領域，但還不夠深</span>
+                            </label>
+                            <label style="display: flex; align-items: center; padding: 1rem; background: var(--gray-50); border: 2px solid var(--gray-200); border-radius: 8px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--gray-200)'">
+                                <input type="radio" name="q4" value="specialist" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <span><strong>C.</strong> 有明確專項，持續深入研究，有案例</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 診斷按鈕 -->
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button onclick="analyzePath()" style="background: var(--success); color: white; padding: 1.25rem 3rem; border: none; border-radius: 12px; font-size: 1.125rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0, 200, 81, 0.3);">
+                            📊 查看我的診斷結果
+                        </button>
+                    </div>
+
+                    <!-- 診斷結果（隱藏） -->
+                    <div id="pathResult" style="display: none; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%); border-radius: 12px; border: 2px solid var(--primary);">
+                        <h4 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary);" id="resultTitle">診斷結果</h4>
+                        <div id="resultContent"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 四條發展路徑 -->
+            <div style="margin: 4rem 0;">
+                <h3 style="font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 1rem; font-family: 'Outfit', sans-serif;">
+                    🚀 四條專業發展路徑
+                </h3>
+                <p style="text-align: center; color: var(--gray-600); margin-bottom: 3rem;">
+                    選一條開始，或組合發展成為全能教練
+                </p>
+
+                <div class="stats-grid" style="max-width: 1200px; margin: 0 auto;">
+                    <div class="stat-card" style="cursor: pointer; border: 2px solid var(--border); transition: all 0.3s;" onclick="showPathDetail('member')" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border)'">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+                        <div class="stat-value" style="font-size: 1.25rem; color: var(--success);">會員經營專家</div>
+                        <div class="stat-label" style="margin-top: 0.5rem;">從依賴公司 → 主動開發</div>
+                    </div>
+                    <div class="stat-card" style="cursor: pointer; border: 2px solid var(--border); transition: all 0.3s;" onclick="showPathDetail('content')" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📹</div>
+                        <div class="stat-value" style="font-size: 1.25rem; color: var(--primary);">內容產出大師</div>
+                        <div class="stat-label" style="margin-top: 0.5rem;">打造個人品牌影響力</div>
+                    </div>
+                    <div class="stat-card" style="cursor: pointer; border: 2px solid var(--border); transition: all 0.3s;" onclick="showPathDetail('expertise')" onmouseover="this.style.borderColor='var(--secondary)'" onmouseout="this.style.borderColor='var(--border)'">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                        <div class="stat-value" style="font-size: 1.25rem; color: var(--secondary);">專業深度專家</div>
+                        <div class="stat-label" style="margin-top: 0.5rem;">成為某領域的權威</div>
+                    </div>
+                    <div class="stat-card" style="cursor: pointer; border: 2px solid var(--border); transition: all 0.3s;" onclick="showPathDetail('allround')" onmouseover="this.style.borderColor='var(--warning)'" onmouseout="this.style.borderColor='var(--border)'">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⭐</div>
+                        <div class="stat-value" style="font-size: 1.25rem; color: var(--warning);">全能進化</div>
+                        <div class="stat-label" style="margin-top: 0.5rem;">組合路徑，無明顯弱點</div>
+                    </div>
+                </div>
+
+                <!-- 路徑詳細內容（點擊後顯示） -->
+                <div id="pathDetails" style="margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;"></div>
+            </div>
+
+            <!-- 關鍵突破點 -->
+            <div style="margin: 4rem 0;">
+                <h3 style="font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 1rem; font-family: 'Outfit', sans-serif;">
+                    💪 從依賴型 → 主動型的三個突破
+                </h3>
+
+                <div style="max-width: 800px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div class="module-card" style="border-left: 4px solid var(--success);">
+                        <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--success);">突破1: 自己開發第1位學生</h4>
+                        <p style="color: var(--gray-600); line-height: 1.8;">
+                            不靠公司給，靠自己的能力（課後關心、轉介紹、社群媒體）開發1位新學生。
+                        </p>
+                        <p style="margin-top: 1rem; font-weight: 700;">
+                            為什麼重要：證明你不需要依賴公司也能生存
+                        </p>
+                    </div>
+
+                    <div class="module-card" style="border-left: 4px solid var(--primary);">
+                        <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary);">突破2: 建立個人品牌</h4>
+                        <p style="color: var(--gray-600); line-height: 1.8;">
+                            開始穩定產出內容（影片/文字），讓學生是因為「你」而來，不是因為「Cool Day」。
+                        </p>
+                        <p style="margin-top: 1rem; font-weight: 700;">
+                            為什麼重要：你的價值不再被場館綁架
+                        </p>
+                    </div>
+
+                    <div class="module-card" style="border-left: 4px solid var(--secondary);">
+                        <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--secondary);">突破3: 建立明確專項</h4>
+                        <p style="color: var(--gray-600); line-height: 1.8;">
+                            成為館內的「XX專家」（減脂專家/增肌專家/運動表現專家），有清楚的定位。
+                        </p>
+                        <p style="margin-top: 1rem; font-weight: 700;">
+                            為什麼重要：專家比通才更值錢
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Howard的建議 -->
+            <div class="info-box" style="margin-top: 3rem; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; border: none;">
+                <div class="info-box-title" style="color: white; border-bottom-color: rgba(255,255,255,0.3);">💬 Howard 的建議</div>
+                <p style="line-height: 2;">
+                    很多中階教練會卡在「舒適區」：<br><br>
+                    
+                    學生夠多了，不用擔心收入。<br>
+                    教學能力也OK，不會被投訴。<br>
+                    每週任務都有完成，分數也不錯。<br><br>
+                    
+                    但是...<strong style="color: var(--warning);">你感覺自己沒在進步</strong>。<br><br>
+                    
+                    這個指南就是要幫你突破這個狀態。<br><br>
+                    
+                    <strong style="font-size: 1.15rem;">選一條路，給自己3個月。</strong><br><br>
+                    
+                    3個月後，你會發現自己不一樣了。<br><br>
+                    
+                    不是「更厲害」，而是<strong style="color: var(--success); font-size: 1.2rem;">「更清楚自己要什麼」</strong>。
                 </p>
             </div>
         </div>
@@ -2532,7 +2759,18 @@
                     <p style="margin-top: 0.5rem;">不要一次看太多書，先把1-2本看熟比較重要。</p>
                 </div>
 
-                <h4 style="margin: 2rem 0 1.5rem; font-size: 1.5rem; font-weight: 700; font-family: 'Outfit', sans-serif;">📚 書籍推薦</h4>
+                <div class="info-box" style="background: linear-gradient(135deg, #00C851 0%, #0066FF 100%); border: none; color: white; margin-top: 2rem; margin-bottom: 2rem;">
+                    <div class="info-box-title" style="color: white; border-bottom-color: rgba(255,255,255,0.3);">⭐ 新手必讀 3 本（先看這些！）</div>
+                    <p style="line-height: 1.8;">
+                        <strong>不要一次看太多！</strong>先把這3本看懂、做到，比看10本只記住10%有用。<br><br>
+                        ✓ 麥克波羅伊功能性訓練聖經<br>
+                        ✓ 怪獸肌力及體能訓練手冊<br>
+                        ✓ 原子習慣<br><br>
+                        看完這3本後，再點擊下方「展開更多書籍」查看其他推薦。
+                    </p>
+                </div>
+
+                <h4 style="margin: 2rem 0 1.5rem; font-size: 1.5rem; font-weight: 700; font-family: 'Outfit', sans-serif;">📚 必讀書籍（3本）</h4>
 
                 <div class="resource-card">
                     <div class="resource-header">
@@ -2572,6 +2810,22 @@
                         <p style="margin-top: 0.5rem;"><strong>⏱️ 預估時間：</strong>1-2週</p>
                     </div>
                 </div>
+
+                <!-- 進階選讀分隔線 -->
+                <div style="margin: 3rem 0; text-align: center;">
+                    <button onclick="toggleBeginnerAdvanced()" id="toggleBeginnerBtn" style="background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%); border: 2px solid var(--gray-300); color: var(--gray-700); padding: 1rem 2rem; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; font-size: 1rem;">
+                        <span id="toggleBeginnerText">📚 展開更多書籍</span> <span style="font-size: 0.875rem; opacity: 0.7;">(還有更多選讀資源)</span>
+                    </button>
+                </div>
+
+                <!-- 進階選讀區域（預設摺疊） -->
+                <div id="beginnerAdvancedBooks" style="display: none;">
+                    <h4 style="margin: 2rem 0 1.5rem; font-size: 1.5rem; font-weight: 700; font-family: 'Outfit', sans-serif; color: var(--warning);">📖 進階選讀（看完必讀3本再看）</h4>
+
+                    <div class="info-box" style="border-left: 4px solid var(--warning); background: rgba(255, 184, 0, 0.05);">
+                        <div class="info-box-title" style="color: var(--warning);">💡 提醒</div>
+                        <p>這些書都很好，但<strong>不急著現在看</strong>。先把必讀3本看懂、做到比較重要。</p>
+                    </div>
 
                 <div class="resource-card">
                     <div class="resource-header">
@@ -2664,6 +2918,9 @@
                         <p style="margin-top: 0.5rem;"><strong>🎯 怎麼聽：</strong>通勤時聽，不用全部聽完</p>
                     </div>
                 </div>
+
+                </div>
+                <!-- 進階選讀區域結束 -->
 
                 <div class="info-box warning" style="margin-top: 2rem;">
                     <div class="info-box-title">💡 新手的學習建議</div>
@@ -3680,6 +3937,578 @@
     </div>
 
     <script>
+        // === 專業發展指南功能 ===
+        
+        function analyzePath() {
+            // 獲取所有答案
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            
+            if (!q1 || !q2 || !q3 || !q4) {
+                alert('請回答所有問題！');
+                return;
+            }
+            
+            // 分析結果
+            const scores = {
+                member: 0,
+                content: 0,
+                expertise: 0,
+                allround: 0
+            };
+            
+            // Q1: 學生來源
+            if (q1.value === 'dependent') scores.member += 3;
+            else if (q1.value === 'mixed') scores.member += 1;
+            else scores.allround += 1;
+            
+            // Q2: 課後關心
+            if (q2.value === 'basic') scores.member += 2;
+            else if (q2.value === 'regular') scores.member += 1;
+            else scores.allround += 1;
+            
+            // Q3: 內容產出
+            if (q3.value === 'rare') scores.content += 3;
+            else if (q3.value === 'inconsistent') scores.content += 1;
+            else scores.allround += 1;
+            
+            // Q4: 專業專項
+            if (q4.value === 'generalist') scores.expertise += 2;
+            else if (q4.value === 'developing') scores.expertise += 1;
+            else scores.allround += 1;
+            
+            // 找出最高分的路徑
+            let recommendedPath = 'member';
+            let maxScore = scores.member;
+            
+            if (scores.content > maxScore) {
+                recommendedPath = 'content';
+                maxScore = scores.content;
+            }
+            if (scores.expertise > maxScore) {
+                recommendedPath = 'expertise';
+                maxScore = scores.expertise;
+            }
+            if (scores.allround >= 3) {
+                recommendedPath = 'allround';
+            }
+            
+            // 顯示結果
+            displayPathResult(recommendedPath, scores);
+        }
+        
+        function displayPathResult(path, scores) {
+            const resultDiv = document.getElementById('pathResult');
+            const titleEl = document.getElementById('resultTitle');
+            const contentEl = document.getElementById('resultContent');
+            
+            let title = '';
+            let content = '';
+            
+            if (path === 'member') {
+                title = '📊 建議路徑：會員經營專家';
+                content = `
+                    <div style="background: rgba(0, 200, 81, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="font-weight: 700; color: var(--success); margin-bottom: 1rem;">🎯 為什麼推薦這條路？</h5>
+                        <p style="line-height: 1.8;">
+                            根據你的回答，<strong>你目前最需要突破的是「主動開發學生」的能力</strong>。<br><br>
+                            你可能習慣依賴公司給學生，或課後關心還不夠系統化。<br><br>
+                            這條路會幫你：<br>
+                            ✓ 建立課後關心系統（100%覆蓋率）<br>
+                            ✓ 學會追蹤會員數據（知道每個人的狀態）<br>
+                            ✓ 自己開發新學生（不再依賴公司）
+                        </p>
+                    </div>
+                    
+                    <h5 style="font-weight: 700; margin: 1.5rem 0 1rem;">📅 3個月行動計畫</h5>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--success);">
+                            <strong>Month 1: 系統化課後關心</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>建立訊息範本（訓練後、休息日、進度追蹤）</li>
+                                <li>固定時間發送（每天花15分鐘）</li>
+                                <li>達成100%覆蓋率，連續4週</li>
+                            </ul>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--success);">
+                            <strong>Month 2: 數據追蹤系統</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>記錄每位學生的訓練數據</li>
+                                <li>每週回顧進度，給個性化建議</li>
+                                <li>學生開始感受到「你很關心我」</li>
+                            </ul>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--success);">
+                            <strong>Month 3: 開發新學生</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>請現有學生轉介紹（至少問3位）</li>
+                                <li>在社群媒體分享成功案例</li>
+                                <li>目標：自己開發1-2位新學生</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--gray-100); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+                        <strong style="color: var(--success);">💡 成功指標：</strong><br>
+                        3個月後，你能說：「我不需要公司給學生，我自己就能開發」
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button onclick="showPathDetail('member')" style="background: var(--success); color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                            查看完整路徑詳情
+                        </button>
+                    </div>
+                `;
+            } else if (path === 'content') {
+                title = '📊 建議路徑：內容產出大師';
+                content = `
+                    <div style="background: rgba(0, 102, 255, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="font-weight: 700; color: var(--primary); margin-bottom: 1rem;">🎯 為什麼推薦這條路？</h5>
+                        <p style="line-height: 1.8;">
+                            根據你的回答，<strong>你目前最需要突破的是「內容產出能力」</strong>。<br><br>
+                            你可能很少拍影片，或拍了也不穩定、品質不夠好。<br><br>
+                            這條路會幫你：<br>
+                            ✓ 建立穩定的產出系統（週3支影片）<br>
+                            ✓ 提升內容質量（學習腳本、剪輯、呈現）<br>
+                            ✓ 打造個人品牌（開始有人因你的內容找你）
+                        </p>
+                    </div>
+                    
+                    <h5 style="font-weight: 700; margin: 1.5rem 0 1rem;">📅 3個月行動計畫</h5>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                            <strong>Month 1: 建立產出系統</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>固定拍攝時間（例如：週一、三、五下午3點）</li>
+                                <li>建立30個內容主題庫（不怕沒題材）</li>
+                                <li>學習基本剪輯（CapCut就夠用）</li>
+                            </ul>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                            <strong>Month 2: 提升專業度</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>研究爆款內容（Jeff Nippard、Jeremy Ethier）</li>
+                                <li>加入科學依據（引用研究、數據）</li>
+                                <li>改善呈現方式（燈光、角度、語氣）</li>
+                            </ul>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                            <strong>Month 3: 數據驅動優化</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>追蹤觀看數據（哪類內容最受歡迎）</li>
+                                <li>優化內容策略（做更多有效的內容）</li>
+                                <li>開始吸引新會員（至少1位因內容找你）</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--gray-100); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+                        <strong style="color: var(--primary);">💡 成功指標：</strong><br>
+                        3個月後，你能說：「我有穩定的個人品牌，會有人因為我的內容找我」
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button onclick="showPathDetail('content')" style="background: var(--primary); color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                            查看完整路徑詳情
+                        </button>
+                    </div>
+                `;
+            } else if (path === 'expertise') {
+                title = '📊 建議路徑：專業深度專家';
+                content = `
+                    <div style="background: rgba(255, 107, 53, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">🎯 為什麼推薦這條路？</h5>
+                        <p style="line-height: 1.8;">
+                            根據你的回答，<strong>你目前最需要突破的是「專業深度」</strong>。<br><br>
+                            你可能什麼都會教一點，但沒有明確的專項，缺乏「專家」的定位。<br><br>
+                            這條路會幫你：<br>
+                            ✓ 選定一個專項（減脂/增肌/運動表現/特殊族群）<br>
+                            ✓ 深度學習（看書、考證、研究案例）<br>
+                            ✓ 建立權威（成為館內的XX專家）
+                        </p>
+                    </div>
+                    
+                    <h5 style="font-weight: 700; margin: 1.5rem 0 1rem;">📅 3個月行動計畫</h5>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary);">
+                            <strong>Month 1: 選定並開始</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>選擇1個專項（你最感興趣 + 最有市場的）</li>
+                                <li>看完2本該領域的經典書籍</li>
+                                <li>找1-2位學生開始實踐</li>
+                            </ul>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary);">
+                            <strong>Month 2: 深度學習</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>繼續看書/上課程（至少再2本書或1個課程）</li>
+                                <li>研究成功案例（其他專家怎麼做的）</li>
+                                <li>優化自己的方法（測試、調整、記錄）</li>
+                            </ul>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary);">
+                            <strong>Month 3: 建立案例</strong>
+                            <ul style="margin-top: 0.5rem; margin-left: 1.5rem; line-height: 1.8;">
+                                <li>至少1個完整的成功案例（有數據、有照片）</li>
+                                <li>記錄完整過程（方法、調整、結果）</li>
+                                <li>分享給團隊（成為館內的XX專家）</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--gray-100); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+                        <strong style="color: var(--secondary);">💡 成功指標：</strong><br>
+                        3個月後，你能說：「我是館內的XX專家，有明確的定位和案例」
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button onclick="showPathDetail('expertise')" style="background: var(--secondary); color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                            查看完整路徑詳情
+                        </button>
+                    </div>
+                `;
+            } else {
+                title = '📊 建議路徑：全能進化';
+                content = `
+                    <div style="background: rgba(255, 184, 0, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h5 style="font-weight: 700; color: var(--warning); margin-bottom: 1rem;">🎯 為什麼推薦這條路？</h5>
+                        <p style="line-height: 1.8;">
+                            根據你的回答，<strong>你在各方面都已經有一定基礎</strong>！<br><br>
+                            你不需要單一突破，而是需要「組合發展」，成為沒有明顯弱點的全能教練。<br><br>
+                            策略：<strong>在強項上持續精進 + 補強弱項</strong>
+                        </p>
+                    </div>
+                    
+                    <h5 style="font-weight: 700; margin: 1.5rem 0 1rem;">🎯 組合策略</h5>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--success);">
+                            <strong>如果你會員經營已經很好：</strong>
+                            <p style="margin-top: 0.5rem;">→ 下一步：加強內容產出（讓更多人知道你）</p>
+                            <p>→ 再下一步：選一個專項深入（成為XX專家）</p>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                            <strong>如果你內容產出已經很強：</strong>
+                            <p style="margin-top: 0.5rem;">→ 下一步：加強專業深度（讓內容更有料）</p>
+                            <p>→ 再下一步：優化會員經營（提高續約率）</p>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary);">
+                            <strong>如果你專業深度已經夠：</strong>
+                            <p style="margin-top: 0.5rem;">→ 下一步：加強會員經營（讓專業轉化成續約）</p>
+                            <p>→ 再下一步：內容產出（讓更多人知道你的專業）</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--gray-100); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+                        <strong style="color: var(--warning);">💡 建議：</strong><br>
+                        點擊下方3個路徑，看看哪個是你想補強的，然後挑1個開始。<br>
+                        不要貪多，專注1個領域突破3個月，再換下一個。
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="showPathDetail('member')" style="background: var(--success); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">會員經營</button>
+                        <button onclick="showPathDetail('content')" style="background: var(--primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">內容產出</button>
+                        <button onclick="showPathDetail('expertise')" style="background: var(--secondary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">專業深度</button>
+                    </div>
+                `;
+            }
+            
+            titleEl.textContent = title;
+            contentEl.innerHTML = content;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        function showPathDetail(pathType) {
+            const detailsDiv = document.getElementById('pathDetails');
+            let content = '';
+            
+            if (pathType === 'member') {
+                content = generateMemberPath();
+            } else if (pathType === 'content') {
+                content = generateContentPath();
+            } else if (pathType === 'expertise') {
+                content = generateExpertisePath();
+            } else if (pathType === 'allround') {
+                content = generateAllroundPath();
+            }
+            
+            detailsDiv.innerHTML = content;
+            detailsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        function generateWeeklyPlan(pathName, weeks) {
+            let html = '';
+            weeks.forEach(week => {
+                html += `
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--gray-300);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <strong style="font-size: 1.1rem;">Week ${week.week}: ${week.title}</strong>
+                            <span style="background: var(--gray-100); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem; font-weight: 600;">第${week.week}週</span>
+                        </div>
+                        <ul style="margin-left: 1.5rem; line-height: 2; color: var(--gray-700);">
+                            ${week.tasks.map(task => `<li>${task}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            });
+            return html;
+        }
+        
+        function generateMemberPath() {
+            const weeks = [
+                { week: 1, title: '建立訊息範本', tasks: ['整理3種訊息類型：訓練後、休息日、進度追蹤', '寫出每種類型的範本（可複製貼上）', '測試發給3位學生，看反應如何']},
+                { week: 2, title: '固定發送時間', tasks: ['每天固定時間（例如晚上8點）發訊息', '設定手機提醒，不要忘記', '本週目標：80%覆蓋率']},
+                { week: 3, title: '達成100%覆蓋', tasks: ['所有學生都要關心到', '記錄每位學生的反應', '調整訊息內容（哪種反應最好）']},
+                { week: 4, title: '持續穩定', tasks: ['連續第2週100%覆蓋', '課後關心變成反射動作', '開始記錄學生數據']},
+                { week: 5, title: '數據追蹤系統', tasks: ['建立Excel或Google Sheet', '記錄：訓練重量、體重、體脂、照片', '至少追蹤5位學生']},
+                { week: 6, title: '個性化建議', tasks: ['根據數據給建議（不是隨便說）', '學生感受到「你真的有在關心我」', '擴大追蹤到所有學生']},
+                { week: 7, title: '定期回顧', tasks: ['每2週跟學生回顧一次數據', '展示進步（數字、照片對比）', '學生滿意度提升']},
+                { week: 8, title: '系統化完成', tasks: ['數據追蹤變成習慣', '不用提醒自己，自動就會做', '準備開始開發新學生']},
+                { week: 9, title: '請求轉介紹', tasks: ['挑3位最滿意的學生', '問他們：「有沒有朋友也想變健康？」', '提供轉介紹優惠（首堂免費體驗）']},
+                { week: 10, title: '社群媒體分享', tasks: ['分享1個成功案例（學生同意）', '寫出過程、數據、照片對比', '讓潛在客戶看到你的專業']},
+                { week: 11, title: '持續曝光', tasks: ['每週至少1支影片或1篇貼文', '內容：學生故事、訓練技巧、營養知識', '開始有人私訊詢問']},
+                { week: 12, title: '成功開發', tasks: ['至少1位新學生是自己開發的', '慶祝這個突破！', '你證明了：不靠公司也能活']}
+            ];
+            
+            return `
+                <div class="module-card" style="border: 3px solid var(--success);">
+                    <h3 style="font-size: 1.75rem; font-weight: 800; color: var(--success); margin-bottom: 1.5rem;">
+                        👥 會員經營專家 - 完整路徑
+                    </h3>
+                    
+                    <div class="info-box success">
+                        <div class="info-box-title">🎯 這條路的終點</div>
+                        <p style="line-height: 1.8;">
+                            <strong>3個月後，你能做到：</strong><br>
+                            ✓ 100%課後關心覆蓋率（自動化）<br>
+                            ✓ 完整的會員數據追蹤系統<br>
+                            ✓ 自己開發1-2位新學生<br>
+                            ✓ 不再依賴公司給學生
+                        </p>
+                    </div>
+                    
+                    <h4 style="margin: 2rem 0 1rem; font-weight: 700;">📅 Week by Week 行動清單</h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        ${generateWeeklyPlan('會員經營', weeks)}
+                    </div>
+                    
+                    <div class="info-box warning" style="margin-top: 2rem;">
+                        <div class="info-box-title">⚠️ 常見障礙 & 解法</div>
+                        <ul style="margin-left: 2rem; margin-top: 1rem; line-height: 2;">
+                            <li><strong>「我沒時間課後關心」</strong> → 用範本，每天只需15分鐘</li>
+                            <li><strong>「學生不回我訊息」</strong> → 正常的，不是每個人都會回，繼續做</li>
+                            <li><strong>「我不知道怎麼開口請轉介紹」</strong> → 參考學習資源的「銷售技巧」章節</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateContentPath() {
+            const weeks = [
+                { week: 1, title: '建立拍攝習慣', tasks: ['固定週一、三、五下午3點拍攝', '設定手機提醒，不要拖延', '這週目標：至少拍2支（不管質量）']},
+                { week: 2, title: '建立主題庫', tasks: ['列出30個可以拍的主題', '分類：訓練技巧、營養知識、迷思破解', '以後不怕沒題材']},
+                { week: 3, title: '學習基本剪輯', tasks: ['下載CapCut（免費）', '學會：剪接、配樂、字幕', '看2支教學影片就夠了']},
+                { week: 4, title: '達成週3目標', tasks: ['連續2週達到週3支影片', '不用很完美，重點是穩定', '開始累積作品']},
+                { week: 5, title: '研究爆款內容', tasks: ['看Jeff Nippard和Jeremy Ethier的影片', '分析：為什麼這些影片會紅？', '筆記：標題、縮圖、結構']},
+                { week: 6, title: '加入科學依據', tasks: ['每支影片至少引用1個研究或數據', '「研究顯示...」比「我覺得...」更有說服力', '提升專業度']},
+                { week: 7, title: '改善呈現方式', tasks: ['燈光：確保臉不要太暗', '角度：找到最好的拍攝角度', '語氣：自信、清楚、不拖泥帶水']},
+                { week: 8, title: '質量提升', tasks: ['這週的影片應該比前4週好很多', '請Howard或同事給反饋', '持續優化']},
+                { week: 9, title: '追蹤數據', tasks: ['記錄每支影片的觀看次數、互動率', '分析：哪類主題最受歡迎？', '多做有效的內容']},
+                { week: 10, title: '優化策略', tasks: ['根據數據調整內容方向', '做更多「有用」的內容', '減少「沒人看」的內容']},
+                { week: 11, title: '建立個人風格', tasks: ['找到你的獨特性（幽默/專業/親和力）', '讓人一看就知道是你的影片', '形成個人品牌']},
+                { week: 12, title: '開始吸引新學員', tasks: ['至少1位新學員因為你的內容找你', '這證明：你的內容有價值', '繼續做，會越來越多']}
+            ];
+            
+            return `
+                <div class="module-card" style="border: 3px solid var(--primary);">
+                    <h3 style="font-size: 1.75rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem;">
+                        📹 內容產出大師 - 完整路徑
+                    </h3>
+                    
+                    <div class="info-box" style="border-left-color: var(--primary);">
+                        <div class="info-box-title">🎯 這條路的終點</div>
+                        <p style="line-height: 1.8;">
+                            <strong>3個月後，你能做到：</strong><br>
+                            ✓ 穩定週產3支以上高質量影片<br>
+                            ✓ 有清楚的內容策略和主題庫<br>
+                            ✓ 內容開始吸引新會員<br>
+                            ✓ 建立個人品牌影響力
+                        </p>
+                    </div>
+                    
+                    <h4 style="margin: 2rem 0 1rem; font-weight: 700;">📅 Week by Week 行動清單</h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        ${generateWeeklyPlan('內容產出', weeks)}
+                    </div>
+                    
+                    <div class="info-box warning" style="margin-top: 2rem;">
+                        <div class="info-box-title">⚠️ 常見障礙 & 解法</div>
+                        <ul style="margin-left: 2rem; margin-top: 1rem; line-height: 2;">
+                            <li><strong>「我不知道要拍什麼」</strong> → 用主題庫，30個題材夠你拍2個月</li>
+                            <li><strong>「我拍得很爛」</strong> → 正常的，前10支都會爛，繼續拍</li>
+                            <li><strong>「沒人看我的影片」</strong> → 前期正常，持續3個月後會改善</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateExpertisePath() {
+            const weeks = [
+                { week: 1, title: '選定專項', tasks: ['考慮：你最有興趣 + 最有市場', '跟Howard討論你的選擇', '確定後，專注這個領域3個月']},
+                { week: 2, title: '開始閱讀', tasks: ['買/借該領域的經典書籍', '這週看完第1本書的前3章', '做筆記：哪些可以用在學員身上']},
+                { week: 3, title: '找實踐對象', tasks: ['找1-2位學員開始實踐', '告訴他們：「我在學XX，想幫你試試看」', '開始記錄數據']},
+                { week: 4, title: '持續學習', tasks: ['看完第1本書', '開始看第2本書', '持續實踐，調整方法']},
+                { week: 5, title: '研究案例', tasks: ['看其他專家的成功案例', '分析：他們是怎麼做到的？', '學習他們的方法']},
+                { week: 6, title: '深度學習', tasks: ['看完第2本書', '如果有線上課程，可以考慮買', '持續實踐和記錄']},
+                { week: 7, title: '優化方法', tasks: ['根據實踐結果調整方法', '哪些有效？哪些無效？', '優化你的協定']},
+                { week: 8, title: '擴大實踐', tasks: ['增加到3-5位學員', '測試你的方法是否可複製', '繼續記錄數據']},
+                { week: 9, title: '建立案例', tasks: ['至少1位學員有明顯成果', '完整記錄：數據、照片、過程', '這是你的「代表作」']},
+                { week: 10, title: '整理知識', tasks: ['把你學到的整理成文檔', '方法、原理、注意事項', '以後可以教其他教練']},
+                { week: 11, title: '分享團隊', tasks: ['在團隊會議分享你的案例', '教其他教練你的方法', '建立「XX專家」的定位']},
+                { week: 12, title: '持續精進', tasks: ['你現在是館內的XX專家了', '繼續深入，看第3、第4本書', '累積更多案例']}
+            ];
+            
+            return `
+                <div class="module-card" style="border: 3px solid var(--secondary);">
+                    <h3 style="font-size: 1.75rem; font-weight: 800; color: var(--secondary); margin-bottom: 1.5rem;">
+                        🎯 專業深度專家 - 完整路徑
+                    </h3>
+                    
+                    <div class="info-box" style="border-left-color: var(--secondary);">
+                        <div class="info-box-title">🎯 這條路的終點</div>
+                        <p style="line-height: 1.8;">
+                            <strong>3個月後，你能做到：</strong><br>
+                            ✓ 有明確的專項定位（XX專家）<br>
+                            ✓ 看完至少4本該領域的書<br>
+                            ✓ 有1個完整的成功案例<br>
+                            ✓ 成為館內該領域的權威
+                        </p>
+                    </div>
+                    
+                    <div style="background: var(--gray-50); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                        <h5 style="font-weight: 700; margin-bottom: 1rem;">🎯 先選定你的專項</h5>
+                        <p style="margin-bottom: 1rem;">你必須先選一個專項，才能開始這條路：</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 3px solid var(--success);">
+                                <strong>💪 增肌專家</strong><br>
+                                <span style="font-size: 0.875rem; color: var(--gray-600);">幫學員長肌肉、變強壯</span>
+                            </div>
+                            <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 3px solid var(--danger);">
+                                <strong>🔥 減脂專家</strong><br>
+                                <span style="font-size: 0.875rem; color: var(--gray-600);">幫學員降體脂、變精實</span>
+                            </div>
+                            <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 3px solid var(--primary);">
+                                <strong>⚡ 運動表現專家</strong><br>
+                                <span style="font-size: 0.875rem; color: var(--gray-600);">幫運動員提升表現</span>
+                            </div>
+                            <div style="background: white; padding: 1rem; border-radius: 8px; border-left: 3px solid var(--warning);">
+                                <strong>👶 特殊族群專家</strong><br>
+                                <span style="font-size: 0.875rem; color: var(--gray-600);">孕婦/銀髮/復健/青少年</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin: 2rem 0 1rem; font-weight: 700;">📅 Week by Week 行動清單</h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        ${generateWeeklyPlan('專業深度', weeks)}
+                    </div>
+                    
+                    <div class="info-box warning" style="margin-top: 2rem;">
+                        <div class="info-box-title">⚠️ 常見障礙 & 解法</div>
+                        <ul style="margin-left: 2rem; margin-top: 1rem; line-height: 2;">
+                            <li><strong>「我不知道選哪個專項」</strong> → 選你最常被問的問題</li>
+                            <li><strong>「我沒時間看書」</strong> → 每天20分鐘，1週就能看完1本</li>
+                            <li><strong>「學員沒有明顯成果」</strong> → 正常的，3個月是最低時間</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateAllroundPath() {
+            return `
+                <div class="module-card" style="border: 3px solid var(--warning);">
+                    <h3 style="font-size: 1.75rem; font-weight: 800; color: var(--warning); margin-bottom: 1.5rem;">
+                        ⭐ 全能進化 - 組合路徑
+                    </h3>
+                    
+                    <div class="info-box" style="border-left-color: var(--warning);">
+                        <div class="info-box-title">🎯 全能教練的定義</div>
+                        <p style="line-height: 1.8;">
+                            全能教練不是「什麼都會」，而是<strong>「沒有明顯弱點」</strong>。<br><br>
+                            你需要：<br>
+                            ✓ 會員經營：能自己開發學生，不依賴公司<br>
+                            ✓ 內容產出：有穩定的個人品牌<br>
+                            ✓ 專業深度：有至少1個明確專項<br><br>
+                            <strong>策略：先選一個最弱的，突破後再選下一個。</strong>
+                        </p>
+                    </div>
+                    
+                    <h4 style="margin: 2rem 0 1rem; font-weight: 700;">📋 全能進化路徑規劃</h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--success);">
+                            <h5 style="font-weight: 700; color: var(--success); margin-bottom: 1rem;">第1-3個月：突破最弱項</h5>
+                            <p>選擇會員經營、內容產出、專業深度中你最弱的一個，專注突破3個月。</p>
+                            <p style="margin-top: 0.5rem;"><strong>檢驗：</strong>3個月後，這個領域應該從「弱項」變成「及格」。</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary);">
+                            <h5 style="font-weight: 700; color: var(--primary); margin-bottom: 1rem;">第4-6個月：補強次弱項</h5>
+                            <p>繼續選第2弱的領域，再突破3個月。</p>
+                            <p style="margin-top: 0.5rem;"><strong>檢驗：</strong>6個月後，你應該在2個領域都達到「及格」水平。</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--secondary);">
+                            <h5 style="font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">第7-9個月：強化最強項</h5>
+                            <p>現在回到你最強的領域，把它從「好」變成「非常好」。</p>
+                            <p style="margin-top: 0.5rem;"><strong>檢驗：</strong>9個月後，你有1個特別強的領域 + 2個及格的領域。</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--warning);">
+                            <h5 style="font-weight: 700; color: var(--warning); margin-bottom: 1rem;">第10-12個月：整合優化</h5>
+                            <p>3個領域同時運作，互相支援。</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                                <li>用專業深度提升內容質量</li>
+                                <li>用內容產出吸引新會員</li>
+                                <li>用會員經營提高續約率</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>檢驗：</strong>1年後，你成為「沒有明顯弱點」的全能教練。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box success" style="margin-top: 2rem;">
+                        <div class="info-box-title">💡 建議</div>
+                        <p>點擊上方的3個路徑卡片，先看看每條路的詳細內容，然後選一個你最需要的開始。</p>
+                        <p style="margin-top: 1rem;"><strong>記住：不要貪多，專注1個領域3個月，再換下一個。</strong></p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // === 學習資源摺疊功能 ===
+        function toggleBeginnerAdvanced() {
+            const advancedSection = document.getElementById('beginnerAdvancedBooks');
+            const button = document.getElementById('toggleBeginnerBtn');
+            const buttonText = document.getElementById('toggleBeginnerText');
+            
+            if (advancedSection.style.display === 'none') {
+                advancedSection.style.display = 'block';
+                buttonText.textContent = '📚 收起更多書籍';
+                button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                advancedSection.style.display = 'none';
+                buttonText.textContent = '📚 展開更多書籍';
+            }
+        }
+
         // Navigation
         function showSection(sectionId) {
             document.querySelectorAll('.section').forEach(section => {
