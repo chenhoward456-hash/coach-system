@@ -4297,9 +4297,9 @@
             if (pathType === 'beginner') {
                 content = generateBeginnerPathDetail();
             } else if (pathType === 'growing') {
-                content = `<div class="info-box warning" style="text-align: center;"><strong>🚧 快速成長路徑詳情即將上線...</strong></div>`;
+                content = generateGrowingPathDetail();
             } else if (pathType === 'scaling') {
-                content = `<div class="info-box warning" style="text-align: center;"><strong>🚧 系統建立路徑詳情即將上線...</strong></div>`;
+                content = generateScalingPathDetail();
             }
             
             detailsDiv.innerHTML = content;
@@ -4346,6 +4346,98 @@
                             ✅ 不再躲在教練休息室<br><br>
                             
                             <strong style="color: var(--success); font-size: 1.2rem;">下一步：繼續累積到8-15位學生，然後看「專業發展指南」</strong>
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateGrowingPathDetail() {
+            return `
+                <div class="module-card" style="border: 3px solid var(--primary);">
+                    <h3 style="font-size: 1.75rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem;">
+                        📈 快速成長 - 完整30天計畫
+                    </h3>
+                    
+                    <div class="info-box" style="background: rgba(0, 102, 255, 0.1); border-color: var(--primary);">
+                        <div class="info-box-title" style="color: var(--primary);">🎯 這條路的終點</div>
+                        <p style="line-height: 1.8;">
+                            <strong>30天後，你能做到：</strong><br>
+                            ✓ 有10-15位固定學生<br>
+                            ✓ 有完整的系統和流程<br>
+                            ✓ 內容質量明顯提升<br>
+                            ✓ 開始有轉介紹<br>
+                            ✓ 準備進入「專業發展指南」
+                        </p>
+                    </div>
+                    
+                    <h4 style="margin: 2rem 0 1rem; font-weight: 700;">📅 Week by Week 行動清單</h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        ${generateGrowingWeek1()}
+                        ${generateGrowingWeek2()}
+                        ${generateGrowingWeek3()}
+                        ${generateGrowingWeek4()}
+                    </div>
+                    
+                    <div class="info-box" style="margin-top: 2rem; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; border: none;">
+                        <div class="info-box-title" style="color: white; border-bottom-color: rgba(255,255,255,0.3);">💪 30天後呢？</div>
+                        <p style="line-height: 2;">
+                            恭喜！你已經脫離新手階段了！<br><br>
+                            
+                            現在你應該：<br>
+                            ✅ 有10-15位固定學生<br>
+                            ✅ 有穩定的系統在運作<br>
+                            ✅ 內容質量穩定產出<br>
+                            ✅ 開始有被動收入（轉介紹）<br><br>
+                            
+                            <strong style="color: var(--success); font-size: 1.2rem;">下一步：進入「專業發展指南」，選擇你的專業路徑</strong>
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function generateScalingPathDetail() {
+            return `
+                <div class="module-card" style="border: 3px solid var(--secondary);">
+                    <h3 style="font-size: 1.75rem; font-weight: 800; color: var(--secondary); margin-bottom: 1.5rem;">
+                        ⚡ 系統建立 - 完整30天計畫
+                    </h3>
+                    
+                    <div class="info-box" style="background: rgba(255, 107, 53, 0.1); border-color: var(--secondary);">
+                        <div class="info-box-title" style="color: var(--secondary);">🎯 這條路的終點</div>
+                        <p style="line-height: 1.8;">
+                            <strong>30天後，你能做到：</strong><br>
+                            ✓ 完整的數據追蹤系統<br>
+                            ✓ 所有流程自動化<br>
+                            ✓ 穩定的內容產出策略<br>
+                            ✓ 準備好進入中階教練<br>
+                            ✓ 開始選擇專業發展方向
+                        </p>
+                    </div>
+                    
+                    <h4 style="margin: 2rem 0 1rem; font-weight: 700;">📅 Week by Week 行動清單</h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        ${generateScalingWeek1()}
+                        ${generateScalingWeek2()}
+                        ${generateScalingWeek3()}
+                        ${generateScalingWeek4()}
+                    </div>
+                    
+                    <div class="info-box" style="margin-top: 2rem; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; border: none;">
+                        <div class="info-box-title" style="color: white; border-bottom-color: rgba(255,255,255,0.3);">💪 30天後呢？</div>
+                        <p style="line-height: 2;">
+                            恭喜！你已經是中階教練了！<br><br>
+                            
+                            現在你應該：<br>
+                            ✅ 有15-20位學生<br>
+                            ✅ 所有系統自動運作<br>
+                            ✅ 內容策略清晰<br>
+                            ✅ 準備好專業深化<br><br>
+                            
+                            <strong style="color: var(--success); font-size: 1.2rem;">下一步：進入「專業發展指南」，選擇四條路徑之一</strong>
                         </p>
                     </div>
                 </div>
@@ -4591,6 +4683,24 @@
             `;
         }
         
+        function generateGrowingPathDetail() {
+            return '<div class="module-card" style="border: 3px solid var(--primary);"><h3 style="font-size: 1.75rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem;">📈 快速成長 - 完整30天計畫</h3><div class="info-box" style="background: rgba(0, 102, 255, 0.1); border-color: var(--primary);"><div class="info-box-title" style="color: var(--primary);">🎯 這條路的終點</div><p style="line-height: 1.8;"><strong>30天後，你能做到：</strong><br>✓ 有10-15位固定學生<br>✓ 有完整的系統和流程<br>✓ 內容質量明顯提升<br>✓ 開始有轉介紹<br>✓ 準備進入「專業發展指南」</p></div><h4 style="margin: 2rem 0 1rem; font-weight: 700;">📅 Week by Week 行動清單</h4><div style="display: flex; flex-direction: column; gap: 2rem;">' + generateGrowingWeek1() + generateGrowingWeek2() + generateGrowingWeek3() + generateGrowingWeek4() + '</div><div class="info-box" style="margin-top: 2rem; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; border: none;"><div class="info-box-title" style="color: white; border-bottom-color: rgba(255,255,255,0.3);">💪 30天後呢？</div><p style="line-height: 2;">恭喜！你已經脫離新手階段了！<br><br>現在你應該：<br>✅ 有10-15位固定學生<br>✅ 有穩定的系統在運作<br>✅ 內容質量穩定產出<br>✅ 開始有被動收入（轉介紹）<br><br><strong style="color: var(--success); font-size: 1.2rem;">下一步：進入「專業發展指南」，選擇你的專業路徑</strong></p></div></div>';
+        }
+        
+        function generateGrowingWeek1(){return'<div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary);"><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;"><strong style="font-size: 1.25rem; color: var(--primary);">Week 1: 提升質量</strong><span style="background: var(--gray-100); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600;">第1週</span></div><div style="background: rgba(0, 102, 255, 0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;"><strong>本週目標：</strong> 從「有在做」變成「做得好」</div><div style="display: flex; flex-direction: column; gap: 1rem;"><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;"><span style="background: var(--secondary); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">📹 內容產出</span></div><strong>□ 拍3支「有料」的專業影片</strong><p style="margin-top: 0.5rem; color: var(--gray-600); font-size: 0.9rem;">不是隨便拍，而是有具體知識點、有示範、有價值</p></div><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;"><span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">👥 會員經營</span></div><strong>□ 建立訊息範本庫</strong><p style="margin-top: 0.5rem; color: var(--gray-600); font-size: 0.9rem;">用工具包的10種範本，不用每次想內容</p></div><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;"><span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">👥 會員經營</span></div><strong>□ 開始追蹤所有學生數據</strong><p style="margin-top: 0.5rem; color: var(--gray-600); font-size: 0.9rem;">用學生追蹤表格，記錄重量、體重、體脂</p></div></div><div class="info-box warning" style="margin-top: 1.5rem;"><div class="info-box-title">💡 本週重點</div><p>質量>數量，做3件事做到100分，比做10件事做到60分有用</p></div></div>';}
+        function generateGrowingWeek2(){return'<div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary);"><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;"><strong style="font-size: 1.25rem; color: var(--primary);">Week 2: 系統化流程</strong><span style="background: var(--gray-100); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.875rem; font-weight: 600;">第2週</span></div><div style="background: rgba(0, 102, 255, 0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;"><strong>本週目標：</strong> 建立固定流程，減少重複勞動</div><div style="display: flex; flex-direction: column; gap: 1rem;"><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><strong>□ 固定時間拍影片、發訊息</strong><p style="margin-top: 0.5rem; color: var(--gray-600); font-size: 0.9rem;">例如：每天14:00拍影片、課後30分鐘內發訊息</p></div><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><strong>□ 建立學生追蹤表格並開始使用</strong></div></div></div>';}
+        function generateGrowingWeek3(){return'<div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary);"><strong style="font-size: 1.25rem; color: var(--primary);">Week 3: 擴大規模</strong><div style="margin-top: 1rem;"><strong>□ 請3位學生轉介紹</strong><br><strong>□ 分享1個成功案例</strong></div></div>';}
+        function generateGrowingWeek4(){return'<div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary);"><strong style="font-size: 1.25rem; color: var(--primary);">Week 4: 穩定成長</strong><div style="margin-top: 1rem;"><strong>□ 持續產出高質量內容</strong><br><strong>□ 學生數達到10-12位</strong></div></div>';}
+        
+        function generateScalingPathDetail() {
+            return '<div class="module-card" style="border: 3px solid var(--secondary);"><h3 style="font-size: 1.75rem; font-weight: 800; color: var(--secondary); margin-bottom: 1.5rem;">⚡ 系統建立 - 完整30天計畫</h3><div class="info-box" style="background: rgba(255, 107, 53, 0.1); border-color: var(--secondary);"><div class="info-box-title" style="color: var(--secondary);">🎯 這條路的終點</div><p style="line-height: 1.8;"><strong>30天後，你能做到：</strong><br>✓ 完整的數據追蹤系統<br>✓ 所有流程自動化<br>✓ 穩定的內容產出策略<br>✓ 準備好進入中階教練<br>✓ 開始選擇專業發展方向</p></div><h4 style="margin: 2rem 0 1rem; font-weight: 700;">📅 Week by Week 行動清單</h4><div style="display: flex; flex-direction: column; gap: 2rem;">' + generateScalingWeek1() + generateScalingWeek2() + generateScalingWeek3() + generateScalingWeek4() + '</div><div class="info-box" style="margin-top: 2rem; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; border: none;"><div class="info-box-title" style="color: white; border-bottom-color: rgba(255,255,255,0.3);">💪 30天後呢？</div><p style="line-height: 2;">恭喜！你已經是中階教練了！<br><br>現在你應該：<br>✅ 有15-20位學生<br>✅ 所有系統自動運作<br>✅ 內容策略清晰<br>✅ 準備好專業深化<br><br><strong style="color: var(--success); font-size: 1.2rem;">下一步：進入「專業發展指南」，選擇四條路徑之一</strong></p></div></div>';
+        }
+        
+        function generateScalingWeek1(){return'<div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--secondary);"><strong style="font-size: 1.25rem; color: var(--secondary);">Week 1: 數據追蹤完善</strong><div style="margin-top: 1rem;"><strong>□ 建立完整的學生追蹤系統</strong><br><strong>□ 每週數據回顧和分析</strong></div></div>';}
+        function generateScalingWeek2(){return'<div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--secondary);"><strong style="font-size: 1.25rem; color: var(--secondary);">Week 2: 流程自動化</strong><div style="margin-top: 1rem;"><strong>□ 所有訊息使用範本庫</strong><br><strong>□ 固定時間處理固定事項</strong></div></div>';}
+        function generateScalingWeek3(){return'<div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--secondary);"><strong style="font-size: 1.25rem; color: var(--secondary);">Week 3: 內容策略優化</strong><div style="margin-top: 1rem;"><strong>□ 分析哪類內容最有效</strong><br><strong>□ 建立內容日曆</strong></div></div>';}
+        function generateScalingWeek4(){return'<div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--secondary);"><strong style="font-size: 1.25rem; color: var(--secondary);">Week 4: 準備進階</strong><div style="margin-top: 1rem;"><strong>□ 開始看「專業發展指南」</strong><br><strong>□ 選擇一條中階路徑</strong></div></div>';}
+        
         function showToolkit(toolType) {
             const detailsDiv = document.getElementById('toolkitDetails');
             let content = '';
@@ -4599,6 +4709,14 @@
                 content = generateMessagesToolkit();
             } else if (toolType === 'videos') {
                 content = generateVideosToolkit();
+            } else if (toolType === 'firstclass') {
+                content = generateFirstClassToolkit();
+            } else if (toolType === 'tracking') {
+                content = generateTrackingToolkit();
+            } else if (toolType === 'mistakes') {
+                content = generateMistakesToolkit();
+            } else if (toolType === 'development') {
+                content = generateDevelopmentToolkit();
             } else {
                 content = `<div class="info-box warning" style="text-align: center;"><strong>🚧 此工具包內容即將上線...</strong></div>`;
             }
@@ -4794,6 +4912,14 @@ ${content}
                 }, 2000);
             });
         }
+        
+        function generateFirstClassToolkit(){return'<div class="module-card" style="border: 3px solid var(--success);"><h3 style="font-size: 1.75rem; font-weight: 800; color: var(--success); margin-bottom: 1.5rem;">🎯 第一次上課SOP</h3><div class="info-box"><div class="info-box-title">📋 60分鐘完整流程</div><p>讓每個新學生都有一致的優質體驗</p></div><div style="margin-top: 2rem;"><h4 style="font-weight: 700; margin-bottom: 1rem;">⏰ 前5分鐘：建立關係</h4><ul style="margin-left: 2rem; line-height: 2;"><li><strong>自我介紹</strong>（30秒）：我是XX，專長是XX</li><li><strong>詢問目標</strong>：「想變成什麼樣子？」</li><li><strong>詢問經驗</strong>：「之前有運動習慣嗎？」</li><li><strong>說明流程</strong>：今天會做什麼</li></ul></div><div style="margin-top: 2rem;"><h4 style="font-weight: 700; margin-bottom: 1rem;">⏰ 5-15分鐘：暖身評估</h4><ul style="margin-left: 2rem; line-height: 2;"><li>帶5分鐘動態暖身（開合跳、深蹲、弓步）</li><li>觀察動作模式（深蹲、旋轉、弓步）</li><li>評估可能的限制（肩膀緊？髖關節緊？）</li></ul></div><div style="margin-top: 2rem;"><h4 style="font-weight: 700; margin-bottom: 1rem;">⏰ 15-50分鐘：主訓練</h4><ul style="margin-left: 2rem; line-height: 2;"><li>教2-3個基礎動作（例如：深蹲、臥推、划船）</li><li>每個動作先示範、再指導</li><li>多稱讚、少批評</li><li>注意安全第一（重量寧可輕一點）</li></ul></div><div style="margin-top: 2rem;"><h4 style="font-weight: 700; margin-bottom: 1rem;">⏰ 50-55分鐘：收操</h4><ul style="margin-left: 2rem; line-height: 2;"><li>帶5分鐘靜態伸展</li><li>說明明天可能會痠痛（正常的）</li></ul></div><div style="margin-top: 2rem;"><h4 style="font-weight: 700; margin-bottom: 1rem;">⏰ 最後5分鐘：課後總結</h4><ul style="margin-left: 2rem; line-height: 2;"><li>稱讚今天表現</li><li>說明下次重點</li><li>加LINE（方便課後關心）</li><li>「有問題隨時問我！」</li></ul></div><div class="info-box success" style="margin-top: 2rem;"><div class="info-box-title">✅ 課後30分鐘內</div><p>立刻發訊息關心（用範本庫的「第一次上課」範本）</p></div></div>';}
+        
+        function generateTrackingToolkit(){return'<div class="module-card" style="border: 3px solid var(--primary);"><h3 style="font-size: 1.75rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem;">📊 學生追蹤表格</h3><div class="info-box"><div class="info-box-title">📋 為什麼要追蹤數據？</div><p>數據=證據，能證明學生在進步，也能找出問題</p></div><div style="margin-top: 2rem;"><h4 style="font-weight: 700; margin-bottom: 1rem;">📝 追蹤項目清單</h4><div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;"><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><strong>基本資料</strong><ul style="margin-top: 0.5rem; margin-left: 1.5rem;"><li>姓名、年齡、性別</li><li>開始日期</li><li>目標</li></ul></div><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><strong>身體數據</strong><ul style="margin-top: 0.5rem; margin-left: 1.5rem;"><li>體重</li><li>體脂率</li><li>圍度（腰、臀、胸、手臂）</li><li>照片（正面、側面、背面）</li></ul></div><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><strong>訓練數據</strong><ul style="margin-top: 0.5rem; margin-left: 1.5rem;"><li>深蹲重量</li><li>臥推重量</li><li>硬舉重量</li><li>其他主要動作</li></ul></div><div style="padding: 1rem; background: var(--gray-50); border-radius: 8px;"><strong>主觀感受</strong><ul style="margin-top: 0.5rem; margin-left: 1.5rem;"><li>精神狀態</li><li>睡眠品質</li><li>痠痛程度</li><li>動力程度</li></ul></div></div></div><div class="info-box warning" style="margin-top: 2rem;"><div class="info-box-title">💡 使用技巧</div><ul style="margin-left: 2rem; margin-top: 1rem; line-height: 2;"><li>✓ 固定時間更新（例如每週日）</li><li>✓ 至少每月拍一次照片</li><li>✓ 每月給學生看進步數據</li><li>✓ 用Excel或Google Sheets記錄</li></ul></div></div>';}
+        
+        function generateMistakesToolkit(){return'<div class="module-card" style="border: 3px solid var(--danger);"><h3 style="font-size: 1.75rem; font-weight: 800; color: var(--danger); margin-bottom: 1.5rem;">⚠️ 新手常見錯誤 Top 10</h3><div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;"><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤1：只待在教練休息室</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 主動在訓練區走動、觀察、協助會員</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤2：等學生來找你</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 主動打招呼、關心、建立關係</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤3：不好意思拍影片</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 前10支都會爛，繼續拍就會進步</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤4：想等「準備好」才開始</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 開始了才能變好，不是準備好才開始</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤5：只跟自己的學生互動</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 跟所有會員建立關係，擴大你的影響力</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤6：課後不關心</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 課後關心是續約的關鍵，一定要做</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤7：追求完美的課表</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 學生在意的是「你有沒有關心我」</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤8：不敢請教資深教練</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 主動請教、協助，他們會願意教你</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤9：覺得自己不夠專業</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 你已經比90%的會員專業了</p></div><div style="padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--danger);"><strong style="color: var(--danger);">❌ 錯誤10：只想著賺錢</strong><p style="margin-top: 0.5rem;"><strong style="color: var(--success);">✅ 正確做法：</strong> 先累積口碑，錢自然會來</p></div></div></div>';}
+        
+        function generateDevelopmentToolkit(){return'<div class="module-card" style="border: 3px solid var(--warning);"><h3 style="font-size: 1.75rem; font-weight: 800; color: var(--warning); margin-bottom: 1.5rem;">💼 開發學生話術</h3><div style="margin-top: 2rem;"><h4 style="font-weight: 700; margin-bottom: 1rem;">🤝 轉介紹話術</h4><div style="display: flex; flex-direction: column; gap: 1rem;"><div style="padding: 1.5rem; background: white; border-radius: 8px; border-left: 3px solid var(--warning);"><strong>話術1：自然提起</strong><p style="margin-top: 0.5rem;">"XX，你這個月進步真的很明顯！如果你有朋友也想開始訓練，歡迎介紹來找我～我會好好照顧他😊"</p></div><div style="padding: 1.5rem; background: white; border-radius: 8px; border-left: 3px solid var(--warning);"><strong>話術2：詢問身邊的人</strong><p style="margin-top: 0.5rem;">"你身邊有人想開始運動嗎？我最近有空檔可以帶新學生，如果有的話可以介紹給我💪"</p></div><div style="padding: 1.5rem; background: white; border-radius: 8px; border-left: 3px solid var(--warning);"><strong>話術3：提供價值</strong><p style="margin-top: 0.5rem;">"如果你有朋友想開始訓練，可以介紹來找我，我會先幫他做免費體測和動作評估👍"</p></div></div></div><div style="margin-top: 2rem;"><h4 style="font-weight: 700; margin-bottom: 1rem;">👋 陌生開發話術</h4><div style="display: flex; flex-direction: column; gap: 1rem;"><div style="padding: 1.5rem; background: white; border-radius: 8px; border-left: 3px solid var(--success);"><strong>話術1：主動打招呼</strong><p style="margin-top: 0.5rem;">"嗨！我是教練XX，看你練得不錯！如果有任何訓練問題都可以問我😊"</p></div><div style="padding: 1.5rem; background: white; border-radius: 8px; border-left: 3px solid var(--success);"><strong>話術2：提供建議</strong><p style="margin-top: 0.5rem;">"我注意到你深蹲時膝蓋會內夾，這樣容易受傷，要不要我幫你看一下？"</p></div><div style="padding: 1.5rem; background: white; border-radius: 8px; border-left: 3px solid var(--success);"><strong>話術3：建立連結</strong><p style="margin-top: 0.5rem;">"你的訓練目標是什麼？增肌還是減脂？我專長是XX，如果需要幫忙隨時找我！"</p></div></div></div><div class="info-box warning" style="margin-top: 2rem;"><div class="info-box-title">💡 開發技巧</div><ul style="margin-left: 2rem; margin-top: 1rem; line-height: 2;"><li>✓ 主動但不強迫</li><li>✓ 先提供價值再談合作</li><li>✓ 建立信任需要時間</li><li>✓ 被拒絕是正常的，繼續嘗試</li></ul></div></div>';}
 
         // === 專業發展指南功能 ===
         
