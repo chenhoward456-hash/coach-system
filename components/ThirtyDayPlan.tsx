@@ -43,8 +43,51 @@ export default function ThirtyDayPlan({ level }: ThirtyDayPlanProps) {
 
   const progress = totalProgress();
 
+  const getCurrentWeek = () => {
+    // 找出第一個未完成的週
+    for (const week of plan.weeks) {
+      const weekProgress = getWeekProgress(week);
+      if (weekProgress.percentage < 100) {
+        return week;
+      }
+    }
+    return plan.weeks[0]; // 如果都完成了，返回第一週
+  };
+
+  const currentWeek = getCurrentWeek();
+
   return (
     <div className="space-y-6">
+      {/* 本週重點任務 */}
+      <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-2xl p-6 shadow-xl animate-pulse-slow">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="text-4xl">🎯</div>
+          <div>
+            <h3 className="font-outfit text-2xl font-bold">根據你的診斷，這是你本週的重點任務</h3>
+            <p className="text-lg opacity-90">{currentWeek.title}</p>
+          </div>
+        </div>
+        <div className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
+          <p className="text-lg font-semibold mb-3">本週目標：{currentWeek.goal}</p>
+          <div className="space-y-2">
+            {currentWeek.tasks.map((task) => (
+              <div key={task.id} className="flex items-start gap-2">
+                <span className="text-xl">{completedTasks[task.id] ? '✅' : '⬜'}</span>
+                <span className={completedTasks[task.id] ? 'line-through opacity-75' : ''}>
+                  {task.task}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <button
+          onClick={() => setExpandedWeek(currentWeek.week)}
+          className="mt-4 w-full bg-white text-orange-600 font-bold py-3 px-6 rounded-xl hover:shadow-xl transition-all"
+        >
+          👇 展開完整任務清單
+        </button>
+      </div>
+
       {/* 計畫標題 */}
       <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 border-2 border-purple-200">
         <h3 className="font-outfit text-2xl font-bold text-gray-900 mb-3">
