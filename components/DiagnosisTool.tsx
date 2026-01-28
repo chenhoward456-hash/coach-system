@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { storage, DiagnosisData } from '@/lib/localStorage';
 import BackButton from '@/components/BackButton';
+import ThirtyDayPlan from '@/components/ThirtyDayPlan';
 import Toast from '@/components/Toast';
 
 interface DiagnosisResult {
@@ -12,6 +13,7 @@ interface DiagnosisResult {
   solution: string;
   actionSteps: string[];
   activitiesCount: number;
+  coachLevel?: 'beginner' | 'intermediate';
 }
 
 interface DiagnosisToolProps {
@@ -52,6 +54,9 @@ export default function DiagnosisTool({ onBack }: DiagnosisToolProps) {
 
     const activitiesCount = activities.length;
     let diagnosisResult: DiagnosisResult;
+    
+    // 判斷教練等級
+    const coachLevel: 'beginner' | 'intermediate' = activitiesCount < 2 ? 'beginner' : 'intermediate';
 
     switch (mainIssue) {
       case 'lost':
@@ -70,6 +75,7 @@ export default function DiagnosisTool({ onBack }: DiagnosisToolProps) {
             '點擊「成長心法」章節，看完整的迷惘1解方',
           ],
           activitiesCount,
+          coachLevel,
         };
         break;
 
@@ -90,6 +96,7 @@ Done is better than perfect.`,
             '點擊「成長心法」章節，看完整的迷惘2解方',
           ],
           activitiesCount,
+          coachLevel,
         };
         break;
 
@@ -98,18 +105,20 @@ Done is better than perfect.`,
           type: '迷惘 3',
           title: '「我不知道為什麼要做這些事」',
           description: '你在做事，但不理解意義。拍影片覺得沒用、課後關心覺得很假、記錄進步覺得麻煩。因為你不知道「為什麼」。',
-          solution: `拍影片 = 投資未來的自己（專業形象、個人品牌、持續學習）
-課後關心 = 建立信任（續約靠關係不是技術）
-記錄進步 = 做對的事（專業和隨便的差別）
+          solution: `這些事的意義：
+• 拍影片 = 建立專業形象 = 學生信任你 = 續約率提高
+• 課後關心 = 學生感受到被在乎 = 黏著度提高 = 轉介紹增加
+• 記錄進步 = 學生看到成果 = 成就感提升 = 續約意願提高
 
-你不是在「完成 KPI」，你是在「投資未來」。`,
+看到了嗎？每件事都直接影響你的收入。`,
           actionSteps: [
-            '每次做一件事之前，先問「這對我的未來有什麼幫助？」',
-            '如果答不出來，來問 Howard',
+            '選一件你覺得「沒用」的事，連續做7天',
+            '7天後，觀察學生的反應有什麼不同',
+            '你會發現：原來真的有用',
             '點擊「成長心法」章節，看完整的迷惘3解方',
-            '重新思考你做這些事的意義',
           ],
           activitiesCount,
+          coachLevel,
         };
         break;
 
@@ -117,21 +126,21 @@ Done is better than perfect.`,
         diagnosisResult = {
           type: '迷惘 4',
           title: '「我做了很多，但沒看到結果」',
-          description: `你已經努力了${activitiesCount > 0 ? activitiesCount + '項活動' : '一段時間'}，但續約率還是低、會員還是流失。你開始懷疑「是不是我不適合」。`,
-          solution: `成長不是線性的，是指數型的。
+          description: '你很努力，但學生數沒增加、續約率沒提高、收入沒成長。你開始懷疑：是不是我不適合當教練？',
+          solution: `問題可能不是「做不夠」，而是「做錯方向」。
 
-前3個月看起來沒用，但其實是在「累積」。第4-6個月會突然爆發，因為「信任到了臨界點」。
-
-Howard 的HTR：前6個月只有3個客戶，第7個月來了15個。
-
-堅持，就是在等那個臨界點。`,
+檢查這3件事：
+1. 你的影片有人看嗎？（如果沒人看，代表內容不對）
+2. 你的學生有進步嗎？（如果沒進步，代表訓練不對）
+3. 你有主動開發嗎？（如果只等公司給，當然不會成長）`,
           actionSteps: [
-            '給自己至少6個月，不要1-2個月沒效果就放棄',
-            '記錄過程，每週寫下你做了什麼',
-            '慶祝小進步：續約率從18%→20%也是進步！',
+            '這週找 Howard 做一次「數據健檢」',
+            '找出你最弱的一環，集中火力改善',
+            '設定一個「30天小目標」，專注達成',
             '點擊「成長心法」章節，看完整的迷惘4解方',
           ],
           activitiesCount,
+          coachLevel,
         };
         break;
 
@@ -139,47 +148,37 @@ Howard 的HTR：前6個月只有3個客戶，第7個月來了15個。
         diagnosisResult = {
           type: '迷惘 5',
           title: '「我沒有動力了」',
-          description: '你覺得無聊、不想做事、開始擺爛。這通常是因為：忘記為什麼開始、沒看到進步、一直在舒適圈、或孤軍奮戰。',
-          solution: `可能的原因：
-• 忘記為什麼開始 → 重新思考你的北極星
-• 沒看到進步 → 做成長紀錄（3個月前 vs 現在）
-• 一直在舒適圈 → 給自己一個挑戰
-• 孤軍奮戰 → 找同行夥伴一起努力
+          description: '你累了。一開始很有熱情，但現在每天都在重複一樣的事，感覺不到成長，也看不到未來。',
+          solution: `這是正常的。每個人都會經歷這個階段。
 
-如果真的累了，休息1週也沒關係。但要設定「回來的日期」。`,
+但你要知道：動力不是「等」來的，是「做」出來的。
+
+小勝利 → 成就感 → 動力 → 更大的勝利`,
           actionSteps: [
-            '誠實面對：我為什麼沒動力？（寫下來）',
-            '根據原因，選擇對應的解方',
-            '找一個人聊聊（Howard、前輩、同事）',
+            '設定一個「這週一定能達成」的小目標',
+            '達成後，給自己一個獎勵',
+            '找回「小勝利」的感覺',
             '點擊「成長心法」章節，看完整的迷惘5解方',
           ],
           activitiesCount,
-        };
-        break;
-
-      case 'ok':
-        diagnosisResult = {
-          type: '狀態良好',
-          title: '「你的狀態不錯！」',
-          description: '看起來你目前沒有太大的問題，只是想測試這個工具。這很好！代表你有自我覺察的能力。',
-          solution: `你目前正在做的${activitiesCount}項活動很棒！繼續保持！
-
-即使狀態好，也要記得：
-• 持續自我檢視，不要鬆懈
-• 幫助狀態不好的同事
-• 設定更高的目標，挑戰自己`,
-          actionSteps: [
-            '檢查「每週任務」，確保自己都有做到',
-            '設定一個3個月的挑戰目標',
-            '分享你的經驗給其他教練',
-            '繼續保持，你做得很好！',
-          ],
-          activitiesCount,
+          coachLevel,
         };
         break;
 
       default:
-        return;
+        diagnosisResult = {
+          type: '狀態良好',
+          title: '你的狀態不錯！',
+          description: '看起來你沒有明顯的問題，只是想測試一下系統。很好！保持這個狀態。',
+          solution: '繼續保持現在的習慣，定期檢視自己的進度。',
+          actionSteps: [
+            '每週檢視一次「每週清單」',
+            '每月做一次「自我評分」',
+            '持續學習，不要停下來',
+          ],
+          activitiesCount,
+          coachLevel,
+        };
     }
 
     setResult(diagnosisResult);
@@ -188,11 +187,15 @@ Howard 的HTR：前6個月只有3個客戶，第7個月來了15個。
       mainIssue,
       activities,
       timeCommitment,
-      result: JSON.stringify(diagnosisResult),
+      result: diagnosisResult.type,
       timestamp: new Date().toISOString(),
     };
     storage.saveDiagnosis(diagnosisData);
     setShowToast(true);
+
+    setTimeout(() => {
+      document.getElementById('diagnosis-result')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   const copyDiagnosis = () => {
@@ -303,18 +306,17 @@ ${result.activitiesCount < 2 ? `⚠️ 額外發現：
 
           <div>
             <h3 className="font-bold text-xl mb-4 text-gray-900">
-              3. 你每週願意投入多少時間在「成長」上？
+              3. 你每週願意投入多少時間？
             </h3>
             <div className="space-y-3">
               {[
-                { value: 'none', label: '我沒時間（<1小時）' },
-                { value: 'little', label: '一點點（1-3小時）' },
-                { value: 'moderate', label: '還可以（3-5小時）' },
-                { value: 'much', label: '很多（5小時以上）' },
+                { value: 'low', label: '< 5 小時（我很忙）' },
+                { value: 'medium', label: '5-10 小時（正常範圍）' },
+                { value: 'high', label: '> 10 小時（我全力以赴）' },
               ].map((option) => (
                 <label
                   key={option.value}
-                  className="flex items-center gap-3 p-4 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors border-2 border-transparent has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50"
+                  className="flex items-center gap-3 p-4 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors border-2 border-transparent has-[:checked]:border-warning has-[:checked]:bg-yellow-50"
                 >
                   <input
                     type="radio"
@@ -322,30 +324,29 @@ ${result.activitiesCount < 2 ? `⚠️ 額外發現：
                     value={option.value}
                     checked={timeCommitment === option.value}
                     onChange={(e) => setTimeCommitment(e.target.value)}
-                    className="w-5 h-5 text-purple-600 focus:ring-purple-500"
+                    className="w-5 h-5 text-warning focus:ring-warning"
                   />
                   <span className="text-gray-700 font-medium">{option.label}</span>
                 </label>
               ))}
             </div>
           </div>
-        </div>
 
-        <button
-          onClick={diagnose}
-          className="w-full mt-8 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold py-4 px-8 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-lg"
-        >
-          🔍 開始診斷
-        </button>
+          <button
+            onClick={diagnose}
+            className="w-full bg-gradient-to-r from-primary to-blue-600 text-white font-bold py-4 px-8 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-lg"
+          >
+            🔍 開始診斷
+          </button>
+        </div>
       </div>
 
       {result && (
-        <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-purple-500/20 animate-fade-in">
-          <div className="text-center mb-6">
-            <div className="text-5xl font-extrabold text-warning mb-2">
-              {result.type}
-            </div>
-            <div className="text-2xl font-bold text-gray-900">
+        <div id="diagnosis-result" className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg border-2 border-purple-200 mb-8 animate-fade-in">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="text-5xl">🎯</div>
+            <div>
+              <div className="text-sm font-semibold text-purple-600 mb-1">{result.type}</div>
               {result.title}
             </div>
           </div>
@@ -372,31 +373,46 @@ ${result.activitiesCount < 2 ? `⚠️ 額外發現：
           </div>
 
           {result.activitiesCount < 2 && (
-            <div className="bg-yellow-50 rounded-xl p-6 border-l-4 border-warning mb-6">
+            <div className="bg-red-50 rounded-xl p-6 border-l-4 border-danger mb-6">
               <h4 className="font-bold text-xl mb-3">⚠️ 額外發現</h4>
               <p className="text-gray-700">
                 你目前只在做 {result.activitiesCount} 項活動。4大領先指標都要做，才能提高續約率！
               </p>
               <p className="text-gray-700 mt-2">
-                <strong>建議：</strong>去「每週清單」看看還有哪些事情要做。
+                <strong>建議：</strong>看下面的 30 天計畫，跟著做就對了。
               </p>
             </div>
           )}
 
           <button
             onClick={copyDiagnosis}
-            className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-8 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-lg"
+            className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-8 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-lg mb-8"
           >
             📋 一鍵複製診斷報告
           </button>
+
+          {/* 30 天計畫 */}
+          {result.coachLevel && (
+            <div className="mt-8">
+              <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl p-6 mb-6">
+                <h3 className="font-outfit text-2xl font-bold mb-2">
+                  🎯 根據你的狀況，這是你的 30 天行動計畫
+                </h3>
+                <p className="text-lg opacity-90">
+                  {result.coachLevel === 'beginner' 
+                    ? '你目前是新手階段，跟著這個計畫走，30天後你會有明顯進步！' 
+                    : '你已經有基礎了，這個計畫會幫你建立完整系統！'}
+                </p>
+              </div>
+              <ThirtyDayPlan level={result.coachLevel} />
+            </div>
+          )}
         </div>
       )}
 
-      {/* Toast Notification */}
       {showToast && (
         <Toast
           message="診斷已保存"
-          type="success"
           onClose={() => setShowToast(false)}
         />
       )}

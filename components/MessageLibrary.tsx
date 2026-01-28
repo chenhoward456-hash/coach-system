@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { messageTemplates, messageTemplatesByCategory, templateVariables } from '@/data/messageTemplates';
+import { enhancedMessageTemplates, templateCategories, getTemplatesByCategory } from '@/data/enhancedMessageTemplates';
 import BackButton from '@/components/BackButton';
 
 interface MessageLibraryProps {
@@ -9,16 +9,11 @@ interface MessageLibraryProps {
 }
 
 export default function MessageLibrary({ onBack }: MessageLibraryProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>('基礎關心');
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const filteredTemplates = messageTemplates.filter(template => {
-    if (selectedCategory && template.category !== selectedCategory) return false;
-    return true;
-  });
-
-  const categories = ['第一次上課', '課後關心', '進步鼓勵', '停滯期', '受傷關心', '續約提醒', '轉介紹'];
+  const filteredTemplates = getTemplatesByCategory(selectedCategory);
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -26,61 +21,57 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
+  const highlightVariables = (text: string) => {
+    return text.split(/(\{[^}]+\})/g).map((part, idx) => {
+      if (part.match(/\{[^}]+\}/)) {
+        return (
+          <span key={idx} className="font-bold text-primary bg-blue-100 px-1 rounded">
+            {part}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <div className="animate-fade-in">
       {onBack && <BackButton onBack={onBack} />}
       
       <h2 className="font-outfit text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
-        💬 訊息範本庫
+        💬 懶人複製工具箱
       </h2>
       <p className="text-xl text-gray-600 mb-8 font-medium">
-        21 個訊息範本，複製貼上就能用
+        一鍵複製，修改變數就能用
       </p>
 
       <div className="bg-green-50 rounded-2xl p-6 mb-8 border-l-4 border-success">
         <h3 className="font-outfit text-2xl font-bold mb-3">💡 使用說明</h3>
         <ul className="space-y-2 text-gray-700">
-          <li>• 每個範本都有可替換的變數（例如：{'{name}'}、{'{achievement}'}）</li>
-          <li>• 複製後記得替換成實際內容</li>
+          <li>• 點擊「📋 複製」按鈕，自動複製到剪貼簿</li>
+          <li>• <span className="font-bold text-primary bg-blue-100 px-1 rounded">{'{藍色變數}'}</span> 記得替換成實際內容</li>
           <li>• 加入你的個人風格，不要太制式</li>
-          <li>• 真誠最重要，不要只是複製貼上</li>
+          <li>• 真誠最重要！</li>
         </ul>
       </div>
 
-      {/* 變數說明 */}
-      <div className="bg-blue-50 rounded-2xl p-6 mb-8 border-l-4 border-primary">
-        <h3 className="font-outfit text-2xl font-bold mb-3">📝 常用變數</h3>
-        <div className="grid md:grid-cols-3 gap-3">
-          {Object.entries(templateVariables).slice(0, 9).map(([key, value]) => (
-            <div key={key} className="bg-white p-3 rounded-lg">
-              <code className="text-primary font-bold">{key}</code>
-              <div className="text-sm text-gray-600 mt-1">{value}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 類別篩選 */}
+      {/* 分類 Tab */}
       <div className="mb-8">
-        <h3 className="font-bold mb-3">📂 按情境篩選</h3>
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setSelectedCategory(null)}
-            className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-              selectedCategory === null ? 'bg-primary text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            全部 ({messageTemplates.length})
-          </button>
-          {categories.map(cat => (
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {templateCategories.map(cat => (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-                selectedCategory === cat ? 'bg-primary text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              onClick={() => {
+                setSelectedCategory(cat);
+                setExpandedId(null);
+              }}
+              className={`px-6 py-3 rounded-xl font-bold whitespace-nowrap transition-all ${
+                selectedCategory === cat
+                  ? 'bg-primary text-white shadow-lg scale-105'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
-              {cat} ({messageTemplatesByCategory[cat as keyof typeof messageTemplatesByCategory].length})
+              {cat} ({getTemplatesByCategory(cat).length})
             </button>
           ))}
         </div>
@@ -99,15 +90,13 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="px-3 py-1 rounded-full text-sm font-bold bg-purple-100 text-purple-700">
+                  <h3 className="font-bold text-xl text-gray-900 mb-2">{template.title}</h3>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-semibold">
                       {template.category}
                     </span>
-                    <span className="px-3 py-1 rounded-full text-sm font-bold bg-blue-100 text-blue-700">
-                      {template.whenToUse}
-                    </span>
+                    <span>⏰ {template.whenToUse}</span>
                   </div>
-                  <h3 className="font-bold text-xl text-gray-900">{template.situation}</h3>
                 </div>
                 <div className="text-2xl ml-4">
                   {expandedId === template.id ? '▼' : '▶'}
@@ -118,25 +107,44 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
             {expandedId === template.id && (
               <div className="p-6 pt-0 border-t-2 border-gray-100 animate-fade-in">
                 <div className="space-y-4">
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-bold text-primary">📱 訊息範本</h4>
+                  {/* 範本內容 */}
+                  <div className="bg-gray-50 p-6 rounded-lg border-2 border-gray-200">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="font-bold text-primary text-lg">📱 訊息範本</h4>
                       <button
                         onClick={() => copyToClipboard(template.template, template.id)}
-                        className={`px-4 py-2 rounded-lg font-semibold transition-all ${
+                        className={`px-6 py-3 rounded-xl font-bold transition-all transform hover:scale-105 ${
                           copiedId === template.id
-                            ? 'bg-success text-white'
-                            : 'bg-primary text-white hover:shadow-lg'
+                            ? 'bg-success text-white shadow-lg'
+                            : 'bg-primary text-white hover:shadow-xl'
                         }`}
                       >
-                        {copiedId === template.id ? '✓ 已複製' : '📋 複製範本'}
+                        {copiedId === template.id ? '✓ 已複製！' : '📋 複製範本'}
                       </button>
                     </div>
-                    <pre className="whitespace-pre-wrap text-gray-700 leading-relaxed font-sans bg-white p-4 rounded border-2 border-gray-200">
-                      {template.template}
-                    </pre>
+                    <div className="bg-white p-4 rounded border-2 border-gray-300 whitespace-pre-wrap text-gray-800 leading-relaxed">
+                      {highlightVariables(template.template)}
+                    </div>
                   </div>
 
+                  {/* 變數說明 */}
+                  {template.variables.length > 0 && (
+                    <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-primary">
+                      <h4 className="font-bold mb-2 text-primary">📝 需要替換的變數</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {template.variables.map((variable, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 bg-white rounded-lg border-2 border-primary text-primary font-bold text-sm"
+                          >
+                            {variable}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 使用技巧 */}
                   <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-warning">
                     <h4 className="font-bold mb-2 text-warning">💡 使用技巧</h4>
                     <ul className="space-y-1 text-gray-700">
@@ -144,11 +152,6 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
                         <li key={idx}>• {tip}</li>
                       ))}
                     </ul>
-                  </div>
-
-                  <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-primary">
-                    <h4 className="font-bold mb-2 text-primary">⏰ 何時使用</h4>
-                    <p className="text-gray-700">{template.whenToUse}</p>
                   </div>
                 </div>
               </div>
@@ -167,23 +170,13 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
       {/* 統計 */}
       <div className="mt-8 bg-gradient-to-r from-gray-800 to-gray-700 text-white rounded-2xl p-6">
         <h3 className="font-outfit text-2xl font-bold mb-4">📊 範本統計</h3>
-        <div className="grid md:grid-cols-4 gap-6">
-          <div>
-            <div className="text-gray-300 mb-1">總範本數</div>
-            <div className="text-4xl font-bold">{messageTemplates.length}</div>
-          </div>
-          <div>
-            <div className="text-gray-300 mb-1">課後關心</div>
-            <div className="text-4xl font-bold text-success">{messageTemplatesByCategory['課後關心'].length}</div>
-          </div>
-          <div>
-            <div className="text-gray-300 mb-1">續約提醒</div>
-            <div className="text-4xl font-bold text-warning">{messageTemplatesByCategory['續約提醒'].length}</div>
-          </div>
-          <div>
-            <div className="text-gray-300 mb-1">轉介紹</div>
-            <div className="text-4xl font-bold text-primary">{messageTemplatesByCategory['轉介紹'].length}</div>
-          </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {templateCategories.map(cat => (
+            <div key={cat}>
+              <div className="text-gray-300 mb-1">{cat}</div>
+              <div className="text-4xl font-bold text-success">{getTemplatesByCategory(cat).length}</div>
+            </div>
+          ))}
         </div>
         <p className="mt-4 text-gray-300">
           💡 建議：每週至少使用 2 次課後關心範本
