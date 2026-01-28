@@ -1,0 +1,373 @@
+'use client';
+
+import { useState } from 'react';
+import BackButton from '@/components/BackButton';
+
+interface ResourcesSectionProps {
+  onBack?: () => void;
+}
+
+export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
+  const [activeLevel, setActiveLevel] = useState<'beginner' | 'intermediate' | 'advanced' | null>('beginner');
+
+  return (
+    <div className="animate-fade-in">
+      {onBack && <BackButton onBack={onBack} />}
+      
+      <h2 className="font-outfit text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
+        學習資源庫
+      </h2>
+      <p className="text-xl text-gray-600 mb-8 font-medium">
+        Howard 精選：從新手到資深的完整學習路徑
+      </p>
+
+      <div className="bg-blue-50 rounded-2xl p-6 mb-8 border-l-4 border-primary">
+        <h3 className="font-outfit text-2xl font-bold mb-3">📚 這個資源庫是什麼？</h3>
+        <p className="text-gray-700 mb-2">
+          這是 Howard 這些年看過、學過、覺得真正有用的資源。
+        </p>
+        <p className="text-gray-700 mb-4">
+          不是全部都要看，而是<strong>「根據你的等級，選擇適合你的」</strong>。
+        </p>
+        <p className="text-gray-700 mb-2"><strong>使用方式：</strong></p>
+        <ol className="space-y-1 list-decimal list-inside text-gray-700 ml-4">
+          <li>先看「你是什麼等級」</li>
+          <li>看該等級推薦的書/頻道</li>
+          <li>不要一次看太多，專注1-2個就好</li>
+          <li>有問題隨時問 Howard</li>
+        </ol>
+      </div>
+
+      <h3 className="font-outfit text-3xl font-bold mb-6 mt-12">你是什麼等級？</h3>
+
+      <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <button
+          onClick={() => setActiveLevel('beginner')}
+          className={`p-8 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1 ${
+            activeLevel === 'beginner'
+              ? 'bg-green-50 border-green-500 shadow-lg'
+              : 'bg-white border-gray-200'
+          }`}
+        >
+          <div className="text-6xl mb-4">🌱</div>
+          <div className="font-outfit text-2xl font-bold text-gray-900 mb-2">新手教練</div>
+          <div className="text-gray-600">0-6個月</div>
+        </button>
+
+        <button
+          onClick={() => setActiveLevel('intermediate')}
+          className={`p-8 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1 ${
+            activeLevel === 'intermediate'
+              ? 'bg-blue-50 border-blue-500 shadow-lg'
+              : 'bg-white border-gray-200'
+          }`}
+        >
+          <div className="text-6xl mb-4">💪</div>
+          <div className="font-outfit text-2xl font-bold text-gray-900 mb-2">中手教練</div>
+          <div className="text-gray-600">6個月-2年</div>
+        </button>
+
+        <button
+          onClick={() => setActiveLevel('advanced')}
+          className={`p-8 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1 ${
+            activeLevel === 'advanced'
+              ? 'bg-purple-50 border-purple-500 shadow-lg'
+              : 'bg-white border-gray-200'
+          }`}
+        >
+          <div className="text-6xl mb-4">🏆</div>
+          <div className="font-outfit text-2xl font-bold text-gray-900 mb-2">資深教練</div>
+          <div className="text-gray-600">2年以上</div>
+        </button>
+      </div>
+
+      {/* 新手教練資源 */}
+      {activeLevel === 'beginner' && (
+        <div className="animate-fade-in space-y-6">
+          <h3 className="font-outfit text-3xl font-extrabold text-success mb-6">
+            🌱 新手教練（0-6個月）
+          </h3>
+
+          <div className="bg-green-50 rounded-2xl p-6 border-l-4 border-success mb-8">
+            <h4 className="font-bold text-xl mb-3">🎯 學習重點</h4>
+            <p className="text-gray-700 mb-2">
+              <strong>這個階段你要：</strong>建立基礎、不要貪多、先求穩再求好
+            </p>
+            <p className="text-gray-700">
+              不要一次看太多書，先把1-2本看熟比較重要。
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-green-500 to-blue-600 text-white rounded-2xl p-8 mb-8">
+            <h4 className="font-outfit text-2xl font-bold mb-4">⭐ 新手必讀 3 本（先看這些！）</h4>
+            <p className="mb-4 leading-relaxed">
+              <strong>不要一次看太多！</strong>先把這3本看懂、做到，比看10本只記住10%有用。
+            </p>
+            <ul className="space-y-2 text-lg">
+              <li>✓ 麥克波羅伊功能性訓練聖經</li>
+              <li>✓ 怪獸肌力及體能訓練手冊</li>
+              <li>✓ 原子習慣</li>
+            </ul>
+            <p className="mt-4 text-sm opacity-90">
+              看完這3本後，再看下方的其他推薦書籍。
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <h4 className="font-outfit text-xl font-bold mb-4">📚 必讀書籍（3本）</h4>
+            <div className="space-y-6">
+              <div className="border-l-4 border-primary pl-4">
+                <h5 className="font-bold text-lg text-gray-900 mb-2">
+                  1️⃣ 麥克波羅伊功能性訓練聖經
+                </h5>
+                <p className="text-gray-700 mb-2">
+                  <strong>為什麼要看：</strong>這是功能性訓練的基礎，教你「為什麼這樣練」而不只是「怎麼練」
+                </p>
+                <p className="text-gray-700 mb-2">
+                  <strong>重點章節：</strong>動作篩檢、訓練計畫設計、週期化訓練
+                </p>
+                <p className="text-success font-bold">
+                  ⏱️ 預計時間：2-3週（每天30分鐘）
+                </p>
+              </div>
+
+              <div className="border-l-4 border-primary pl-4">
+                <h5 className="font-bold text-lg text-gray-900 mb-2">
+                  2️⃣ 怪獸肌力及體能訓練手冊
+                </h5>
+                <p className="text-gray-700 mb-2">
+                  <strong>為什麼要看：</strong>台灣本土教練寫的，更貼近我們的訓練環境
+                </p>
+                <p className="text-gray-700 mb-2">
+                  <strong>重點章節：</strong>基礎動作模式、訓練原則、常見錯誤
+                </p>
+                <p className="text-success font-bold">
+                  ⏱️ 預計時間：2週（每天30分鐘）
+                </p>
+              </div>
+
+              <div className="border-l-4 border-primary pl-4">
+                <h5 className="font-bold text-lg text-gray-900 mb-2">
+                  3️⃣ 原子習慣
+                </h5>
+                <p className="text-gray-700 mb-2">
+                  <strong>為什麼要看：</strong>教你如何建立持續學習的習慣，這比技術更重要
+                </p>
+                <p className="text-gray-700 mb-2">
+                  <strong>重點章節：</strong>1%法則、習慣堆疊、環境設計
+                </p>
+                <p className="text-success font-bold">
+                  ⏱️ 預計時間：1週（很好讀）
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <h4 className="font-outfit text-xl font-bold mb-4">🎥 推薦 YouTube 頻道（3個）</h4>
+            <div className="space-y-4">
+              <div className="p-4 bg-gray-50 rounded-xl">
+                <h5 className="font-bold text-gray-900 mb-2">1️⃣ 怪獸肌力及體能訓練中心</h5>
+                <p className="text-gray-700 text-sm">
+                  台灣最專業的肌力訓練頻道，有很多實用的教學影片
+                </p>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-xl">
+                <h5 className="font-bold text-gray-900 mb-2">2️⃣ Squat University</h5>
+                <p className="text-gray-700 text-sm">
+                  動作分析和矯正的專家，影片簡短易懂
+                </p>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-xl">
+                <h5 className="font-bold text-gray-900 mb-2">3️⃣ Jeff Nippard</h5>
+                <p className="text-gray-700 text-sm">
+                  科學化訓練，有很多研究支持的內容
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-yellow-50 rounded-2xl p-6 border-l-4 border-warning">
+            <h4 className="font-bold text-xl mb-3">⚠️ 新手最容易犯的錯</h4>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="text-warning font-bold">•</span>
+                <span><strong>一次看太多書</strong> → 結果什麼都記不住</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-warning font-bold">•</span>
+                <span><strong>只看不做</strong> → 看了10本書，但從來不實踐</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-warning font-bold">•</span>
+                <span><strong>追求高深理論</strong> → 基礎都還沒穩，就想學進階技巧</span>
+              </li>
+            </ul>
+            <p className="text-gray-900 font-bold mt-4">
+              記住：看1本做到100%，比看10本做到10%有用100倍。
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* 中手教練資源 */}
+      {activeLevel === 'intermediate' && (
+        <div className="animate-fade-in space-y-6">
+          <h3 className="font-outfit text-3xl font-extrabold text-blue-600 mb-6">
+            💪 中手教練（6個月-2年）
+          </h3>
+
+          <div className="bg-blue-50 rounded-2xl p-6 border-l-4 border-blue-600 mb-8">
+            <h4 className="font-bold text-xl mb-3">🎯 學習重點</h4>
+            <p className="text-gray-700 mb-2">
+              <strong>這個階段你要：</strong>深化專業、建立個人風格、開始做品牌
+            </p>
+            <p className="text-gray-700">
+              你已經有基礎了，現在要找到「你的特色」。
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <h4 className="font-outfit text-xl font-bold mb-4">📚 進階書籍（5本）</h4>
+            <div className="space-y-4">
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h5 className="font-bold text-lg text-gray-900">1️⃣ 運動改造大腦</h5>
+                <p className="text-gray-700 text-sm">了解運動對大腦的影響，提升你的專業深度</p>
+              </div>
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h5 className="font-bold text-lg text-gray-900">2️⃣ 疼痛修復科學</h5>
+                <p className="text-gray-700 text-sm">學會處理會員的疼痛問題，這是續約關鍵</p>
+              </div>
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h5 className="font-bold text-lg text-gray-900">3️⃣ 影響力</h5>
+                <p className="text-gray-700 text-sm">學習如何影響會員，讓他們願意跟著你</p>
+              </div>
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h5 className="font-bold text-lg text-gray-900">4️⃣ 刻意練習</h5>
+                <p className="text-gray-700 text-sm">如何持續進步，突破平台期</p>
+              </div>
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h5 className="font-bold text-lg text-gray-900">5️⃣ 一人公司</h5>
+                <p className="text-gray-700 text-sm">開始思考個人品牌和未來發展</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <h4 className="font-outfit text-xl font-bold mb-4">🎓 進修課程建議</h4>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">•</span>
+                <span>考取 NSCA-CPT 或 ACE-CPT 證照</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">•</span>
+                <span>參加動作評估工作坊（FMS、SFMA）</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">•</span>
+                <span>學習特殊族群訓練（孕婦、銀髮族、運動員）</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {/* 資深教練資源 */}
+      {activeLevel === 'advanced' && (
+        <div className="animate-fade-in space-y-6">
+          <h3 className="font-outfit text-3xl font-extrabold text-purple-600 mb-6">
+            🏆 資深教練（2年以上）
+          </h3>
+
+          <div className="bg-purple-50 rounded-2xl p-6 border-l-4 border-purple-600 mb-8">
+            <h4 className="font-bold text-xl mb-3">🎯 學習重點</h4>
+            <p className="text-gray-700 mb-2">
+              <strong>這個階段你要：</strong>建立系統、培養新人、思考商業模式
+            </p>
+            <p className="text-gray-700">
+              你已經是專家了，現在要思考「如何放大影響力」。
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <h4 className="font-outfit text-xl font-bold mb-4">📚 商業思維書籍</h4>
+            <div className="space-y-4">
+              <div className="border-l-4 border-purple-600 pl-4">
+                <h5 className="font-bold text-lg text-gray-900">1️⃣ 從 A 到 A+</h5>
+                <p className="text-gray-700 text-sm">如何從優秀到卓越</p>
+              </div>
+              <div className="border-l-4 border-purple-600 pl-4">
+                <h5 className="font-bold text-lg text-gray-900">2️⃣ 精實創業</h5>
+                <p className="text-gray-700 text-sm">如果你想開自己的工作室</p>
+              </div>
+              <div className="border-l-4 border-purple-600 pl-4">
+                <h5 className="font-bold text-lg text-gray-900">3️⃣ 給予</h5>
+                <p className="text-gray-700 text-sm">建立長期影響力的關鍵</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <h4 className="font-outfit text-xl font-bold mb-4">🎯 下一步發展</h4>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 font-bold">•</span>
+                <span>開始培養新手教練，建立你的教練團隊</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 font-bold">•</span>
+                <span>建立線上課程或內容平台</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 font-bold">•</span>
+                <span>思考開設自己的訓練工作室</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-600 font-bold">•</span>
+                <span>成為講師，分享你的經驗</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {!activeLevel && (
+        <div className="text-center py-12 text-gray-500">
+          👆 點擊上方按鈕切換不同等級的學習資源
+        </div>
+      )}
+
+      {/* Howard 的建議 */}
+      <div className="bg-gradient-to-br from-gray-800 to-gray-700 text-white rounded-2xl p-8 mt-12">
+        <h3 className="font-outfit text-2xl font-bold mb-4">💡 Howard 的使用建議</h3>
+        <div className="space-y-3 leading-relaxed">
+          <p><strong className="text-warning">重要提醒：</strong></p>
+          <ol className="space-y-2 list-decimal list-inside ml-4">
+            <li>根據你的等級，選1-2個資源</li>
+            <li>深入學習，不要只是「看過」</li>
+            <li>立刻實踐在會員身上</li>
+            <li>做筆記、整理、內化成自己的東西</li>
+          </ol>
+          <p className="text-success font-bold text-xl mt-6">
+            看1本書做到100%，比看10本書做到10%有用100倍。
+          </p>
+          <p className="mt-4">
+            如果你不知道該看什麼，來問我。我會根據你的狀況，給你最適合的建議。
+          </p>
+        </div>
+      </div>
+
+      <div className="bg-yellow-50 rounded-2xl p-6 mt-8 border-l-4 border-warning">
+        <h4 className="font-bold text-xl mb-3">📝 持續更新</h4>
+        <p className="text-gray-700 mb-2">這個資源庫會持續更新！</p>
+        <p className="text-gray-700 mb-2">
+          Howard 每看到好的書、頻道、課程，就會加進來。
+        </p>
+        <p className="text-gray-700">
+          <strong>你也可以推薦！</strong>如果你看到好的資源，告訴 Howard，我們一起把這個資源庫做得更好！
+        </p>
+      </div>
+    </div>
+  );
+}
