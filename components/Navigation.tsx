@@ -11,7 +11,7 @@ const navItems = [
   { id: 'home', label: '🏠 首頁' },
   { id: 'diagnosis', label: '🆘 狀態診斷' },
   { id: 'videos', label: '🎬 影片主題庫' },
-  { id: 'messages', label: '💬 訊息範本' },
+  { id: 'messages', label: '� 救命錦囊' },
   { id: 'resources', label: '📚 學習資源' },
   { id: 'mindset', label: '� 成長心法' },
 ];

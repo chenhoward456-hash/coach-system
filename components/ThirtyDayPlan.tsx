@@ -58,6 +58,16 @@ export default function ThirtyDayPlan({ level }: ThirtyDayPlanProps) {
 
   return (
     <div className="space-y-6">
+      {/* 鼓勵文案 */}
+      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-xl p-5 text-center">
+        <p className="text-lg font-semibold">
+          💪 這不是考核，而是幫你快速上手的捷徑
+        </p>
+        <p className="text-sm mt-2 opacity-90">
+          迷惘時，跟著做就好。每完成一項，你就離目標更近一步。
+        </p>
+      </div>
+
       {/* 本週重點任務 */}
       <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-2xl p-6 shadow-xl animate-pulse-slow">
         <div className="flex items-center gap-3 mb-4">

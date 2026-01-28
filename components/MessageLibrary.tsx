@@ -37,22 +37,18 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
   return (
     <div className="animate-fade-in">
       {onBack && <BackButton onBack={onBack} />}
-      
-      <h2 className="font-outfit text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
-        💬 懶人複製工具箱
-      </h2>
-      <p className="text-xl text-gray-600 mb-8 font-medium">
-        一鍵複製，修改變數就能用
-      </p>
-
-      <div className="bg-green-50 rounded-2xl p-6 mb-8 border-l-4 border-success">
-        <h3 className="font-outfit text-2xl font-bold mb-3">💡 使用說明</h3>
-        <ul className="space-y-2 text-gray-700">
-          <li>• 點擊「📋 複製」按鈕，自動複製到剪貼簿</li>
-          <li>• <span className="font-bold text-primary bg-blue-100 px-1 rounded">{'{藍色變數}'}</span> 記得替換成實際內容</li>
-          <li>• 加入你的個人風格，不要太制式</li>
-          <li>• 真誠最重要！</li>
-        </ul>
+      <div className="mb-8">
+        <h2 className="font-outfit text-3xl font-bold text-gray-900 mb-3">
+          � 救命錦囊
+        </h2>
+        <p className="text-gray-600 text-lg">
+          不知道怎麼說？尷尬時拿出來用。一鍵複製，改個名字就能發送。
+        </p>
+        <div className="mt-3 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+          <p className="text-blue-800 text-sm">
+            � <strong>使用技巧：</strong>這些不是要你背起來，而是讓你在不知道怎麼說的時候有個參考。複製後記得改成你自己的語氣，真誠最重要。
+          </p>
+        </div>
       </div>
 
       {/* 分類 Tab */}

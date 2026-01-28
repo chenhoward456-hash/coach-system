@@ -23,8 +23,8 @@ export interface ThirtyDayPlan {
 export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
   beginner: {
     level: 'beginner',
-    title: '🌱 新手養成 - 完整30天計畫',
-    description: '從零開始，建立基礎習慣',
+    title: '🌱 新手成長地圖 - 30天解鎖計畫',
+    description: '這不是考核，而是幫你快速上手的捷徑。迷惘時，跟著做就好。',
     endGoal: [
       '✓ 每週穩定產出1支影片',
       '✓ 課後關心覆蓋率100%',
@@ -35,89 +35,89 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
     weeks: [
       {
         week: 1,
-        title: 'Week 1: 建立基礎習慣',
-        goal: '開始做，不要想太多',
+        title: '第一週：解鎖基礎技能',
+        goal: '先開始，完美可以慢慢來',
         tasks: [
           {
             id: 'w1-1',
             task: '拍1支影片（任何主題都好）',
-            description: '不用完美，先開始。可以從「深蹲常見錯誤」開始'
+            description: '💡 為什麼：建立專業形象，學生會更信任你。不用完美，先開始就贏了一半。'
           },
           {
             id: 'w1-2',
             task: '課後24小時內關心每位學生',
-            description: '簡單問候就好：「今天練得如何？有哪裡特別痠嗎？」'
+            description: '💡 為什麼：學生會感受到被在乎，續約率直接提升。簡單問候就好，不用長篇大論。'
           },
           {
             id: 'w1-3',
             task: '建立學生名單（Excel或筆記本）',
-            description: '記錄：姓名、上課時間、目標、特殊狀況'
+            description: '💡 為什麼：記不住學生的事會很尷尬。有名單，你就是專業教練。'
           }
         ]
       },
       {
         week: 2,
-        title: 'Week 2: 系統化流程',
-        goal: '建立固定流程，減少重複勞動',
+        title: '第二週：建立你的系統',
+        goal: '讓重複的事自動化，省下時間做更重要的事',
         tasks: [
           {
             id: 'w2-1',
             task: '固定時間拍影片、發訊息',
-            description: '例如：每天14:00拍影片、課後30分鐘內發訊息'
+            description: '💡 為什麼：固定時間做固定的事，不用每次都想「該做了嗎」，效率直接翻倍。'
           },
           {
             id: 'w2-2',
             task: '使用訊息範本（至少3種）',
-            description: '課後關心、休息日問候、進度追蹤'
+            description: '💡 為什麼：不用每次想要說什麼，複製貼上改名字就好。去「救命錦囊」找範本。'
           },
           {
             id: 'w2-3',
             task: '開始記錄學生訓練數據',
-            description: '每次上課後記錄：重量、組數、狀態'
+            description: '💡 為什麼：學生看到自己的進步數據會超有成就感，續約率大增。'
           }
         ]
       },
       {
         week: 3,
-        title: 'Week 3: 擴大規模',
-        goal: '開始主動開發',
+        title: '第三週：擴大你的影響力',
+        goal: '不再只靠公司給學生，開始自己開發',
         tasks: [
           {
             id: 'w3-1',
             task: '請3位學生轉介紹',
-            description: '選擇進步明顯的學生，自然地提起'
+            description: '💡 為什麼：轉介紹來的學生最好帶，而且信任度超高。去「救命錦囊」找話術。'
           },
           {
             id: 'w3-2',
             task: '分享1個成功案例',
-            description: '可以是學生進步的故事，或你的教學心得'
+            description: '💡 為什麼：讓潛在學生看到你的成果，他們會主動來找你。'
           },
           {
             id: 'w3-3',
             task: '持續拍影片（本週至少1支）',
-            description: '開始嘗試不同主題'
+            description: '💡 為什麼：持續曝光，學生才會記得你。不用每支都爆紅，持續就贏了。'
           }
         ]
       },
       {
         week: 4,
-        title: 'Week 4: 穩定成長',
-        goal: '確保所有系統運作順暢',
+        title: '第四週：檢視你的成果',
+        goal: '看看這個月你變強了多少',
         tasks: [
           {
             id: 'w4-1',
             task: '檢視本月數據',
-            description: '影片數、訊息覆蓋率、學生數、轉介紹數'
+            description: '💡 為什麼：看到自己的進步會很有成就感，而且知道下個月要改善什麼。'
           },
           {
             id: 'w4-2',
             task: '優化最弱的一環',
-            description: '哪個做得最不好？下個月重點改善'
+            description: '💡 為什麼：補強弱點比加強優點更有效。一次改善一件事就好。'
           },
           {
             id: 'w4-3',
             task: '設定下個月目標',
-            description: '學生數目標、內容產出目標'
+            description: '💡 為什麼：有目標才知道要往哪走。不用太高，達成比完美更重要。'
           }
         ]
       }
@@ -125,8 +125,8 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
   },
   intermediate: {
     level: 'intermediate',
-    title: '⚡ 系統建立 - 完整30天計畫',
-    description: '從手動到自動，建立完整系統',
+    title: '⚡ 進階成長地圖 - 30天系統化計畫',
+    description: '你已經上手了，現在要建立自己的系統。這不是考核，是讓你更輕鬆的方法。',
     endGoal: [
       '✓ 完整的數據追蹤系統',
       '✓ 所有流程自動化',
@@ -137,89 +137,89 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
     weeks: [
       {
         week: 1,
-        title: 'Week 1: 數據追蹤完善',
-        goal: '建立完整的數據系統',
+        title: '第一週：建立你的數據系統',
+        goal: '用數據看清楚學生的狀況',
         tasks: [
           {
             id: 'i1-1',
             task: '建立完整的學生追蹤系統',
-            description: '包含：訓練數據、體態變化、續約狀態、轉介紹記錄'
+            description: '💡 為什麼：知道每個學生的狀況，你就能提前預防續約問題。系統化追蹤讓你看起來超專業。'
           },
           {
             id: 'i1-2',
             task: '每週數據回顧和分析',
-            description: '哪些學生進步？哪些需要調整？'
+            description: '💡 為什麼：定期回顧才能發現問題，提前介入比事後補救容易太多。'
           },
           {
             id: 'i1-3',
             task: '預測下個月續約狀況',
-            description: '根據數據判斷哪些學生可能不續約'
+            description: '💡 為什麼：提前知道誰可能不續約，你就有時間改善關係，續約率會大幅提升。'
           }
         ]
       },
       {
         week: 2,
-        title: 'Week 2: 流程自動化',
-        goal: '減少重複勞動',
+        title: '第二週：讓系統自動運轉',
+        goal: '把重複的事情變成自動的',
         tasks: [
           {
             id: 'i2-1',
             task: '所有訊息使用範本庫',
-            description: '不再臨時想，直接套用'
+            description: '💡 為什麼：每天省下30分鐘想訊息的時間，可以拿來做更重要的事。去「救命錦囊」找範本。'
           },
           {
             id: 'i2-2',
             task: '固定時間處理固定事項',
-            description: '例如：每天9:00回訊息、14:00拍影片、20:00追蹤數據'
+            description: '💡 為什麼：固定時間做固定的事，大腦不用一直切換，效率至少提升50%。'
           },
           {
             id: 'i2-3',
             task: '建立內容素材庫',
-            description: '平常看到好的內容就存起來，拍影片時直接用'
+            description: '💡 為什麼：不用每次拍影片都從零開始想，有素材庫就像有武器庫，隨時可以出擊。'
           }
         ]
       },
       {
         week: 3,
-        title: 'Week 3: 內容策略優化',
-        goal: '提升內容效益',
+        title: '第三週：優化你的內容策略',
+        goal: '做更少，但更有效的內容',
         tasks: [
           {
             id: 'i3-1',
             task: '分析哪類內容最有效',
-            description: '看數據：哪種影片觀看最多？哪種訊息回覆率最高？'
+            description: '💡 為什麼：專注做有效的內容，不要浪費時間做沒人看的東西。數據會告訴你答案。'
           },
           {
             id: 'i3-2',
             task: '建立內容日曆',
-            description: '規劃未來一個月要拍什麼'
+            description: '💡 為什麼：提前規劃好，不用每天想「今天要拍什麼」，壓力直接減半。'
           },
           {
             id: 'i3-3',
             task: '嘗試一種新內容形式',
-            description: '例如：學員見證、Q&A、教學系列'
+            description: '💡 為什麼：新形式可能帶來新的學生來源，不試試看怎麼知道哪種最適合你？'
           }
         ]
       },
       {
         week: 4,
-        title: 'Week 4: 準備進階',
-        goal: '選擇專業發展方向',
+        title: '第四週：規劃你的下一步',
+        goal: '選擇你想深化的方向',
         tasks: [
           {
             id: 'i4-1',
             task: '回顧30天成果',
-            description: '系統是否運作順暢？還有哪裡可以改善？'
+            description: '💡 為什麼：看到自己建立的系統在運作，會很有成就感。而且知道下一步要往哪走。'
           },
           {
             id: 'i4-2',
             task: '選擇一條專業路徑',
-            description: '會員經營、內容創作、專業深化、全方位發展'
+            description: '💡 為什麼：專注一個方向會比什麼都做一點更快成長。選你最有興趣的就對了。'
           },
           {
             id: 'i4-3',
             task: '設定3個月目標',
-            description: '根據選擇的路徑，設定具體目標'
+            description: '💡 為什麼：有明確目標才知道要往哪走。3個月後回頭看，你會驚訝自己的成長。'
           }
         ]
       }
