@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { storage } from '@/lib/localStorage';
+import PolygonTheory from '@/components/PolygonTheory';
 
 interface HomePageProps {
   onNavigate: (section: string) => void;
@@ -104,6 +105,11 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             </ol>
           </div>
         </div>
+      </div>
+
+      {/* 多邊形理論 */}
+      <div className="mb-12">
+        <PolygonTheory />
       </div>
 
       {/* 你現在遇到什麼困難？ */}
