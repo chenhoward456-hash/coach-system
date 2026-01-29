@@ -39,14 +39,26 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
       {onBack && <BackButton onBack={onBack} />}
       <div className="mb-8">
         <h2 className="font-outfit text-3xl font-bold text-gray-900 mb-3">
-          � 救命錦囊
+          💡 救命錦囊
         </h2>
         <p className="text-gray-600 text-lg">
-          不知道怎麼說？尷尬時拿出來用。一鍵複製，改個名字就能發送。
+          不知道怎麼說？這裡有參考範例。但記住：<strong className="text-primary">真誠比話術更重要</strong>。
         </p>
+        <div className="mt-3 bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-500 p-5 rounded-lg">
+          <p className="text-orange-900 font-semibold mb-2">
+            ⚠️ 重要提醒：這些是參考，不是標準答案
+          </p>
+          <ul className="text-orange-800 text-sm space-y-2">
+            <li>• <strong>改成你的風格：</strong>用你平常說話的方式，不要照抄</li>
+            <li>• <strong>加入個人特色：</strong>你的幽默、你的關心方式、你的個性</li>
+            <li>• <strong>學生選擇你，是因為你是你：</strong>不是因為你背了話術</li>
+          </ul>
+        </div>
         <div className="mt-3 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
           <p className="text-blue-800 text-sm">
-            � <strong>使用技巧：</strong>這些不是要你背起來，而是讓你在不知道怎麼說的時候有個參考。複製後記得改成你自己的語氣，真誠最重要。
+            💡 <strong>範例對比：</strong><br/>
+            ❌ 制式：「{'{名字}'} 今天練得很棒！💪」<br/>
+            ✅ 有靈魂：「欸{'{名字}'}，今天那組硬舉超猛的！下次挑戰更重？」
           </p>
         </div>
       </div>
