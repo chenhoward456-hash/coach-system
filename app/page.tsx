@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
 import HomePage from '@/components/HomePage';
@@ -20,6 +20,11 @@ import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
+
+  // 切換頁面時自動滾動到頂部
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeSection]);
 
   // ESC 鍵返回首頁
   useKeyboardShortcuts(() => {
