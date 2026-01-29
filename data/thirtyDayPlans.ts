@@ -28,9 +28,9 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
     endGoal: [
       '✓ 每週穩定產出1支影片',
       '✓ 課後關心覆蓋率100%',
-      '✓ 學生數達到8-10位',
+      '✓ 學生數達到10-15位',
       '✓ 建立基本追蹤系統',
-      '✓ 準備好進入中階'
+      '✓ 準備好進入進階'
     ],
     weeks: [
       {
@@ -131,7 +131,7 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
       '✓ 完整的數據追蹤系統',
       '✓ 所有流程自動化',
       '✓ 穩定的內容產出策略',
-      '✓ 學生數達到15-20位',
+      '✓ 學生數達到20-30位',
       '✓ 準備好選擇專業方向'
     ],
     weeks: [

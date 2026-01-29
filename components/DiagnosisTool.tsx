@@ -56,8 +56,9 @@ export default function DiagnosisTool({ onBack }: DiagnosisToolProps) {
     let diagnosisResult: DiagnosisResult;
     
     // 判斷教練等級：根據活動數量和問題類型
+    // 新標準：0-15位學生 = 新手，15+位學生 = 進階
     // 如果做的事少於2項，或是迷惘/不夠好/沒動力 -> 新手
-    // 如果做的事>=2項，且問題是「沒結果」或「不知道為什麼」 -> 中階
+    // 如果做的事>=2項，且問題是「沒結果」或「不知道為什麼」 -> 進階
     const isBeginnerIssue = ['lost', 'inadequate', 'noMotivation'].includes(mainIssue);
     const coachLevel: 'beginner' | 'intermediate' = 
       (activitiesCount < 2 || isBeginnerIssue) ? 'beginner' : 'intermediate';

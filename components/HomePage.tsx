@@ -112,6 +112,60 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <PolygonTheory />
       </div>
 
+      {/* 30天成長計畫 - 快速入口 */}
+      <div className="mb-12">
+        <h2 className="font-outfit text-3xl font-bold text-center mb-4 text-gray-900">
+          🚀 30天成長計畫
+        </h2>
+        <p className="text-center text-gray-600 mb-8 text-lg">
+          選擇你的階段，開始你的成長之旅
+        </p>
+        
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
+          {/* 新手成長地圖 */}
+          <button
+            onClick={() => onNavigate('diagnosis')}
+            className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 shadow-lg border-2 border-green-300 hover:shadow-2xl hover:border-green-500 transition-all text-left group relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-green-200 rounded-full -mr-16 -mt-16 opacity-20 group-hover:scale-150 transition-transform"></div>
+            <div className="relative">
+              <div className="text-6xl mb-4">🌱</div>
+              <h3 className="font-outfit text-2xl font-bold text-gray-900 mb-3">
+                新手成長地圖
+              </h3>
+              <p className="text-gray-700 mb-4 text-lg">
+                適合 <strong className="text-green-600">0-15位學生</strong> 的教練
+              </p>
+              <p className="text-gray-600 text-sm mb-4">
+                建立基礎習慣、系統化流程、開始主動開發
+              </p>
+              <div className="text-green-600 font-bold text-lg">→ 查看新手計畫</div>
+            </div>
+          </button>
+
+          {/* 進階成長地圖 */}
+          <button
+            onClick={() => onNavigate('diagnosis')}
+            className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 shadow-lg border-2 border-purple-300 hover:shadow-2xl hover:border-purple-500 transition-all text-left group relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-200 rounded-full -mr-16 -mt-16 opacity-20 group-hover:scale-150 transition-transform"></div>
+            <div className="relative">
+              <div className="text-6xl mb-4">⚡</div>
+              <h3 className="font-outfit text-2xl font-bold text-gray-900 mb-3">
+                進階成長地圖
+              </h3>
+              <p className="text-gray-700 mb-4 text-lg">
+                適合 <strong className="text-purple-600">15位以上學生</strong> 的教練
+              </p>
+              <p className="text-gray-600 text-sm mb-4">
+                數據追蹤、流程自動化、內容策略優化
+              </p>
+              <div className="text-purple-600 font-bold text-lg">→ 查看進階計畫</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
       {/* 你現在遇到什麼困難？ */}
       <div className="mb-12">
         <h2 className="font-outfit text-3xl font-bold text-center mb-8 text-gray-900">
