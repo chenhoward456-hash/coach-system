@@ -11,6 +11,7 @@ const navItems = [
   { id: 'home', label: '🏠 首頁' },
   { id: 'diagnosis', label: '🆘 狀態診斷' },
   { id: 'style', label: '🎨 個人風格' },
+  { id: 'frameworks', label: '⚡ 實戰框架' },
   { id: 'videos', label: '🎬 影片主題庫' },
   { id: 'messages', label: '💡 救命錦囊' },
   { id: 'resources', label: '📚 學習資源' },

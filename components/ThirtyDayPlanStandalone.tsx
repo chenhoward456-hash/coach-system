@@ -212,6 +212,27 @@ export default function ThirtyDayPlanStandalone({ level, onBack }: ThirtyDayPlan
                     </label>
                   ))}
                 </div>
+
+                {/* Weekly Reflection */}
+                {week.reflection && week.reflection.length > 0 && (
+                  <div className="mt-6 bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-300 rounded-xl p-5">
+                    <h4 className="font-bold text-lg text-purple-900 mb-3 flex items-center gap-2">
+                      <span className="text-2xl">💭</span>
+                      週末反思時間
+                    </h4>
+                    <p className="text-sm text-purple-800 mb-4">
+                      花10分鐘思考這些問題，寫下你的答案。反思比執行更重要。
+                    </p>
+                    <ul className="space-y-2">
+                      {week.reflection.map((question, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-gray-700">
+                          <span className="text-purple-600 font-bold">{idx + 1}.</span>
+                          <span>{question}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             );
           })}

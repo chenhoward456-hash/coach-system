@@ -10,6 +10,7 @@ export interface WeekPlan {
   title: string;
   goal: string;
   tasks: WeekTask[];
+  reflection?: string[];
 }
 
 export interface ThirtyDayPlan {
@@ -53,6 +54,12 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
             task: '建立學生名單（Excel或筆記本）',
             description: '💡 為什麼：記不住學生的事會很尷尬。有名單，你就是專業教練。'
           }
+        ],
+        reflection: [
+          '這週做了哪些事？哪些做得好？哪些需要改進？',
+          '拍影片時最大的困難是什麼？下週怎麼改善？',
+          '學生對你的課後關心有什麼反應？',
+          '你發現自己比較適合什麼風格？（參考「個人風格」頁面）'
         ]
       },
       {
@@ -75,6 +82,12 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
             task: '開始記錄學生訓練數據',
             description: '💡 為什麼：學生看到自己的進步數據會超有成就感，續約率大增。'
           }
+        ],
+        reflection: [
+          '固定時間做事有幫助嗎？你的最佳時段是什麼時候？',
+          '哪些訊息範本最好用？你有改成自己的風格嗎？',
+          '記錄數據後，學生有什麼反應？',
+          '這週最大的收穫是什麼？'
         ]
       },
       {
@@ -97,6 +110,12 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
             task: '持續拍影片（本週至少1支）',
             description: '💡 為什麼：持續曝光，學生才會記得你。不用每支都爆紅，持續就贏了。'
           }
+        ],
+        reflection: [
+          '請學生轉介紹時，你怎麼開口的？學生反應如何？',
+          '哪些學生最願意幫你轉介紹？為什麼？',
+          '分享案例後，有人主動來找你嗎？',
+          '你覺得自己在「主動開發」這件事上進步了嗎？'
         ]
       },
       {
@@ -119,6 +138,13 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
             task: '設定下個月目標',
             description: '💡 為什麼：有目標才知道要往哪走。不用太高，達成比完美更重要。'
           }
+        ],
+        reflection: [
+          '這30天，你最大的成長是什麼？',
+          '哪個任務對你幫助最大？為什麼？',
+          '你發現了自己的什麼優勢和弱點？',
+          '下個月，你想重點改善什麼？',
+          '你找到自己的風格了嗎？'
         ]
       }
     ]

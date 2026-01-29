@@ -16,6 +16,7 @@ import MessageLibrary from '@/components/MessageLibrary';
 import AdminDashboard from '@/components/AdminDashboard';
 import ThirtyDayPlanStandalone from '@/components/ThirtyDayPlanStandalone';
 import PersonalStyleGuide from '@/components/PersonalStyleGuide';
+import PracticalFrameworks from '@/components/PracticalFrameworks';
 import BackToTop from '@/components/BackToTop';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
@@ -43,6 +44,7 @@ export default function Home() {
         {activeSection === 'home' && <HomePage onNavigate={setActiveSection} />}
         {activeSection === 'diagnosis' && <DiagnosisTool onBack={() => setActiveSection('home')} />}
         {activeSection === 'style' && <PersonalStyleGuide onBack={() => setActiveSection('home')} />}
+        {activeSection === 'frameworks' && <PracticalFrameworks onBack={() => setActiveSection('home')} />}
         {activeSection === 'plan-beginner' && <ThirtyDayPlanStandalone level="beginner" onBack={() => setActiveSection('home')} />}
         {activeSection === 'plan-intermediate' && <ThirtyDayPlanStandalone level="intermediate" onBack={() => setActiveSection('home')} />}
         {activeSection === 'videos' && <VideoLibrary onBack={() => setActiveSection('home')} />}
