@@ -43,14 +43,11 @@ export default function Home() {
       <div className="container max-w-6xl mx-auto px-4 py-12">
         {activeSection === 'home' && <HomePage onNavigate={setActiveSection} />}
         {activeSection === 'diagnosis' && <DiagnosisTool onBack={() => setActiveSection('home')} />}
-        {activeSection === 'style' && <PersonalStyleGuide onBack={() => setActiveSection('home')} />}
         {activeSection === 'frameworks' && <PracticalFrameworks onBack={() => setActiveSection('home')} />}
         {activeSection === 'plan-beginner' && <ThirtyDayPlanStandalone level="beginner" onBack={() => setActiveSection('home')} />}
         {activeSection === 'plan-intermediate' && <ThirtyDayPlanStandalone level="intermediate" onBack={() => setActiveSection('home')} />}
         {activeSection === 'videos' && <VideoLibrary onBack={() => setActiveSection('home')} />}
         {activeSection === 'messages' && <MessageLibrary onBack={() => setActiveSection('home')} />}
-        {activeSection === 'resources' && <ResourcesSection onBack={() => setActiveSection('home')} />}
-        {activeSection === 'mindset' && <MindsetSection onBack={() => setActiveSection('home')} />}
       </div>
 
       <footer className="bg-gray-900 text-white py-8 mt-16">

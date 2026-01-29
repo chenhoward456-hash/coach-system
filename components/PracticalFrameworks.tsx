@@ -15,6 +15,7 @@ export default function PracticalFrameworks({ onBack }: PracticalFrameworksProps
     { id: 'renewal', label: '續約技巧', icon: '🔄' },
     { id: 'objection', label: '處理拒絕', icon: '🛡️' },
     { id: 'pricing', label: '報價策略', icon: '💰' },
+    { id: 'style', label: '個人風格', icon: '🎨' },
   ];
 
   return (
@@ -558,6 +559,114 @@ export default function PracticalFrameworks({ onBack }: PracticalFrameworksProps
                   <span><strong>只講價格不講價值：</strong>學生只會比價</span>
                 </li>
               </ul>
+            </div>
+          </div>
+        )}
+
+        {/* Personal Style */}
+        {activeFramework === 'style' && (
+          <div className="space-y-6">
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-300 rounded-2xl p-8">
+              <h2 className="font-outfit text-2xl font-bold text-gray-900 mb-4">
+                🎨 發展你的個人風格
+              </h2>
+              <p className="text-gray-700 text-lg mb-6">
+                核心原則：<strong className="text-purple-600">學生選擇你，是因為你是你，不是因為你背了話術</strong>
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-white rounded-xl p-6 border-l-4 border-purple-500">
+                  <h3 className="font-bold text-xl text-gray-900 mb-4">找到你的風格</h3>
+                  <p className="text-gray-700 mb-4">問自己這4個問題：</p>
+                  <ul className="space-y-3 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-600 font-bold">1.</span>
+                      <span>我平常和朋友聊天是什麼樣子？（幽默？認真？溫暖？）</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-600 font-bold">2.</span>
+                      <span>我的優勢是什麼？（專業知識？同理心？激勵能力？）</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-600 font-bold">3.</span>
+                      <span>我想吸引什麼樣的學生？（認真訓練？減脂？運動員？）</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-600 font-bold">4.</span>
+                      <span>我欣賞哪個教練的風格？為什麼？</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 border-l-4 border-blue-500">
+                  <h3 className="font-bold text-xl text-gray-900 mb-4">常見的教練風格</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-blue-50 p-4 rounded">
+                      <p className="font-semibold text-primary">💪 激勵型</p>
+                      <p className="text-sm text-gray-600">充滿能量、正面鼓勵、讓學生充滿動力</p>
+                    </div>
+                    <div className="bg-blue-50 p-4 rounded">
+                      <p className="font-semibold text-primary">🧠 專業型</p>
+                      <p className="text-sm text-gray-600">深入講解、科學化訓練、數據導向</p>
+                    </div>
+                    <div className="bg-blue-50 p-4 rounded">
+                      <p className="font-semibold text-primary">❤️ 關懷型</p>
+                      <p className="text-sm text-gray-600">溫暖陪伴、細心觀察、像朋友一樣</p>
+                    </div>
+                    <div className="bg-blue-50 p-4 rounded">
+                      <p className="font-semibold text-primary">🎯 目標型</p>
+                      <p className="text-sm text-gray-600">結果導向、嚴格要求、追求突破</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-4 italic">
+                    * 你可以是混合型，找到最適合你的組合
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 border-l-4 border-green-500">
+                  <h3 className="font-bold text-xl text-gray-900 mb-4">範例：同一個訊息，不同風格</h3>
+                  <div className="space-y-3">
+                    <div className="bg-red-50 p-3 rounded">
+                      <p className="text-sm font-semibold text-red-800 mb-1">❌ 制式版本（沒靈魂）</p>
+                      <p className="text-gray-700 text-sm">「{'{名字}'} 今天練得很棒！💪 記得多補充水分」</p>
+                    </div>
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm font-semibold text-green-800 mb-1">✅ 激勵型</p>
+                      <p className="text-gray-700 text-sm">「{'{名字}'} 今天太猛了！🔥 那組深蹲我看到你咬牙撐過去，這就是突破！」</p>
+                    </div>
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm font-semibold text-green-800 mb-1">✅ 專業型</p>
+                      <p className="text-gray-700 text-sm">「{'{名字}'} 今天深蹲膝蓋外推控制得很好，可以更有效啟動臀肌。下次試著加5kg👍」</p>
+                    </div>
+                    <div className="bg-green-50 p-3 rounded">
+                      <p className="text-sm font-semibold text-green-800 mb-1">✅ 關懷型</p>
+                      <p className="text-gray-700 text-sm">「{'{名字}'} 今天看你練得很認真，辛苦了😊 記得好好休息，有不舒服都可以跟我說」</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-md border-2 border-green-300">
+                <h3 className="font-bold text-lg text-green-600 mb-4">✅ 要做的事</h3>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li>✓ <strong>保持真誠：</strong>用你真實的樣子</li>
+                  <li>✓ <strong>持續調整：</strong>找到最舒服的方式</li>
+                  <li>✓ <strong>觀察反應：</strong>學生喜歡哪種互動？</li>
+                  <li>✓ <strong>發揮優勢：</strong>你擅長什麼就做什麼</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-md border-2 border-red-300">
+                <h3 className="font-bold text-lg text-red-600 mb-4">❌ 不要做的事</h3>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li>✗ <strong>照抄話術：</strong>學生會感覺到你在背稿</li>
+                  <li>✗ <strong>模仿別人：</strong>別人的風格不一定適合你</li>
+                  <li>✗ <strong>太制式：</strong>每個人都用一樣的話</li>
+                  <li>✗ <strong>假裝：</strong>不是你的個性就不要勉強</li>
+                </ul>
+              </div>
             </div>
           </div>
         )}

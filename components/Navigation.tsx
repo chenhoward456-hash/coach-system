@@ -10,12 +10,9 @@ interface NavigationProps {
 const navItems = [
   { id: 'home', label: '🏠 首頁' },
   { id: 'diagnosis', label: '🆘 狀態診斷' },
-  { id: 'style', label: '🎨 個人風格' },
-  { id: 'frameworks', label: '⚡ 實戰框架' },
-  { id: 'videos', label: '🎬 影片主題庫' },
-  { id: 'messages', label: '💡 救命錦囊' },
-  { id: 'resources', label: '📚 學習資源' },
-  { id: 'mindset', label: '💪 成長心法' },
+  { id: 'frameworks', label: '⚡ 實戰工具' },
+  { id: 'videos', label: '🎬 影片庫' },
+  { id: 'messages', label: '💡 訊息庫' },
 ];
 
 export default function Navigation({ activeSection, onSectionChange }: NavigationProps) {
