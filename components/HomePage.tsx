@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { storage } from '@/lib/localStorage';
 import PolygonTheory from '@/components/PolygonTheory';
+import DailyChecklist from './DailyChecklist';
 
 interface HomePageProps {
   onNavigate: (section: string) => void;
@@ -110,6 +111,11 @@ export default function HomePage({ onNavigate }: HomePageProps) {
       {/* 多邊形理論 */}
       <div className="mb-12">
         <PolygonTheory />
+      </div>
+
+      {/* 今日行動清單 */}
+      <div className="mb-12">
+        <DailyChecklist onNavigate={onNavigate} />
       </div>
 
       {/* 30天成長計畫 - 快速入口 */}
