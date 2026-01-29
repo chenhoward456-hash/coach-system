@@ -141,9 +141,9 @@ export default function OnboardingGuide({ onComplete, onNavigate }: OnboardingGu
     onComplete();
   };
 
-  const handleGoToDiagnosis = () => {
+  const handleGoToHome = () => {
     localStorage.setItem('onboarding_completed', 'true');
-    onNavigate('diagnosis');
+    onComplete();
   };
 
   const currentStepData = steps[currentStep];
@@ -200,10 +200,10 @@ export default function OnboardingGuide({ onComplete, onNavigate }: OnboardingGu
 
           {isLastStep ? (
             <button
-              onClick={handleGoToDiagnosis}
+              onClick={handleGoToHome}
               className="px-8 py-3 bg-gradient-to-r from-primary to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all"
             >
-              開始診斷 🚀
+              進入首頁 🚀
             </button>
           ) : (
             <button
