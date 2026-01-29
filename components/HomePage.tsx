@@ -124,7 +124,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
           {/* 新手成長地圖 */}
           <button
-            onClick={() => onNavigate('diagnosis')}
+            onClick={() => onNavigate('plan-beginner')}
             className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 shadow-lg border-2 border-green-300 hover:shadow-2xl hover:border-green-500 transition-all text-left group relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-200 rounded-full -mr-16 -mt-16 opacity-20 group-hover:scale-150 transition-transform"></div>
@@ -145,7 +145,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
           {/* 進階成長地圖 */}
           <button
-            onClick={() => onNavigate('diagnosis')}
+            onClick={() => onNavigate('plan-intermediate')}
             className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 shadow-lg border-2 border-purple-300 hover:shadow-2xl hover:border-purple-500 transition-all text-left group relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-200 rounded-full -mr-16 -mt-16 opacity-20 group-hover:scale-150 transition-transform"></div>
