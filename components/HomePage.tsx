@@ -61,20 +61,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
         <div className="space-y-4">
           {/* 新人路徑 */}
-          <div className="bg-white p-6 rounded-xl border-l-4 border-primary">
-            <h4 className="font-bold text-xl text-primary mb-3">🌱 如果你是新人（不知道怎麼開始）</h4>
-            <ol className="space-y-2 ml-6 list-decimal text-gray-700 leading-relaxed">
-              <li>遇到問題就用 <strong className="text-primary">「問題診斷」</strong> → 找出原因和解方</li>
-              <li>想學習就去 <strong className="text-primary">「學習資源」</strong> → 選新手等級的書和影片</li>
-              <li>不知道拍什麼就看 <strong className="text-primary">「影片主題庫」</strong> → 30個主題直接用</li>
-              <li>不知道怎麼關心學員就看 <strong className="text-primary">「訊息範本」</strong> → 複製貼上就好</li>
-            </ol>
-            <p className="mt-4 font-bold text-danger">
-              💡 重點：遇到問題再來找工具，不用全部看完！
-            </p>
-          </div>
-
-          {/* 遇到問題 */}
           <div className="bg-white p-6 rounded-xl border-l-4 border-danger">
             <h4 className="font-bold text-xl text-danger mb-3">🆘 如果你遇到問題（迷惘、沒動力、沒成果）</h4>
             <ol className="space-y-2 ml-6 list-decimal text-gray-700 leading-relaxed">
@@ -96,13 +82,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             </ol>
           </div>
 
-          {/* 不知道該做什麼 */}
-          <div className="bg-white p-6 rounded-xl border-l-4 border-indigo-500">
-            <h4 className="font-bold text-xl text-indigo-600 mb-3">❓ 如果你不知道該做什麼</h4>
+          {/* 需要調整心態 */}
+          <div className="bg-white p-6 rounded-xl border-l-4 border-warning">
+            <h4 className="font-bold text-xl text-warning mb-3">💪 如果你需要調整心態</h4>
             <ol className="space-y-2 ml-6 list-decimal text-gray-700 leading-relaxed">
-              <li>先做 <strong className="text-indigo-600">「問題診斷」</strong> → 看看你現在的狀態</li>
-              <li>然後看下面的「你現在遇到什麼困難？」 → 選擇對應的工具</li>
-              <li>有問題隨時問 Howard → 我會幫你</li>
+              <li>去看 <strong className="text-warning">「成長心法」</strong> → 重新找回動力</li>
+              <li>記住：這是馬拉松，不是短跑 → 慢慢來比較快</li>
+              <li>遇到低潮很正常 → 每個人都會遇到</li>
             </ol>
           </div>
         </div>
