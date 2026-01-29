@@ -178,21 +178,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
         {/* 問題導向卡片 */}
         <div className="grid md:grid-cols-2 gap-6">
-          {/* 迷惘 */}
-          <button
-            onClick={() => onNavigate('diagnosis')}
-            className="bg-white rounded-2xl p-8 shadow-md border-2 border-red-200 hover:shadow-xl hover:border-red-400 transition-all text-left group"
-          >
-            <div className="text-5xl mb-4">🆘</div>
-            <h3 className="font-outfit text-2xl font-bold text-gray-900 mb-3 group-hover:text-danger transition-colors">
-              我很迷惘，不知道怎麼辦
-            </h3>
-            <p className="text-gray-700 mb-4">
-              沒動力、沒成果、不知道問題在哪...
-            </p>
-            <div className="text-danger font-bold">→ 狀態診斷工具</div>
-          </button>
-
           {/* 不知道拍什麼 */}
           <button
             onClick={() => onNavigate('videos')}
