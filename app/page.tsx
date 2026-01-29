@@ -48,6 +48,8 @@ export default function Home() {
         {activeSection === 'plan-intermediate' && <ThirtyDayPlanStandalone level="intermediate" onBack={() => setActiveSection('home')} />}
         {activeSection === 'videos' && <VideoLibrary onBack={() => setActiveSection('home')} />}
         {activeSection === 'messages' && <MessageLibrary onBack={() => setActiveSection('home')} />}
+        {activeSection === 'resources' && <ResourcesSection onBack={() => setActiveSection('home')} />}
+        {activeSection === 'mindset' && <MindsetSection onBack={() => setActiveSection('home')} />}
       </div>
 
       <footer className="bg-gray-900 text-white py-8 mt-16">

@@ -225,7 +225,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           {/* 實戰問題 */}
           <button
             onClick={() => onNavigate('frameworks')}
-            className="bg-white rounded-2xl p-8 shadow-md border-2 border-orange-200 hover:shadow-xl hover:border-orange-400 transition-all text-left group md:col-span-2"
+            className="bg-white rounded-2xl p-8 shadow-md border-2 border-orange-200 hover:shadow-xl hover:border-orange-400 transition-all text-left group"
           >
             <div className="text-5xl mb-4">⚡</div>
             <h3 className="font-outfit text-2xl font-bold text-gray-900 mb-3 group-hover:text-warning transition-colors">
@@ -235,6 +235,36 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               不知道怎麼開發、續約、報價、處理拒絕...
             </p>
             <div className="text-warning font-bold">→ 實戰工具（開發、續約、報價、拒絕）</div>
+          </button>
+
+          {/* 想學習 */}
+          <button
+            onClick={() => onNavigate('resources')}
+            className="bg-white rounded-2xl p-8 shadow-md border-2 border-blue-200 hover:shadow-xl hover:border-blue-400 transition-all text-left group"
+          >
+            <div className="text-5xl mb-4">📚</div>
+            <h3 className="font-outfit text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+              我想學習但不知道看什麼
+            </h3>
+            <p className="text-gray-700 mb-4">
+              想進修但書太多、不知道從哪開始...
+            </p>
+            <div className="text-primary font-bold">→ 學習資源庫（53項資源）</div>
+          </button>
+
+          {/* 心態調整 */}
+          <button
+            onClick={() => onNavigate('mindset')}
+            className="bg-white rounded-2xl p-8 shadow-md border-2 border-purple-200 hover:shadow-xl hover:border-purple-400 transition-all text-left group"
+          >
+            <div className="text-5xl mb-4">💪</div>
+            <h3 className="font-outfit text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+              我需要調整心態
+            </h3>
+            <p className="text-gray-700 mb-4">
+              遇到瓶頸、需要重新找回動力...
+            </p>
+            <div className="text-purple-600 font-bold">→ 成長心法</div>
           </button>
         </div>
       </div>
