@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
-import OnboardingGuide from '@/components/OnboardingGuide';
 import Navigation from '@/components/Navigation';
 import HomePage from '@/components/HomePage';
 import TaskSection from '@/components/TaskSection';
@@ -18,20 +17,12 @@ import AdminDashboard from '@/components/AdminDashboard';
 import ThirtyDayPlanStandalone from '@/components/ThirtyDayPlanStandalone';
 import PersonalStyleGuide from '@/components/PersonalStyleGuide';
 import PracticalFrameworks from '@/components/PracticalFrameworks';
+import DailyChecklistPage from '@/components/DailyChecklistPage';
 import BackToTop from '@/components/BackToTop';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
-  const [showOnboarding, setShowOnboarding] = useState(false);
-
-  // Check if first-time user
-  useEffect(() => {
-    const hasCompletedOnboarding = localStorage.getItem('onboarding_completed');
-    if (!hasCompletedOnboarding) {
-      setShowOnboarding(true);
-    }
-  }, []);
 
   // 切換頁面時自動滾動到頂部
   useEffect(() => {
@@ -47,21 +38,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {showOnboarding && (
-        <OnboardingGuide 
-          onComplete={() => setShowOnboarding(false)}
-          onNavigate={(section) => {
-            setActiveSection(section);
-            setShowOnboarding(false);
-          }}
-        />
-      )}
-      
       <Header />
       <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
       
       <div className="container max-w-6xl mx-auto px-4 py-12">
         {activeSection === 'home' && <HomePage onNavigate={setActiveSection} />}
+        {activeSection === 'daily' && <DailyChecklistPage onBack={() => setActiveSection('home')} onNavigate={setActiveSection} />}
         {activeSection === 'diagnosis' && <DiagnosisTool onBack={() => setActiveSection('home')} />}
         {activeSection === 'frameworks' && <PracticalFrameworks onBack={() => setActiveSection('home')} />}
         {activeSection === 'plan-beginner' && <ThirtyDayPlanStandalone level="beginner" onBack={() => setActiveSection('home')} />}

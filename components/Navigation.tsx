@@ -9,6 +9,7 @@ interface NavigationProps {
 
 const navItems = [
   { id: 'home', label: '🏠 首頁' },
+  { id: 'daily', label: '✅ 今日' },
   { id: 'diagnosis', label: '🆘 診斷' },
   { id: 'frameworks', label: '⚡ 實戰' },
   { id: 'videos', label: '🎬 影片' },

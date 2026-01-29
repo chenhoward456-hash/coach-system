@@ -113,11 +113,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <PolygonTheory />
       </div>
 
-      {/* 今日行動清單 */}
-      <div className="mb-12">
-        <DailyChecklist onNavigate={onNavigate} />
-      </div>
-
       {/* 30天成長計畫 - 快速入口 */}
       <div className="mb-12">
         <h2 className="font-outfit text-3xl font-bold text-center mb-4 text-gray-900">
