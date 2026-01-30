@@ -9,6 +9,7 @@ interface PracticalFrameworksProps {
 
 export default function PracticalFrameworks({ onBack }: PracticalFrameworksProps) {
   const [activeFramework, setActiveFramework] = useState<string>('cold-approach');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const frameworks = [
     { id: 'cold-approach', label: '陌生開發', icon: '🎯' },
@@ -17,6 +18,35 @@ export default function PracticalFrameworks({ onBack }: PracticalFrameworksProps
     { id: 'pricing', label: '報價策略', icon: '💰' },
     { id: 'style', label: '個人風格', icon: '🎨' },
   ];
+
+  // 快速查詢關鍵字對應
+  const quickSearchMap: { [key: string]: string } = {
+    '太貴': 'objection',
+    '貴': 'objection',
+    '考慮': 'objection',
+    '想想': 'objection',
+    '沒時間': 'objection',
+    '自己練': 'objection',
+    '問家人': 'objection',
+    '續約': 'renewal',
+    '開發': 'cold-approach',
+    '報價': 'pricing',
+    '風格': 'style',
+    '陌生': 'cold-approach',
+    '拒絕': 'objection',
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    
+    // 檢查是否有匹配的快速查詢
+    for (const [keyword, frameworkId] of Object.entries(quickSearchMap)) {
+      if (query.includes(keyword)) {
+        setActiveFramework(frameworkId);
+        break;
+      }
+    }
+  };
 
   return (
     <div className="animate-fade-in">
@@ -29,6 +59,38 @@ export default function PracticalFrameworks({ onBack }: PracticalFrameworksProps
         <p className="text-xl text-gray-600 text-center mb-8">
           不是話術，是原則。理解框架，用你的方式執行。
         </p>
+
+        {/* 搜尋框 */}
+        <div className="mb-8">
+          <div className="relative max-w-2xl mx-auto">
+            <input
+              type="text"
+              placeholder="遇到什麼問題？輸入關鍵字快速找答案（例如：太貴、考慮、續約）"
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+            />
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-2xl">
+              🔍
+            </div>
+          </div>
+          
+          {/* 快速查詢提示 */}
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-600 mb-2">常見問題快速查詢：</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {Object.keys(quickSearchMap).slice(0, 10).map((keyword) => (
+                <button
+                  key={keyword}
+                  onClick={() => handleSearch(keyword)}
+                  className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm hover:bg-blue-100 transition-colors"
+                >
+                  {keyword}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* Framework Tabs */}
         <div className="flex gap-3 mb-8 overflow-x-auto pb-2">
