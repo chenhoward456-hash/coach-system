@@ -55,6 +55,9 @@ export default function ThirtyDayPlanStandalone({ level, onBack }: ThirtyDayPlan
           <h3 className="font-outfit text-2xl font-bold text-gray-900 text-center">
             📅 完整 30 天計畫
           </h3>
+          <p className="text-center text-gray-600">
+            {level === 'intermediate' && '完成後，選擇一條成長路徑繼續深化'}
+          </p>
           
           {plan.weeks.map((week) => {
             return (
@@ -116,6 +119,76 @@ export default function ThirtyDayPlanStandalone({ level, onBack }: ThirtyDayPlan
             );
           })}
         </div>
+
+        {/* 成長路徑選擇（僅中階） */}
+        {level === 'intermediate' && plan.growthPaths && (
+          <div className="mt-12 space-y-6">
+            <div className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-2xl p-8 text-center">
+              <h3 className="font-outfit text-3xl font-bold mb-3">
+                🎉 恭喜完成 30 天計畫！
+              </h3>
+              <p className="text-xl mb-2">
+                現在，選擇一條成長路徑，繼續深化你的專業
+              </p>
+              <p className="text-lg opacity-90">
+                不用四條都做，專注一條會比什麼都做一點更快成長
+              </p>
+            </div>
+
+            <h3 className="font-outfit text-2xl font-bold text-gray-900 text-center">
+              🚀 四條成長路徑
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {plan.growthPaths.map((path) => (
+                <div
+                  key={path.id}
+                  className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-primary hover:shadow-xl transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-5xl">{path.icon}</span>
+                    <div>
+                      <h4 className="font-outfit text-xl font-bold text-gray-900">
+                        {path.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm">{path.description}</p>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <p className="text-sm font-semibold text-primary mb-2">
+                      💡 核心行動：
+                    </p>
+                    <ul className="space-y-2">
+                      {path.coreActions.map((action, idx) => (
+                        <li key={idx} className="text-sm text-gray-700 flex items-start gap-2">
+                          <span className="text-primary font-bold">{idx + 1}.</span>
+                          <span>{action}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-50 rounded-lg p-3 border-l-4 border-blue-500">
+                    <p className="text-sm text-blue-900">
+                      <strong>適合你如果：</strong>{path.suitableFor}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-6 text-center">
+              <p className="text-yellow-900 font-semibold text-lg mb-2">
+                💡 如何選擇？
+              </p>
+              <p className="text-yellow-800">
+                問自己：我最擅長什麼？我最喜歡做什麼？我想成為什麼樣的教練？<br />
+                <strong>選你最有熱情的那條路，堅持下去，你就會成功。</strong>
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

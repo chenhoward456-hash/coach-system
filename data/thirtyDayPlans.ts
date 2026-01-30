@@ -13,12 +13,22 @@ export interface WeekPlan {
   reflection?: string[];
 }
 
+export interface GrowthPath {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  coreActions: string[];
+  suitableFor: string;
+}
+
 export interface ThirtyDayPlan {
   level: 'beginner' | 'intermediate';
   title: string;
   description: string;
   endGoal: string[];
   weeks: WeekPlan[];
+  growthPaths?: GrowthPath[];
 }
 
 export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
@@ -159,6 +169,64 @@ export const thirtyDayPlans: Record<string, ThirtyDayPlan> = {
       '✓ 穩定的內容產出策略',
       '✓ 學生數達到20-30位',
       '✓ 準備好選擇專業方向'
+    ],
+    growthPaths: [
+      {
+        id: 'content-creation',
+        icon: '📱',
+        title: '內容創作路徑',
+        description: '專注影片、社群經營，成為健身網紅',
+        coreActions: [
+          '每週至少產出 3 支影片，建立穩定的內容節奏',
+          '學習剪輯技巧和腳本設計，提升內容質量',
+          '研究演算法和流量密碼，讓更多人看到你',
+          '與其他創作者合作，擴大影響力',
+          '建立個人品牌識別（風格、口號、視覺）'
+        ],
+        suitableFor: '喜歡拍片、有創意、想要影響更多人'
+      },
+      {
+        id: 'professional-depth',
+        icon: '🎯',
+        title: '專業深化路徑',
+        description: '專注訓練技術、證照，成為技術專家',
+        coreActions: [
+          '考取進階證照（NSCA-CSCS、運動防護等）',
+          '專精一個領域（肌力、復健、運動表現）',
+          '持續進修最新訓練知識和研究',
+          '建立專業評估和訓練系統',
+          '成為其他教練的技術顧問'
+        ],
+        suitableFor: '熱愛訓練科學、追求專業、想成為專家'
+      },
+      {
+        id: 'business-development',
+        icon: '💼',
+        title: '商業發展路徑',
+        description: '專注開工作室、帶團隊，成為老闆',
+        coreActions: [
+          '學習商業知識（財務、行銷、管理）',
+          '建立完整的商業模式和營運系統',
+          '培養領導力，學習帶團隊',
+          '規劃工作室或品牌的發展藍圖',
+          '建立人脈和資源網絡'
+        ],
+        suitableFor: '有創業夢想、喜歡管理、想建立事業'
+      },
+      {
+        id: 'service-excellence',
+        icon: '❤️',
+        title: '服務深耕路徑',
+        description: '專注學員關係、高續約率，成為最受信任的教練',
+        coreActions: [
+          '建立深度學員關係系統（定期回顧、慶祝里程碑）',
+          '提供超出預期的服務體驗',
+          '成為學員的人生教練，不只是健身教練',
+          '打造口碑和轉介紹系統',
+          '維持 90% 以上的續約率'
+        ],
+        suitableFor: '喜歡與人互動、重視關係、追求服務品質'
+      }
     ],
     weeks: [
       {
