@@ -133,6 +133,24 @@ export default function VideoLibrary({ onBack }: VideoLibraryProps) {
             {expandedId === topic.id && (
               <div className="p-6 pt-0 border-t-2 border-gray-100 animate-fade-in">
                 <div className="space-y-4">
+                  {/* 核心重點 */}
+                  {topic.keyPoints && topic.keyPoints.length > 0 && (
+                    <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-lg">
+                      <h4 className="font-bold mb-3 flex items-center gap-2">
+                        <span className="text-xl">⭐</span>
+                        3 個核心重點（記住這些就夠了）
+                      </h4>
+                      <ul className="space-y-2">
+                        {topic.keyPoints.map((point, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="font-bold text-yellow-300">{idx + 1}.</span>
+                            <span className="leading-relaxed">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h4 className="font-bold mb-2 text-primary">📝 完整腳本</h4>
                     <pre className="whitespace-pre-wrap text-gray-700 leading-relaxed font-sans">
@@ -150,11 +168,14 @@ export default function VideoLibrary({ onBack }: VideoLibraryProps) {
                   </div>
 
                   <div className="flex gap-3">
-                    <button className="px-6 py-3 bg-primary text-white font-bold rounded-xl hover:shadow-xl transition-all hover:-translate-y-1">
+                    <button 
+                      onClick={() => {
+                        navigator.clipboard.writeText(topic.script);
+                        alert('✅ 腳本已複製到剪貼簿！');
+                      }}
+                      className="px-6 py-3 bg-primary text-white font-bold rounded-xl hover:shadow-xl transition-all hover:-translate-y-1"
+                    >
                       📋 複製腳本
-                    </button>
-                    <button className="px-6 py-3 bg-success text-white font-bold rounded-xl hover:shadow-xl transition-all hover:-translate-y-1">
-                      ✓ 標記為已拍
                     </button>
                   </div>
                 </div>
@@ -171,26 +192,15 @@ export default function VideoLibrary({ onBack }: VideoLibraryProps) {
         </div>
       )}
 
-      {/* 統計 */}
-      <div className="mt-8 bg-gradient-to-r from-gray-800 to-gray-700 text-white rounded-2xl p-6">
-        <h3 className="font-outfit text-2xl font-bold mb-4">📊 你的進度</h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div>
-            <div className="text-gray-300 mb-1">總主題數</div>
-            <div className="text-4xl font-bold">{videoTopics.length}</div>
-          </div>
-          <div>
-            <div className="text-gray-300 mb-1">已拍攝</div>
-            <div className="text-4xl font-bold text-success">0</div>
-          </div>
-          <div>
-            <div className="text-gray-300 mb-1">完成率</div>
-            <div className="text-4xl font-bold text-warning">0%</div>
-          </div>
-        </div>
-        <p className="mt-4 text-gray-300">
-          💡 建議：每週拍 1 支，3 個月就有 12 支了！
-        </p>
+      {/* 實用提示 */}
+      <div className="mt-8 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl p-6">
+        <h3 className="font-outfit text-2xl font-bold mb-3">� 拍攝建議</h3>
+        <ul className="space-y-2 text-lg">
+          <li>• 每週至少拍 1 支，3 個月就有 12 支了</li>
+          <li>• 先記住「3 個核心重點」，不用背整段腳本</li>
+          <li>• 用自己的話說，比照著念更真實</li>
+          <li>• 拍完可以截圖存起來，記錄自己的成長</li>
+        </ul>
       </div>
     </div>
   );

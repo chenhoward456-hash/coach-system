@@ -3,6 +3,7 @@ export interface VideoTopic {
   category: '技術教學' | '學員見證' | 'Q&A' | '日常分享' | '動機激勵';
   title: string;
   level: '新手友善' | '進階';
+  keyPoints?: string[];
   script: string;
   tips: string[];
   estimatedTime: string;
@@ -15,6 +16,7 @@ export const videoTopics: VideoTopic[] = [
     category: '技術教學',
     title: '深蹲常見錯誤 Top 3',
     level: '新手友善',
+    keyPoints: ['膝蓋要對準腳尖，不能內夾', '核心穩定，腰椎不過度前凸', '重心坐後面，不要太前面'],
     script: `開場：「今天教你避開深蹲最常見的 3 個錯誤」
 1. 膝蓋內夾 → 示範錯誤 → 示範正確（膝蓋對腳尖）
 2. 腰椎過度前凸 → 示範錯誤 → 示範正確（核心穩定）
@@ -28,6 +30,7 @@ export const videoTopics: VideoTopic[] = [
     category: '技術教學',
     title: '如何找到正確的訓練重量',
     level: '新手友善',
+    keyPoints: ['最後 2 下有點吃力但動作不變形', '做完一組不會喘到說不出話', '隔天有點痠但不是痛'],
     script: `開場：「很多人不知道該用多重，今天教你 3 個判斷標準」
 1. 最後 2 下有點吃力，但動作不變形
 2. 做完一組不會喘到說不出話
@@ -42,6 +45,7 @@ export const videoTopics: VideoTopic[] = [
     category: '技術教學',
     title: '臥推如何保護肩膀',
     level: '進階',
+    keyPoints: ['肩胛後收下壓', '手肘角度 45 度不是 90 度', '槓鈴軌跡在胸中下緣'],
     script: `開場：「臥推肩膀痛？3 個關鍵幫你保護肩膀」
 1. 肩胛後收下壓（示範）
 2. 手肘角度 45 度，不是 90 度
@@ -56,6 +60,7 @@ export const videoTopics: VideoTopic[] = [
     category: '技術教學',
     title: '硬舉啟動順序',
     level: '進階',
+    keyPoints: ['肩膀在槓鈴正上方', '深吸氣核心繃緊', '先推地不是先拉'],
     script: `開場：「硬舉最重要的是啟動順序，做錯容易受傷」
 步驟拆解：
 1. 握槓 → 肩膀在槓鈴正上方
@@ -72,6 +77,7 @@ export const videoTopics: VideoTopic[] = [
     category: '技術教學',
     title: '核心訓練不是只有捲腹',
     level: '新手友善',
+    keyPoints: ['棒式訓練抗伸展', '側棒式訓練抗側屈', '死蟲訓練抗旋轉'],
     script: `開場：「核心訓練 = 捲腹？錯！教你 3 個更有效的動作」
 1. 棒式（抗伸展）
 2. 側棒式（抗側屈）
