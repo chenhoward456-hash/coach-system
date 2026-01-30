@@ -10,10 +10,67 @@ interface HomePageProps {
 }
 
 export default function HomePage({ onNavigate }: HomePageProps) {
+  // 每日金句（從成長心法中隨機選一句）
+  const dailyQuotes = [
+    '真誠 > 話術。學生要的不是完美的話術，而是真實的你。',
+    '行動 > 完美。先開始，再優化。等到完美再開始，永遠不會開始。',
+    '持續 > 爆發。每天進步 1%，一年後你會進步 37 倍。',
+    '你的狀態就是最好的廣告。想要學生相信訓練有效？先讓自己成為證明。',
+    '學生不會記得你說了什麼，但會記得你讓他們有什麼感覺。',
+    '不要和別人比，要和昨天的自己比。每個人的起點不同，重要的是持續進步。',
+    '低潮是成長的必經之路。沒有低潮，就沒有突破。',
+    '專注你能控制的事。學生數、收入這些結果你無法直接控制，但你可以控制每天的行動。',
+  ];
+
+  // 影片主題（從30個主題中隨機選一個）
+  const videoTopics = [
+    { title: '訓練日常 Vlog', description: '記錄一天的訓練和生活', difficulty: '新手友善' },
+    { title: '學員成果分享', description: '展示學員的進步和改變', difficulty: '新手友善' },
+    { title: '常見錯誤動作', description: '指出並修正常見的訓練錯誤', difficulty: '新手友善' },
+    { title: '一個動作教學', description: '深入講解一個訓練動作', difficulty: '進階' },
+    { title: '飲食觀念分享', description: '分享實用的飲食知識', difficulty: '新手友善' },
+    { title: '訓練迷思破解', description: '破解常見的健身迷思', difficulty: '進階' },
+    { title: '我的教練日常', description: '展現真實的教練生活', difficulty: '新手友善' },
+    { title: '學員問答', description: '回答學員常問的問題', difficulty: '新手友善' },
+  ];
+
+  const [dailyQuote, setDailyQuote] = useState(dailyQuotes[0]);
+  const [dailyVideo, setDailyVideo] = useState(videoTopics[0]);
+
+  useEffect(() => {
+    const today = new Date().toDateString();
+    const savedDate = localStorage.getItem('dailyQuote_date');
+    const savedQuote = localStorage.getItem('dailyQuote_text');
+    
+    if (savedDate === today && savedQuote) {
+      setDailyQuote(savedQuote);
+    } else {
+      const newQuote = dailyQuotes[Math.floor(Math.random() * dailyQuotes.length)];
+      localStorage.setItem('dailyQuote_date', today);
+      localStorage.setItem('dailyQuote_text', newQuote);
+      setDailyQuote(newQuote);
+    }
+  }, []);
+
+  useEffect(() => {
+    const today = new Date().toDateString();
+    const savedDate = localStorage.getItem('dailyVideo_date');
+    const savedVideo = localStorage.getItem('dailyVideo_data');
+    
+    if (savedDate === today && savedVideo) {
+      setDailyVideo(JSON.parse(savedVideo));
+    } else {
+      const newVideo = videoTopics[Math.floor(Math.random() * videoTopics.length)];
+      localStorage.setItem('dailyVideo_date', today);
+      localStorage.setItem('dailyVideo_data', JSON.stringify(newVideo));
+      setDailyVideo(newVideo);
+    }
+  }, []);
+
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl p-8 md:p-12 mb-12 border border-blue-100">
+      <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl p-8 md:p-12 mb-8 border border-blue-100">
         <div className="max-w-4xl mx-auto text-center">
           <div className="text-6xl mb-6 animate-bounce-slow">💪</div>
           <h1 className="font-outfit text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
@@ -22,6 +79,75 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <p className="text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
             迷惘時來這裡找答案，需要時拿工具
           </p>
+        </div>
+      </div>
+
+      {/* 每日金句 */}
+      <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white rounded-2xl p-6 mb-8 shadow-lg">
+        <div className="flex items-start gap-4">
+          <div className="text-4xl">💡</div>
+          <div className="flex-1">
+            <h3 className="font-bold text-lg mb-2">今日金句</h3>
+            <p className="text-lg leading-relaxed">{dailyQuote}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 快速入口 + 今日推薦 */}
+      <div className="grid md:grid-cols-2 gap-6 mb-8">
+        {/* 快速入口 */}
+        <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200">
+          <h3 className="font-outfit text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <span className="text-2xl">⚡</span>
+            快速入口
+          </h3>
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              onClick={() => onNavigate('daily')}
+              className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold py-3 px-4 rounded-xl transition-all hover:scale-105"
+            >
+              ✅ 今日清單
+            </button>
+            <button
+              onClick={() => onNavigate('videos')}
+              className="bg-purple-50 hover:bg-purple-100 text-purple-700 font-semibold py-3 px-4 rounded-xl transition-all hover:scale-105"
+            >
+              🎬 影片主題
+            </button>
+            <button
+              onClick={() => onNavigate('messages')}
+              className="bg-green-50 hover:bg-green-100 text-green-700 font-semibold py-3 px-4 rounded-xl transition-all hover:scale-105"
+            >
+              💬 訊息範本
+            </button>
+            <button
+              onClick={() => onNavigate('frameworks')}
+              className="bg-orange-50 hover:bg-orange-100 text-orange-700 font-semibold py-3 px-4 rounded-xl transition-all hover:scale-105"
+            >
+              ⚡ 實戰工具
+            </button>
+          </div>
+        </div>
+
+        {/* 今日推薦影片主題 */}
+        <div className="bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-2xl p-6 shadow-lg">
+          <h3 className="font-outfit text-xl font-bold mb-3 flex items-center gap-2">
+            <span className="text-2xl">🎬</span>
+            今日推薦影片主題
+          </h3>
+          <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-3">
+            <h4 className="font-bold text-lg mb-2">{dailyVideo.title}</h4>
+            <p className="text-sm opacity-90 mb-2">{dailyVideo.description}</p>
+            <span className="inline-block bg-white/30 px-3 py-1 rounded-full text-xs font-semibold">
+              {dailyVideo.difficulty}
+            </span>
+          </div>
+          <button
+            onClick={() => onNavigate('videos')}
+            className="w-full bg-white text-purple-600 font-bold py-2 px-4 rounded-xl hover:bg-purple-50 transition-all"
+          >
+            查看更多主題 →
+          </button>
         </div>
       </div>
 
