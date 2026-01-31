@@ -18,9 +18,10 @@ interface DiagnosisResult {
 
 interface DiagnosisToolProps {
   onBack?: () => void;
+  onNavigate?: (section: string) => void;
 }
 
-export default function DiagnosisTool({ onBack }: DiagnosisToolProps) {
+export default function DiagnosisTool({ onBack, onNavigate }: DiagnosisToolProps) {
   const [mainIssue, setMainIssue] = useState('');
   const [activities, setActivities] = useState<string[]>([]);
   const [timeCommitment, setTimeCommitment] = useState('');
@@ -389,6 +390,48 @@ ${result.activitiesCount < 2 ? `⚠️ 額外發現：
             </div>
           )}
 
+          {/* 立即行動按鈕 */}
+          <div className="bg-gradient-to-r from-orange-400 to-red-500 rounded-2xl p-6 mb-6">
+            <h4 className="font-bold text-2xl text-white mb-4 text-center">
+              🚀 診斷完了，接下來呢？
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              {result.coachLevel && onNavigate && (
+                <button
+                  onClick={() => onNavigate(result.coachLevel === 'beginner' ? 'plan-beginner' : 'plan-intermediate')}
+                  className="bg-white text-orange-600 font-bold py-4 px-6 rounded-xl hover:shadow-xl transition-all hover:scale-105 text-lg"
+                >
+                  📅 啟動你的 30 天成長計畫
+                </button>
+              )}
+              {onNavigate && (
+                <>
+                  <button
+                    onClick={() => onNavigate('videos')}
+                    className="bg-white text-purple-600 font-bold py-4 px-6 rounded-xl hover:shadow-xl transition-all hover:scale-105 text-lg"
+                  >
+                    🎬 看影片主題（開始拍片）
+                  </button>
+                  <button
+                    onClick={() => onNavigate('messages')}
+                    className="bg-white text-green-600 font-bold py-4 px-6 rounded-xl hover:shadow-xl transition-all hover:scale-105 text-lg"
+                  >
+                    💬 看訊息範本（關心學員）
+                  </button>
+                  <button
+                    onClick={() => onNavigate('frameworks')}
+                    className="bg-white text-blue-600 font-bold py-4 px-6 rounded-xl hover:shadow-xl transition-all hover:scale-105 text-lg"
+                  >
+                    ⚡ 看實戰工具（解決問題）
+                  </button>
+                </>
+              )}
+            </div>
+            <p className="text-white text-center mt-4 text-sm opacity-90">
+              💡 不要只是看診斷結果，點擊上面的按鈕，立刻開始行動！
+            </p>
+          </div>
+
           <button
             onClick={copyDiagnosis}
             className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-8 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-lg mb-8"
@@ -396,12 +439,12 @@ ${result.activitiesCount < 2 ? `⚠️ 額外發現：
             📋 一鍵複製診斷報告
           </button>
 
-          {/* 30 天計畫 */}
+          {/* 30 天計畫預覽 */}
           {result.coachLevel && (
             <div className="mt-8">
               <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl p-6 mb-6">
                 <h3 className="font-outfit text-2xl font-bold mb-2">
-                  🎯 根據你的狀況，這是你的 30 天行動計畫
+                  📋 你的 30 天成長計畫預覽
                 </h3>
                 <p className="text-lg opacity-90">
                   {result.coachLevel === 'beginner' 

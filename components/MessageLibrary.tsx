@@ -12,8 +12,17 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('基礎關心');
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const filteredTemplates = getTemplatesByCategory(selectedCategory);
+  const filteredTemplates = getTemplatesByCategory(selectedCategory).filter(template => {
+    if (!searchQuery) return true;
+    const query = searchQuery.toLowerCase();
+    return (
+      template.title.toLowerCase().includes(query) ||
+      template.template.toLowerCase().includes(query) ||
+      template.whenToUse.toLowerCase().includes(query)
+    );
+  });
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -63,6 +72,32 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
         </div>
       </div>
 
+      {/* 快速搜尋 */}
+      <div className="mb-6">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="🔍 輸入關鍵字快速找話術（例如：生日、續約、關心）"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+        {searchQuery && (
+          <p className="mt-2 text-sm text-gray-600">
+            找到 {filteredTemplates.length} 個相關範本
+          </p>
+        )}
+      </div>
+
       {/* 分類 Tab */}
       <div className="mb-8">
         <div className="flex gap-2 overflow-x-auto pb-2">
@@ -72,6 +107,7 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
               onClick={() => {
                 setSelectedCategory(cat);
                 setExpandedId(null);
+                setSearchQuery('');
               }}
               className={`px-6 py-3 rounded-xl font-bold whitespace-nowrap transition-all ${
                 selectedCategory === cat

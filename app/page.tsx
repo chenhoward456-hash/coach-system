@@ -64,7 +64,7 @@ export default function Home() {
       <div className="container max-w-6xl mx-auto px-4 py-12">
         {activeSection === 'home' && <HomePage onNavigate={setActiveSection} />}
         {activeSection === 'daily' && <DailyChecklistPage onBack={() => setActiveSection('home')} onNavigate={setActiveSection} />}
-        {activeSection === 'diagnosis' && <DiagnosisTool onBack={() => setActiveSection('home')} />}
+        {activeSection === 'diagnosis' && <DiagnosisTool onBack={() => setActiveSection('home')} onNavigate={setActiveSection} />}
         {activeSection === 'frameworks' && <PracticalFrameworks onBack={() => setActiveSection('home')} />}
         {activeSection === 'plan-beginner' && <ThirtyDayPlanStandalone level="beginner" onBack={() => setActiveSection('home')} />}
         {activeSection === 'plan-intermediate' && <ThirtyDayPlanStandalone level="intermediate" onBack={() => setActiveSection('home')} />}
