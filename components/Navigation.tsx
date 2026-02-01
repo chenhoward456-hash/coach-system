@@ -8,14 +8,15 @@ interface NavigationProps {
 }
 
 const navItems = [
-  { id: 'home', label: '🏠 首頁' },
-  { id: 'daily', label: '✅ 今日' },
-  { id: 'diagnosis', label: '🆘 診斷' },
-  { id: 'frameworks', label: '⚡ 實戰' },
-  { id: 'videos', label: '🎬 影片' },
-  { id: 'messages', label: '💡 訊息' },
-  { id: 'resources', label: '📚 資源' },
-  { id: 'mindset', label: '💪 心法' },
+  { id: 'home', label: '首頁', icon: '🏠' },
+  { id: 'journal', label: '教練日記', icon: '📔' },
+  { id: 'daily', label: '每日清單', icon: '✅' },
+  { id: 'diagnosis', label: '狀態診斷', icon: '🔍' },
+  { id: 'frameworks', label: '實戰工具', icon: '⚡' },
+  { id: 'videos', label: '影片主題', icon: '🎬' },
+  { id: 'messages', label: '訊息範本', icon: '💬' },
+  { id: 'resources', label: '資源', icon: '📚' },
+  { id: 'mindset', label: '成長心法', icon: '💡' },
 ];
 
 export default function Navigation({ activeSection, onSectionChange }: NavigationProps) {

@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { storage } from '@/lib/localStorage';
 import PolygonTheory from '@/components/PolygonTheory';
 import DailyChecklist from './DailyChecklist';
+import DailyTasks from './DailyTasks';
+import WeeklyReflection from './WeeklyReflection';
 
 interface HomePageProps {
   onNavigate: (section: string) => void;
@@ -91,6 +93,16 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             <p className="text-lg leading-relaxed">{dailyQuote}</p>
           </div>
         </div>
+      </div>
+
+      {/* 今日任務 */}
+      <div className="mb-8">
+        <DailyTasks onNavigate={onNavigate} />
+      </div>
+
+      {/* 每週反思 */}
+      <div className="mb-8">
+        <WeeklyReflection />
       </div>
 
       {/* 快速入口 + 今日推薦 */}

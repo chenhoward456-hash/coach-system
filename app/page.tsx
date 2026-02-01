@@ -19,6 +19,7 @@ import ThirtyDayPlanStandalone from '@/components/ThirtyDayPlanStandalone';
 import PersonalStyleGuide from '@/components/PersonalStyleGuide';
 import PracticalFrameworks from '@/components/PracticalFrameworks';
 import DailyChecklistPage from '@/components/DailyChecklistPage';
+import CoachJournal from '@/components/CoachJournal';
 import BackToTop from '@/components/BackToTop';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
@@ -63,6 +64,7 @@ export default function Home() {
       
       <div className="container max-w-6xl mx-auto px-4 py-12">
         {activeSection === 'home' && <HomePage onNavigate={setActiveSection} />}
+        {activeSection === 'journal' && <CoachJournal onBack={() => setActiveSection('home')} />}
         {activeSection === 'daily' && <DailyChecklistPage onBack={() => setActiveSection('home')} onNavigate={setActiveSection} />}
         {activeSection === 'diagnosis' && <DiagnosisTool onBack={() => setActiveSection('home')} onNavigate={setActiveSection} />}
         {activeSection === 'frameworks' && <PracticalFrameworks onBack={() => setActiveSection('home')} />}
