@@ -45,8 +45,10 @@ export default function WeeklyReflection() {
 
   const getWeekString = (date: Date) => {
     const year = date.getFullYear();
-    const weekNum = Math.ceil((date.getDate() + 6 - date.getDay()) / 7);
-    return `${year}-W${weekNum}`;
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const weekNum = Math.ceil(day / 7);
+    return `${year}年${month}月第${weekNum}週`;
   };
 
   const saveReflection = () => {
@@ -72,12 +74,45 @@ export default function WeeklyReflection() {
     setCurrentReflection({ achievement: '', challenge: '', nextWeek: '' });
     setShowForm(false);
 
-    alert('✅ 本週反思已保存！');
+    alert('✅ 本週反思已保存！\n\n💡 建議截圖保存，避免換電腦或清除瀏覽器時資料遺失。');
   };
 
   const formatDate = (timestamp: number) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString('zh-TW', { month: 'long', day: 'numeric' });
+  };
+
+  const downloadReflections = () => {
+    if (reflections.length === 0) {
+      alert('目前沒有反思記錄可以下載');
+      return;
+    }
+
+    let content = '📝 教練成長反思記錄\n';
+    content += '==================\n\n';
+    
+    reflections.forEach((reflection, index) => {
+      content += `【${reflection.week}】 - ${formatDate(reflection.timestamp)}\n\n`;
+      content += `🎉 這週最有成就感的事：\n${reflection.achievement}\n\n`;
+      content += `💪 這週最大的挑戰：\n${reflection.challenge}\n\n`;
+      content += `🎯 下週想改善什麼：\n${reflection.nextWeek}\n\n`;
+      content += '-------------------\n\n';
+    });
+
+    content += `\n匯出時間：${new Date().toLocaleString('zh-TW')}\n`;
+    content += `總共 ${reflections.length} 週的反思記錄\n`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `教練反思記錄_${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    alert('✅ 反思記錄已下載！\n\n請妥善保存這個檔案，換電腦時可以參考。');
   };
 
   return (
@@ -87,14 +122,24 @@ export default function WeeklyReflection() {
           <h3 className="font-outfit text-2xl font-bold text-gray-900">
             📝 每週反思
           </h3>
-          {!showForm && (
-            <button
-              onClick={() => setShowForm(true)}
-              className="px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
-            >
-              + 寫本週反思
-            </button>
-          )}
+          <div className="flex gap-2">
+            {reflections.length > 0 && (
+              <button
+                onClick={downloadReflections}
+                className="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all"
+              >
+                💾 下載記錄
+              </button>
+            )}
+            {!showForm && (
+              <button
+                onClick={() => setShowForm(true)}
+                className="px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
+              >
+                + 寫本週反思
+              </button>
+            )}
+          </div>
         </div>
 
         <p className="text-gray-600 mb-6">
@@ -208,8 +253,11 @@ export default function WeeklyReflection() {
 
         {/* 提示 */}
         <div className="mt-6 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
-          <p className="text-yellow-800 text-sm">
+          <p className="text-yellow-800 text-sm mb-2">
             💡 <strong>為什麼要反思？</strong>3 個月後回頭看，你會驚訝自己進步了多少。
+          </p>
+          <p className="text-yellow-800 text-sm">
+            📸 <strong>重要提醒：</strong>反思記錄存在瀏覽器，建議定期「下載記錄」或「截圖保存」，避免換電腦或清除瀏覽器時資料遺失。
           </p>
         </div>
       </div>
