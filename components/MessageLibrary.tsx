@@ -197,6 +197,16 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
                       ))}
                     </ul>
                   </div>
+
+                  {/* Howard 的真心話 */}
+                  {template.howardNote && (
+                    <div className="bg-gray-900 p-5 rounded-lg">
+                      <h4 className="font-bold mb-2 text-gray-300 text-sm tracking-wide">HOWARD 的真心話</h4>
+                      <p className="text-gray-100 leading-relaxed italic">
+                        「{template.howardNote}」
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}

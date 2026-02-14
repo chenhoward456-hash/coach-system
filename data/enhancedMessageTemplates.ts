@@ -6,6 +6,7 @@ export interface MessageTemplate {
   variables: string[];
   whenToUse: string;
   tips: string[];
+  howardNote: string;
 }
 
 export const enhancedMessageTemplates: MessageTemplate[] = [
@@ -27,7 +28,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '一定要提到具體進步，不要只說「很棒」',
       '最後提醒下次上課時間，減少爽約',
       '語氣要真誠，不要太制式'
-    ]
+    ],
+    howardNote: '我以前也會照抄範本，直到有學員跟我說「你是不是發給每個人一樣的訊息」。從那天起，我每則都手寫。哪怕只改一句，都要讓對方覺得「這是寫給我的」。'
   },
   {
     id: 'basic-2',
@@ -49,7 +51,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '關心恢復狀況，展現專業',
       '給簡單的建議，不要太複雜',
       '提醒下次上課，保持連結'
-    ]
+    ],
+    howardNote: '你記得他上次練什麼，他就會覺得你有在看他。這件事很小，但很多教練做不到。'
   },
   {
     id: 'basic-3',
@@ -70,7 +73,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '一定要提到具體成果，讓學生有感',
       '不用送禮物，真誠的祝福就夠了',
       '可以在課堂上再次祝福'
-    ]
+    ],
+    howardNote: '花 30 秒想一件他這一年做到的事，寫進去。「生日快樂」誰都會說，但「你今年硬舉從 40 拉到 80 了欸」只有你說得出來。'
   },
   {
     id: 'basic-4',
@@ -89,7 +93,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '展現關心，不要催促',
       '讓學生感受到你在乎他的健康',
       '保持聯繫，避免流失'
-    ]
+    ],
+    howardNote: '傳這則不是為了「防止流失」，是因為他可能真的不舒服。如果你心裡想的是業績，對方感受得到。'
   },
 
   // 開發轉介紹
@@ -110,7 +115,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '先肯定學生，再提轉介紹',
       '不要太商業，要自然',
       '優惠後面再說，不要一開始就談錢'
-    ]
+    ],
+    howardNote: '如果這句話你說出來自己都覺得尷尬，那就先不要說。轉介紹是信任的結果，不是話術的結果。先把眼前這個人教好。'
   },
   {
     id: 'referral-2',
@@ -131,7 +137,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '優惠要具體，例如「送1堂課」',
       '強調雙贏，不是只有你賺',
       '不要太頻繁提，會很煩'
-    ]
+    ],
+    howardNote: '學員願意介紹朋友，是因為他覺得你真的幫到他了，不是因為優惠多好。如果他還沒主動提過，可能時機還沒到。'
   },
   {
     id: 'referral-3',
@@ -150,7 +157,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '立刻感謝，不要拖',
       '明確說明優惠已記錄',
       '讓學生感受到你的感激'
-    ]
+    ],
+    howardNote: '他把朋友介紹給你，等於拿自己的人際關係替你背書。這份信任很重，好好對他朋友就是最好的回報。'
   },
   {
     id: 'referral-4',
@@ -167,7 +175,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '先肯定學生的進步',
       '語氣要自然，不要太商業',
       '不要一直提，會很煩'
-    ]
+    ],
+    howardNote: '「進步很明顯」這句話要是真的。如果他這個月其實沒什麼進步，你硬說有，他心裡知道你在鋪梗。'
   },
   {
     id: 'referral-5',
@@ -182,7 +191,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '直接但不強迫',
       '讓學生知道你有空檔',
       '不要太頻繁問'
-    ]
+    ],
+    howardNote: '這句話一個月最多說一次。說太多次，學員會開始覺得你缺學生，反而失去信任感。'
   },
   {
     id: 'referral-6',
@@ -199,7 +209,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '提供免費價值',
       '讓學生覺得介紹朋友是幫朋友',
       '不是推銷，是提供服務'
-    ]
+    ],
+    howardNote: '免費體測要真的有料，不能只是走過場然後推銷。如果他朋友來做完體測覺得「學到東西了」，就算沒買課，你的學員也會覺得你很專業。'
   },
   {
     id: 'cold-1',
@@ -214,7 +225,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '先肯定對方',
       '不要立刻推銷',
       '建立友善印象'
-    ]
+    ],
+    howardNote: '我剛入行的時候也很怕開口。後來發現，你不是在推銷，你是在認識一個新朋友。心態對了，對方感受到的壓力就小很多。'
   },
   {
     id: 'cold-2',
@@ -229,7 +241,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '先提供價值',
       '展現專業',
       '不要批評，要幫助'
-    ]
+    ],
+    howardNote: '只有在真的會受傷的時候才去說。如果只是動作不完美，不要為了搭話而去糾正人家，那樣很煩。'
   },
   {
     id: 'cold-3',
@@ -244,7 +257,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '了解對方需求',
       '展現你的專長',
       '留下印象'
-    ]
+    ],
+    howardNote: '聊天的時候多聽少說。問完問題，讓對方講。你聽越多，他越覺得你懂他。'
   },
 
   // 專業反饋
@@ -269,7 +283,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '數據要具體，不要模糊',
       '一定要給下週目標',
       '讓學生看到進步'
-    ]
+    ],
+    howardNote: '不是每個學員都需要這種報告。有些人只想好好練完就好。觀察一下誰對數據有感覺，誰不在意，然後只發給會看的人。'
   },
   {
     id: 'pro-2',
@@ -293,7 +308,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '先說優點，再說改善',
       '改善點要具體，不要只說「不對」',
       '給明確的下次重點'
-    ]
+    ],
+    howardNote: '永遠先講好的。如果你開口第一句就是「你這裡不對」，對方後面什麼都聽不進去了。'
   },
   {
     id: 'pro-3',
@@ -318,7 +334,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '成果要具體可見',
       '設定下階段目標',
       '讓學生有成就感'
-    ]
+    ],
+    howardNote: '很多學員不知道自己進步了多少，因為每天看自己不會有感覺。你幫他回顧，他才會發現「原來我已經走了這麼遠」。這很重要。'
   },
   {
     id: 'pro-4',
@@ -341,7 +358,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '不要太複雜，簡單3點就好',
       '不要太嚴格，會嚇跑學生',
       '強調「慢慢來」'
-    ]
+    ],
+    howardNote: '飲食建議點到為止就好。我們是教練，不是營養師。如果學員有特殊狀況，建議他去找專業的。'
   },
 
   // 續約維護
@@ -362,7 +380,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '先肯定進步，再提續約',
       '給明確的下階段目標',
       '語氣要自然，不要太商業'
-    ]
+    ],
+    howardNote: '「剩三堂」不是一個銷售訊號，是你跟這個人還有三次見面的機會。如果你這三堂課教得夠好，續約是自然的事。'
   },
   {
     id: 'renewal-2',
@@ -383,7 +402,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '優惠要具體明確',
       '強調保留時段的好處',
       '給期限製造急迫感'
-    ]
+    ],
+    howardNote: '如果一個學員需要靠優惠才願意留下來，問題可能不在價格。先問問自己：他對訓練的體驗滿意嗎？'
   },
   {
     id: 'renewal-3',
@@ -402,7 +422,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '不要催促，給空間',
       '主動詢問疑慮',
       '展現願意調整的態度'
-    ]
+    ],
+    howardNote: '他說「我考慮一下」的時候，真正的意思可能是「有些地方我不太滿意但不好意思說」。這時候不是推銷的時候，是傾聽的時候。'
   },
   {
     id: 'renewal-4',
@@ -421,7 +442,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '立刻感謝，展現重視',
       '重申目標，保持動力',
       '確認下次上課時間'
-    ]
+    ],
+    howardNote: '續約不是結束，是新的開始。他選擇繼續跟你練，代表他相信你。不要辜負這份信任。'
   },
   {
     id: 'renewal-5',
@@ -440,7 +462,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '保持友善，不要有壓力',
       '留下好印象，未來可能回來',
       '不要抱怨或質問'
-    ]
+    ],
+    howardNote: '他不續約，不代表你不好。可能是經濟因素、時間因素、人生階段的問題。好好道別，讓他以後想運動的時候第一個想到你。'
   },
   {
     id: 'maintenance-1',
@@ -459,7 +482,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '關心而不是責備',
       '主動提供彈性方案',
       '保持聯繫避免流失'
-    ]
+    ],
+    howardNote: '不要問「你怎麼都沒來上課」，問「你最近還好嗎」。前者是責備，後者是關心。你是他的教練，不是他的老闆。'
   },
   {
     id: 'maintenance-2',
@@ -480,7 +504,8 @@ export const enhancedMessageTemplates: MessageTemplate[] = [
       '定期回顧建立習慣',
       '讓學生看到進步',
       '預防下個月流失'
-    ]
+    ],
+    howardNote: '這則訊息的目的不是「預防流失」，是讓他知道你有在看他的努力。如果你心裡想的是 KPI，這則訊息就會變成例行公事，對方感受得到差別。'
   }
 ];
 
