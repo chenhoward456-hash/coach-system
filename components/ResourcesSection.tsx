@@ -91,6 +91,15 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
       howToRead: '新手可以先跳過，等有會員問呼吸問題再回來看',
       timeEstimate: '1-2週（選讀）',
     },
+    {
+      title: 'hook point 引爆瘋傳',
+      badge: '內容產出',
+      badgeColor: 'bg-pink-100 text-pink-700',
+      why: '教你怎麼在 3 秒抓住注意力，拍 Reels、寫貼文直接能用。',
+      keyPoints: '注意力經濟、3秒法則、內容包裝策略',
+      howToRead: '邊看邊想：我的下一支影片開頭怎麼改？',
+      timeEstimate: '1-2週',
+    },
   ];
 
   const beginnerChannels: BookResource[] = [
@@ -122,6 +131,16 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
       keyPoints: '訓練原則、槓鈴訓練、教練養成系列',
       howToRead: '通勤時聽，不用全部聽完',
       timeEstimate: '',
+    },
+    {
+      title: '營養師 Ricky',
+      badge: '中文資源',
+      badgeColor: 'bg-green-100 text-green-700',
+      why: '台灣營養師，增肌減脂飲食講得很實用，學員每天問的問題這裡都有。',
+      keyPoints: '蛋白質攝取、訓練前後飲食、減脂飲食策略',
+      howToRead: '學員問你飲食問題之前，先看他怎麼講',
+      timeEstimate: '',
+      link: 'https://www.youtube.com/@rickysnutrition',
     },
   ];
 
@@ -198,6 +217,24 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
       keyPoints: '90分鐘睡眠週期、睡眠優化、恢復策略',
       howToRead: '應用在運動員或高壓力會員身上',
       timeEstimate: '1-2週',
+    },
+    {
+      title: '如何改變一個人（The Catalyst）',
+      badge: '溝通必讀',
+      badgeColor: 'bg-teal-100 text-teal-700',
+      why: '不是教你推人改變，是教你移除阻礙讓人自己想改變。跟教練工作的核心完全一致。',
+      keyPoints: '移除抗拒、降低門檻、讓改變自然發生',
+      howToRead: '每看完一章，想一個「學員知道但做不到」的例子，套進去',
+      timeEstimate: '1-2週',
+    },
+    {
+      title: '靈活如豹（Becoming a Supple Leopard）',
+      badge: '活動度',
+      badgeColor: 'bg-orange-100 text-orange-700',
+      why: '系統性講活動度和自我放鬆，圖很多，可以直接拿來教學員。',
+      keyPoints: '活動度評估、自我筋膜放鬆、動作矯正',
+      howToRead: '配合 Squat University 一起用，遇到學員「卡住」的問題就翻',
+      timeEstimate: '當工具書查閱',
     },
   ];
 
@@ -283,6 +320,33 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
       howToRead: '想建立完整系統的必讀',
       timeEstimate: '每本2-3週',
     },
+    {
+      title: '動機式晤談法',
+      badge: '溝通專項',
+      badgeColor: 'bg-teal-100 text-teal-700',
+      why: '醫療界用了 40 年的談話技術，問對問題讓學員自己說出改變的理由。',
+      keyPoints: '開放式提問、反映式傾聽、引發改變談話',
+      howToRead: '配合《如何改變一個人》一起看，一個講原理一個講技巧',
+      timeEstimate: '2-3週',
+    },
+    {
+      title: '文案的美',
+      badge: '內容產出',
+      badgeColor: 'bg-pink-100 text-pink-700',
+      why: '台灣文案圈的代表作，教你用文字打動人，發 IG 貼文直接能用。',
+      keyPoints: '短文案寫作、標題技巧、用字精準',
+      howToRead: '看完馬上改你下一篇貼文的文案',
+      timeEstimate: '1-2週',
+    },
+    {
+      title: '一人公司（Company of One）',
+      badge: '個人品牌',
+      badgeColor: 'bg-rose-100 text-rose-700',
+      why: '不追求做大，追求做好。適合教練思考「我要成為什麼樣的教練」。',
+      keyPoints: '小而精、個人定位、不盲目擴張',
+      howToRead: '邊看邊問自己：我的教練品牌核心是什麼？',
+      timeEstimate: '1-2週',
+    },
   ];
 
   const intermediateChannels: BookResource[] = [
@@ -334,6 +398,16 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
       howToRead: '想深入理解科學原理的必聽',
       timeEstimate: '',
       link: 'https://www.youtube.com/@hubermanlab',
+    },
+    {
+      title: 'GaryVee（Gary Vaynerchuk）',
+      badge: '個人品牌',
+      badgeColor: 'bg-rose-100 text-rose-700',
+      why: '不用學他的風格，學他的核心觀念：大量產出、不怕丟臉、先做再說。',
+      keyPoints: '內容經營策略、社群思維、個人品牌建立',
+      howToRead: '每週看 1-2 支短片就好，重點是吸收心態不是模仿風格',
+      timeEstimate: '',
+      link: 'https://www.youtube.com/@garyvee',
     },
   ];
 
@@ -532,6 +606,24 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
       timeEstimate: '',
       link: 'https://www.youtube.com/@TheDiaryOfACEO',
     },
+    {
+      title: '大人學 Podcast',
+      badge: '中文資源',
+      badgeColor: 'bg-green-100 text-green-700',
+      why: '台灣最大的職場/商業/人際 Podcast，通勤聽很剛好。',
+      keyPoints: '職場策略、人際溝通、商業思維、自我管理',
+      howToRead: '挑跟「帶人」「溝通」相關的集數先聽',
+      timeEstimate: '',
+    },
+    {
+      title: '商業思維學院（Gipi）',
+      badge: '管理思維',
+      badgeColor: 'bg-blue-100 text-blue-700',
+      why: '系統性講商業思維、管理、領導，適合想往管理走的教練。',
+      keyPoints: '商業模式、團隊管理、策略思考、領導力',
+      howToRead: '想從「帶學員」升級到「帶團隊」的必聽',
+      timeEstimate: '',
+    },
   ];
 
   const renderBookCard = (book: BookResource) => (
@@ -686,7 +778,7 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
             </div>
           )}
 
-          <h4 className="font-outfit text-2xl font-bold mb-4 mt-12">🎥 YouTube 頻道（3個）</h4>
+          <h4 className="font-outfit text-2xl font-bold mb-4 mt-12">🎥 YouTube 頻道（4個）</h4>
           <div className="space-y-4">
             {beginnerChannels.map(renderBookCard)}
           </div>
@@ -731,7 +823,7 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
             </p>
           </div>
 
-          <h4 className="font-outfit text-2xl font-bold mb-4">📚 進階書籍（8本）</h4>
+          <h4 className="font-outfit text-2xl font-bold mb-4">📚 進階書籍（10本）</h4>
           <div className="space-y-4">
             {intermediateBooks.map(renderBookCard)}
           </div>
@@ -751,7 +843,7 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
             </div>
           )}
 
-          <h4 className="font-outfit text-2xl font-bold mb-4 mt-12">🎥 YouTube 頻道 & 資源（5個）</h4>
+          <h4 className="font-outfit text-2xl font-bold mb-4 mt-12">🎥 YouTube 頻道 & 資源（6個）</h4>
           <div className="space-y-4">
             {intermediateChannels.map(renderBookCard)}
           </div>
@@ -802,7 +894,7 @@ export default function ResourcesSection({ onBack }: ResourcesSectionProps) {
             {advancedBooks.map(renderBookCard)}
           </div>
 
-          <h4 className="font-outfit text-2xl font-bold mb-4 mt-12">🎙️ 持續精進</h4>
+          <h4 className="font-outfit text-2xl font-bold mb-4 mt-12">🎙️ 持續精進（3個）</h4>
           <div className="space-y-4">
             {advancedChannels.map(renderBookCard)}
           </div>
