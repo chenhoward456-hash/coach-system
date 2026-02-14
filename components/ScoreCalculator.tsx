@@ -46,40 +46,34 @@ export default function ScoreCalculator({ onBack }: ScoreCalculatorProps) {
 
     let status = '';
     let statusColor = '';
-    let retentionRate = '';
     let encouragementMsg = '';
     let action = '';
 
     if (totalScore >= 90) {
-      status = '🏆 頂尖教練';
+      status = '🏆 超強狀態';
       statusColor = 'text-green-600';
-      retentionRate = '85%+';
-      encouragementMsg = '你已經是館內的標竿！';
-      action = '繼續保持，並開始指導其他教練成長';
+      encouragementMsg = '你的各方面都很均衡，太厲害了！';
+      action = '保持節奏，也可以把經驗分享給其他夥伴';
     } else if (totalScore >= 80) {
-      status = '💪 優秀教練';
+      status = '💪 狀態很好';
       statusColor = 'text-blue-600';
-      retentionRate = '70-85%';
-      encouragementMsg = '你做得很好！';
-      action = '專注在最弱的1項，衝刺到90+';
+      encouragementMsg = '整體做得很好！';
+      action = '看看哪一項分數最低，試著這週多花一點心思在上面';
     } else if (totalScore >= 70) {
-      status = '📈 成長中';
+      status = '📈 穩步成長中';
       statusColor = 'text-yellow-600';
-      retentionRate = '55-70%';
       encouragementMsg = '你在正確的路上！';
-      action = '找出最弱的2項，每週改善一點點';
+      action = '挑最弱的 1-2 項，每週進步一點點就好';
     } else if (totalScore >= 60) {
-      status = '⚠️ 需要努力';
+      status = '🌱 還有成長空間';
       statusColor = 'text-orange-600';
-      retentionRate = '40-55%';
-      encouragementMsg = '現在開始改變還不晚！';
-      action = '立刻找 Howard 討論，制定改善計畫';
+      encouragementMsg = '每個人都有低潮期，重要的是意識到了！';
+      action = '先從最容易改善的 1 項開始，不用一次全改';
     } else {
-      status = '🚨 危險區';
-      statusColor = 'text-red-600';
-      retentionRate = '<40%';
-      encouragementMsg = '需要立即行動！';
-      action = '今天就找 Howard 一對一深談';
+      status = '💭 需要重新調整';
+      statusColor = 'text-gray-600';
+      encouragementMsg = '分數低不代表你不好，只是現在的方向可能需要調整';
+      action = '想想最近是不是太忙或太累了？先照顧好自己的狀態';
     }
 
     const scoreItems = [
@@ -95,7 +89,6 @@ export default function ScoreCalculator({ onBack }: ScoreCalculatorProps) {
       totalScore,
       status,
       statusColor,
-      retentionRate,
       encouragementMsg,
       action,
       score1,
@@ -110,11 +103,10 @@ export default function ScoreCalculator({ onBack }: ScoreCalculatorProps) {
     if (!result) return;
     const data = JSON.parse(result);
     const text = `
-📊 教練自我評分報告
+📊 教練自我健檢報告
 ==================
 總分：${data.totalScore}/100
 狀態：${data.status}
-預測續約率：${data.retentionRate}
 
 📋 各項得分：
 📹 內容產出：${data.score1}/25
@@ -123,12 +115,12 @@ export default function ScoreCalculator({ onBack }: ScoreCalculatorProps) {
 🤝 團隊協作：${data.score4}/25
 
 💡 ${data.encouragementMsg}
-建議行動：${data.action}
+下一步：${data.action}
 
-${data.weakAreas.length > 0 ? `⚠️ 需要加強的地方：
-${data.weakAreas.map((area: any) => `• ${area.name}：${area.value}/25 分（需要提升到 ${Math.ceil(area.max * 0.8)}+ 分）`).join('\n')}` : ''}
+${data.weakAreas.length > 0 ? `📌 可以多花心思的地方：
+${data.weakAreas.map((area: any) => `• ${area.name}：${area.value}/25 分`).join('\n')}` : ''}
 
-生成時間：${new Date().toLocaleString('zh-TW')}
+記錄時間：${new Date().toLocaleString('zh-TW')}
     `.trim();
 
     navigator.clipboard.writeText(text).then(() => {
@@ -147,10 +139,10 @@ ${data.weakAreas.map((area: any) => `• ${area.name}：${area.value}/25 分（�
       {onBack && <BackButton onBack={onBack} />}
       
       <h2 className="font-outfit text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
-        自我評分工具
+        自我健檢
       </h2>
       <p className="text-xl text-gray-600 mb-8 font-medium">
-        誠實評估自己的表現，系統會自動計算你的續約率預測
+        誠實面對自己，看看哪裡做得好、哪裡可以更好
       </p>
 
       <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 mb-8">
@@ -206,7 +198,6 @@ ${data.weakAreas.map((area: any) => `• ${area.name}：${area.value}/25 分（�
             <div className={`text-2xl font-bold mb-2 ${resultData.statusColor}`}>
               {resultData.status}
             </div>
-            <div className="text-gray-600">預測續約率：{resultData.retentionRate}</div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -231,18 +222,17 @@ ${data.weakAreas.map((area: any) => `• ${area.name}：${area.value}/25 分（�
           <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-primary mb-6">
             <h4 className="font-bold text-xl mb-2">💡 {resultData.encouragementMsg}</h4>
             <p className="text-gray-700">
-              <strong>建議行動：</strong>{resultData.action}
+              <strong>下一步：</strong>{resultData.action}
             </p>
           </div>
 
           {resultData.weakAreas.length > 0 && (
-            <div className="bg-yellow-50 rounded-xl p-6 border-l-4 border-warning mb-6">
-              <h4 className="font-bold text-xl mb-3">⚠️ 需要加強的地方</h4>
+            <div className="bg-yellow-50 rounded-xl p-6 border-l-4 border-yellow-400 mb-6">
+              <h4 className="font-bold text-xl mb-3">📌 可以多花心思的地方</h4>
               <ul className="space-y-2">
                 {resultData.weakAreas.map((area: any, idx: number) => (
                   <li key={idx} className="text-gray-700">
                     <strong>{area.name}：</strong>{area.value}/25 分
-                    （需要提升到 {Math.ceil(area.max * 0.8)}+ 分）
                   </li>
                 ))}
               </ul>
@@ -250,12 +240,12 @@ ${data.weakAreas.map((area: any) => `• ${area.name}：${area.value}/25 分（�
           )}
 
           <div className="bg-green-50 rounded-xl p-6 border-l-4 border-success">
-            <h4 className="font-bold text-xl mb-3">🎯 下一步</h4>
+            <h4 className="font-bold text-xl mb-3">🎯 怎麼用這個結果？</h4>
             <ol className="space-y-2 list-decimal list-inside text-gray-700">
-              <li>點擊下方按鈕複製報告</li>
-              <li>每週評分一次，追蹤進步</li>
-              <li>如果分數 &lt;60，立刻找 Howard 討論</li>
-              <li>專注改善最弱的1-2項，不要一次改太多</li>
+              <li>每隔一段時間重新評一次，看看自己的變化</li>
+              <li>不用追求滿分，重點是看到自己在進步</li>
+              <li>挑 1-2 項你最想改善的，專注就好</li>
+              <li>可以複製報告留給自己做記錄</li>
             </ol>
           </div>
 

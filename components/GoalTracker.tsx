@@ -1,6 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import BackButton from './BackButton';
+
+interface GoalTrackerProps {
+  onBack?: () => void;
+}
 
 interface Goal {
   id: string;
@@ -12,7 +17,7 @@ interface Goal {
   category: '續約率' | '轉介紹' | '內容產出' | '訓練次數' | '其他';
 }
 
-export default function GoalTracker() {
+export default function GoalTracker({ onBack }: GoalTrackerProps) {
   const [goals, setGoals] = useState<Goal[]>([]);
   const [showAddGoal, setShowAddGoal] = useState(false);
   const [newGoal, setNewGoal] = useState({
@@ -21,47 +26,13 @@ export default function GoalTracker() {
     current: 0,
     unit: '',
     deadline: '',
-    category: '續約率' as Goal['category'],
+    category: '內容產出' as Goal['category'],
   });
 
   useEffect(() => {
-    // 載入目標（先用預設目標）
-    const defaultGoals: Goal[] = [
-      {
-        id: '1',
-        title: '續約率達 80%',
-        target: 80,
-        current: 65,
-        unit: '%',
-        deadline: '2026-04-30',
-        category: '續約率',
-      },
-      {
-        id: '2',
-        title: '拍攝 12 支影片',
-        target: 12,
-        current: 5,
-        unit: '支',
-        deadline: '2026-04-30',
-        category: '內容產出',
-      },
-      {
-        id: '3',
-        title: '獲得 5 個轉介紹',
-        target: 5,
-        current: 2,
-        unit: '位',
-        deadline: '2026-04-30',
-        category: '轉介紹',
-      },
-    ];
-    
     const savedGoals = localStorage.getItem('coach-goals');
     if (savedGoals) {
       setGoals(JSON.parse(savedGoals));
-    } else {
-      setGoals(defaultGoals);
-      localStorage.setItem('coach-goals', JSON.stringify(defaultGoals));
     }
   }, []);
 
@@ -88,7 +59,7 @@ export default function GoalTracker() {
       current: 0,
       unit: '',
       deadline: '',
-      category: '續約率',
+      category: '內容產出',
     });
     setShowAddGoal(false);
   };
@@ -136,10 +107,11 @@ export default function GoalTracker() {
 
   return (
     <div className="space-y-6">
+      {onBack && <BackButton onBack={onBack} />}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="font-outfit text-3xl font-bold mb-2">🎯 目標追蹤器</h2>
-          <p className="text-gray-600">設定 3 個月目標，追蹤你的進度</p>
+          <h2 className="font-outfit text-3xl font-bold mb-2">🎯 我的目標</h2>
+          <p className="text-gray-600">給自己設個目標，看著自己一步步達成</p>
         </div>
         <button
           onClick={() => setShowAddGoal(!showAddGoal)}
@@ -160,7 +132,7 @@ export default function GoalTracker() {
                 type="text"
                 value={newGoal.title}
                 onChange={(e) => setNewGoal({ ...newGoal, title: e.target.value })}
-                placeholder="例如：續約率達 80%"
+                placeholder="例如：這個月讀完一本書"
                 className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
               />
             </div>
@@ -171,10 +143,10 @@ export default function GoalTracker() {
                 onChange={(e) => setNewGoal({ ...newGoal, category: e.target.value as Goal['category'] })}
                 className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
               >
-                <option value="續約率">續約率</option>
-                <option value="轉介紹">轉介紹</option>
                 <option value="內容產出">內容產出</option>
                 <option value="訓練次數">訓練次數</option>
+                <option value="續約率">續約率</option>
+                <option value="轉介紹">轉介紹</option>
                 <option value="其他">其他</option>
               </select>
             </div>
@@ -347,21 +319,24 @@ export default function GoalTracker() {
       </div>
 
       {goals.length === 0 && (
-        <div className="text-center py-12 bg-gray-50 rounded-xl">
+        <div className="text-center py-12 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200">
           <div className="text-6xl mb-4">🎯</div>
-          <p className="text-gray-600 text-lg">還沒有設定目標</p>
-          <p className="text-gray-500 mt-2">點擊「新增目標」開始追蹤你的進度</p>
+          <p className="text-gray-700 text-lg font-semibold">還沒有設定目標</p>
+          <p className="text-gray-500 mt-2 mb-6">目標由你自己決定，可以是任何你想達成的事</p>
+          <div className="text-sm text-gray-400 space-y-1">
+            <p>例如：這個月讀完一本書、每週拍 2 支影片、學會一個新動作...</p>
+          </div>
         </div>
       )}
 
       {/* 使用提示 */}
       <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-primary">
-        <h3 className="font-bold text-lg mb-3">💡 使用提示</h3>
+        <h3 className="font-bold text-lg mb-3">💡 小提醒</h3>
         <ul className="space-y-2 text-gray-700">
-          <li>• 建議設定 3-5 個目標，不要太多</li>
-          <li>• 目標要具體、可衡量、有期限</li>
-          <li>• 每週更新一次進度</li>
-          <li>• 達成目標後可以設定新的挑戰</li>
+          <li>• 不用設太多，1-3 個就夠了，專注比較有效</li>
+          <li>• 目標是給自己的，不需要跟任何人比較</li>
+          <li>• 偶爾回來更新進度，看到數字在跑會很有成就感</li>
+          <li>• 達成了就慶祝一下，然後再挑戰新的！</li>
         </ul>
       </div>
     </div>

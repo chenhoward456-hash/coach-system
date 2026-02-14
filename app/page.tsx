@@ -5,21 +5,16 @@ import Header from '@/components/Header';
 import OnboardingGuide from '@/components/OnboardingGuide';
 import Navigation from '@/components/Navigation';
 import HomePage from '@/components/HomePage';
-import TaskSection from '@/components/TaskSection';
 import ScoreCalculator from '@/components/ScoreCalculator';
 import DiagnosisTool from '@/components/DiagnosisTool';
 import MindsetSection from '@/components/MindsetSection';
 import ResourcesSection from '@/components/ResourcesSection';
-import ProgressDashboard from '@/components/ProgressDashboard';
 import GoalTracker from '@/components/GoalTracker';
 import VideoLibrary from '@/components/VideoLibrary';
 import MessageLibrary from '@/components/MessageLibrary';
-import AdminDashboard from '@/components/AdminDashboard';
 import ThirtyDayPlanStandalone from '@/components/ThirtyDayPlanStandalone';
-import PersonalStyleGuide from '@/components/PersonalStyleGuide';
 import PracticalFrameworks from '@/components/PracticalFrameworks';
 import DailyChecklistPage from '@/components/DailyChecklistPage';
-import CoachJournal from '@/components/CoachJournal';
 import BackToTop from '@/components/BackToTop';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
@@ -50,7 +45,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {showOnboarding && (
-        <OnboardingGuide 
+        <OnboardingGuide
           onComplete={() => setShowOnboarding(false)}
           onNavigate={(section: string) => {
             setActiveSection(section);
@@ -58,14 +53,15 @@ export default function Home() {
           }}
         />
       )}
-      
+
       <Header />
       <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
-      
+
       <div className="container max-w-6xl mx-auto px-4 py-12">
         {activeSection === 'home' && <HomePage onNavigate={setActiveSection} />}
-        {activeSection === 'journal' && <CoachJournal onBack={() => setActiveSection('home')} />}
         {activeSection === 'daily' && <DailyChecklistPage onBack={() => setActiveSection('home')} onNavigate={setActiveSection} />}
+        {activeSection === 'score' && <ScoreCalculator onBack={() => setActiveSection('home')} />}
+        {activeSection === 'goals' && <GoalTracker onBack={() => setActiveSection('home')} />}
         {activeSection === 'diagnosis' && <DiagnosisTool onBack={() => setActiveSection('home')} onNavigate={setActiveSection} />}
         {activeSection === 'frameworks' && <PracticalFrameworks onBack={() => setActiveSection('home')} />}
         {activeSection === 'plan-beginner' && <ThirtyDayPlanStandalone level="beginner" onBack={() => setActiveSection('home')} />}

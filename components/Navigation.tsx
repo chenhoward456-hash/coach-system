@@ -9,8 +9,9 @@ interface NavigationProps {
 
 const navItems = [
   { id: 'home', label: '首頁', icon: '🏠' },
-  { id: 'journal', label: '教練日記', icon: '📔' },
   { id: 'daily', label: '每日清單', icon: '✅' },
+  { id: 'score', label: '自我評分', icon: '📊' },
+  { id: 'goals', label: '目標追蹤', icon: '🎯' },
   { id: 'diagnosis', label: '狀態診斷', icon: '🔍' },
   { id: 'frameworks', label: '實戰工具', icon: '⚡' },
   { id: 'videos', label: '影片主題', icon: '🎬' },
