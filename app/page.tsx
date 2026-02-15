@@ -30,9 +30,9 @@ export default function Home() {
     }
   }, []);
 
-  // 切換頁面時自動滾動到頂部
+  // 切換頁面時自動滾動到頂部（instant 避免與 nav 的 smooth scroll 衝突）
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [activeSection]);
 
   // ESC 鍵返回首頁
@@ -54,7 +54,7 @@ export default function Home() {
         />
       )}
 
-      <Header />
+      <Header isHome={activeSection === 'home'} />
       <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
 
       <div className="container max-w-6xl mx-auto px-4 py-12">
