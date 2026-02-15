@@ -24,8 +24,6 @@ export default function Navigation({ activeSection, onSectionChange }: Navigatio
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleNavClick = (section: string) => {
-    // Scroll to top smoothly when changing sections
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     onSectionChange(section);
     setIsMobileMenuOpen(false);
   };
