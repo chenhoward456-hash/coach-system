@@ -193,6 +193,58 @@ function getFeatureTip(s: CoachState): FeatureTip | null {
   return tips[dayIndex];
 }
 
+// ─── Weekly Focus ────────────────────────────────────────────
+
+const weeklyFocusItems = [
+  {
+    icon: '🎯',
+    title: '陌生開發',
+    desc: '這週找一個開口機會，用「觀察 → 給價值 → 自然提服務」框架試試',
+    action: 'frameworks',
+    tab: '陌生開發',
+    color: 'from-orange-400 to-red-500',
+  },
+  {
+    icon: '🔄',
+    title: '續約技巧',
+    desc: '看看手上快到期的學員，提前 2 週帶入話題，不要等到最後一刻',
+    action: 'frameworks',
+    tab: '續約技巧',
+    color: 'from-blue-400 to-indigo-500',
+  },
+  {
+    icon: '💬',
+    title: '關心學員',
+    desc: '選一個訊息範本，今天傳給一個很久沒聯絡的學員',
+    action: 'messages',
+    tab: '訊息範本',
+    color: 'from-green-400 to-teal-500',
+  },
+  {
+    icon: '🎬',
+    title: '內容產出',
+    desc: '選一個影片主題，這週拍一支或至少把腳本寫下來',
+    action: 'videos',
+    tab: '影片主題',
+    color: 'from-purple-400 to-pink-500',
+  },
+  {
+    icon: '🛡️',
+    title: '處理拒絕',
+    desc: '看看「太貴」「考慮一下」怎麼回，這週遇到了就不要迴避',
+    action: 'frameworks',
+    tab: '處理拒絕',
+    color: 'from-rose-400 to-pink-600',
+  },
+];
+
+function getWeeklyFocus() {
+  const now = new Date();
+  const startOfYear = new Date(now.getFullYear(), 0, 1);
+  const weekNumber = Math.floor((now.getTime() - startOfYear.getTime()) / (7 * 24 * 60 * 60 * 1000));
+  return weeklyFocusItems[weekNumber % weeklyFocusItems.length];
+}
+
 // ─── Main Component ─────────────────────────────────────────
 
 export default function HomePage({ onNavigate }: HomePageProps) {
@@ -318,6 +370,26 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </p>
         </div>
       )}
+
+      {/* ═══════ Weekly Focus ═══════ */}
+      {(() => {
+        const focus = getWeeklyFocus();
+        return (
+          <button
+            onClick={() => onNavigate(focus.action)}
+            className={`w-full bg-gradient-to-r ${focus.color} text-white rounded-2xl p-6 mb-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-left group`}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="text-xs font-bold uppercase tracking-wider opacity-75 mb-1">📅 本週重點</div>
+                <div className="text-xl md:text-2xl font-bold mb-1">{focus.icon} {focus.title}</div>
+                <div className="text-sm opacity-90">{focus.desc}</div>
+              </div>
+              <div className="text-3xl opacity-80 group-hover:translate-x-2 transition-transform ml-4">→</div>
+            </div>
+          </button>
+        );
+      })()}
 
       {/* ═══════ Feature Discovery ═══════ */}
       {featureTip && (
