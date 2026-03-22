@@ -47,10 +47,10 @@ const dailyTasks: DailyTask[] = [
   },
   {
     id: 'relationship',
-    category: '客情',
+    category: '客情 + BR',
     icon: '❤️',
-    task: '關心學生',
-    description: '至少關心 3 位學生（課後問候、訓練提醒、生活關心）',
+    task: '關心學員 ＋ 找 BR 機會',
+    description: '至少關心 3 位學員（課後問候、訓練提醒、生活關心）。今天有沒有學員破紀錄、心情特別好？那就是 BR 開口的時機。',
     link: 'messages'
   },
   {
@@ -58,7 +58,7 @@ const dailyTasks: DailyTask[] = [
     category: '上課',
     icon: '🎯',
     task: '專注教學',
-    description: '每堂課全心投入、記錄重點、給予正向回饋',
+    description: '每堂課全心投入、給予正向回饋。課後 30 秒記一筆：學員今天的重量、狀態、下次要注意的事（備忘錄或 LINE 自己都可以）。',
   },
   {
     id: 'learning',
