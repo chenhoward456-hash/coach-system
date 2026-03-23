@@ -243,12 +243,12 @@ export default function HomePage({ onNavigate }: HomePageProps) {
     <div className="animate-fade-in">
 
       {/* ═══════ Smart Greeting ═══════ */}
-      <div className="text-center mb-8 pt-4">
-        <div className="text-6xl mb-4 animate-bounce-slow">{greeting.emoji}</div>
-        <h1 className="font-outfit text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+      <div className="text-center mb-5 pt-2">
+        <div className="text-5xl mb-2 animate-bounce-slow">{greeting.emoji}</div>
+        <h1 className="font-outfit text-3xl md:text-4xl font-extrabold text-gray-900 mb-1">
           {greeting.text}
         </h1>
-        <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-600">
           {greeting.subtitle}
         </p>
       </div>
@@ -313,8 +313,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       {/* ═══════ Daily Quote (subtle) ═══════ */}
       {dailyQuote && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 mb-8">
-          <p className="text-amber-800 text-center text-sm md:text-base">
+        <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-5">
+          <p className="text-amber-800 text-center text-sm">
             💡 {dailyQuote}
           </p>
         </div>
@@ -326,15 +326,15 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         return (
           <button
             onClick={() => onNavigate(focus.action)}
-            className={`w-full bg-gradient-to-r ${focus.color} text-white rounded-2xl p-6 mb-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-left group`}
+            className={`w-full bg-gradient-to-br ${focus.color} text-white rounded-2xl p-5 mb-5 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-left group`}
           >
             <div className="flex items-center justify-between">
               <div className="flex-1">
-                <div className="text-xs font-bold uppercase tracking-wider opacity-75 mb-1">📅 本週重點</div>
-                <div className="text-xl md:text-2xl font-bold mb-1">{focus.icon} {focus.title}</div>
-                <div className="text-sm opacity-90">{focus.desc}</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-white/80 mb-1">📅 本週重點</div>
+                <div className="text-lg md:text-xl font-bold mb-1 drop-shadow-sm">{focus.icon} {focus.title}</div>
+                <div className="text-sm text-white/95 drop-shadow-sm">{focus.desc}</div>
               </div>
-              <div className="text-3xl opacity-80 group-hover:translate-x-2 transition-transform ml-4">→</div>
+              <div className="text-2xl text-white/90 group-hover:translate-x-2 transition-transform ml-3">→</div>
             </div>
           </button>
         );
