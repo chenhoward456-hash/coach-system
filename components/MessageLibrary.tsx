@@ -236,6 +236,37 @@ export default function MessageLibrary({ onBack }: MessageLibraryProps) {
           💡 建議：每週至少使用 2 次課後關心範本
         </p>
       </div>
+
+      {/* 給學員的資源 */}
+      <div className="mt-6 bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-2xl p-6">
+        <h3 className="font-outfit text-xl font-bold text-purple-900 mb-1">
+          📤 給學員的資源
+        </h3>
+        <p className="text-sm text-purple-700 mb-4">
+          傳訊息時可以附上這些 Notion 頁面連結，讓學員自己查。
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {[
+            { label: '🆕 新學員歡迎指南', url: 'https://www.notion.so/32beef85c08f8172aee7c1b3d72c4c2d' },
+            { label: '🔥 減脂飲食清單', url: 'https://www.notion.so/32beef85c08f8174b098c2bfb34f5f9c' },
+            { label: '💪 增肌飲食清單', url: 'https://www.notion.so/32beef85c08f8162bbf3f4b25df4550c' },
+            { label: '⚖️ 維持期飲食清單', url: 'https://www.notion.so/32beef85c08f81519ef5d9fc9ebd38cc' },
+            { label: '🍱 外食攻略', url: 'https://www.notion.so/32beef85c08f812b924dd94286da8895' },
+            { label: '❓ 常見問題 FAQ', url: 'https://www.notion.so/32beef85c08f8146887ff382846e9859' },
+          ].map((item) => (
+            <a
+              key={item.url}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white border-2 border-purple-200 hover:border-purple-400 hover:shadow-md rounded-xl px-3 py-2.5 text-sm font-semibold text-purple-800 transition-all"
+            >
+              <span className="flex-1">{item.label}</span>
+              <span className="text-purple-400 text-xs">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

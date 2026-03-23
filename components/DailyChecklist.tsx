@@ -13,6 +13,8 @@ interface DailyTask {
   task: string;
   description: string;
   link?: string;
+  notionUrl?: string;
+  notionLabel?: string;
 }
 
 const dailyTasks: DailyTask[] = [
@@ -51,7 +53,9 @@ const dailyTasks: DailyTask[] = [
     icon: '❤️',
     task: '關心學員 ＋ 找 BR 機會',
     description: '至少關心 3 位學員（課後問候、訓練提醒、生活關心）。今天有沒有學員破紀錄、心情特別好？那就是 BR 開口的時機。',
-    link: 'messages'
+    link: 'messages',
+    notionUrl: 'https://www.notion.so/32beef85c08f812b924dd94286da8895',
+    notionLabel: '🍱 外食攻略',
   },
   {
     id: 'teaching',
@@ -66,7 +70,9 @@ const dailyTasks: DailyTask[] = [
     icon: '📚',
     task: '持續進修',
     description: '至少 15 分鐘（看書、看影片、學新知識）',
-    link: 'resources'
+    link: 'resources',
+    notionUrl: 'https://www.notion.so/32ceef85c08f8180acc8e1faf79f00f5',
+    notionLabel: '📖 本週新知',
   },
 ];
 
@@ -174,14 +180,27 @@ export default function DailyChecklist({ onNavigate }: DailyChecklistProps) {
                 </p>
                 <p className="text-sm text-gray-600 mt-1">{task.description}</p>
               </div>
-              {task.link && onNavigate && (
-                <button
-                  onClick={() => onNavigate(task.link!)}
-                  className="text-primary hover:text-blue-700 text-sm font-semibold whitespace-nowrap"
-                >
-                  前往 →
-                </button>
-              )}
+              <div className="flex flex-col gap-1 items-end">
+                {task.link && onNavigate && (
+                  <button
+                    onClick={() => onNavigate(task.link!)}
+                    className="text-primary hover:text-blue-700 text-sm font-semibold whitespace-nowrap"
+                  >
+                    前往 →
+                  </button>
+                )}
+                {task.notionUrl && (
+                  <a
+                    href={task.notionUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold text-purple-600 hover:text-purple-800 bg-purple-50 hover:bg-purple-100 border border-purple-200 px-2 py-1 rounded-lg whitespace-nowrap transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {task.notionLabel} ↗
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}
