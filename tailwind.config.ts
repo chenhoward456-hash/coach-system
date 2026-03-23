@@ -5,6 +5,14 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./data/**/*.{js,ts}",
+  ],
+  safelist: [
+    'from-orange-600', 'to-red-700',
+    'from-blue-700', 'to-indigo-800',
+    'from-green-600', 'to-teal-700',
+    'from-purple-700', 'to-pink-700',
+    'from-rose-700', 'to-pink-800',
   ],
   theme: {
     extend: {
